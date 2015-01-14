@@ -16,12 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        boolean A = false;
-        boolean B = true;
-
-        if (!(((A || (A && !B)) && (B || !A)) && !(A || B))) {
-            System.out.println("hei");
-        }
+        
     }
 
 }
