@@ -2,5 +2,5 @@
 
 **Käyttäjät:** Kuka tahansa, joka haluaa pelata.
 
-**Pelaajan toiminnot:** Pelaaminen
+**Pelaajan toiminnot:** Pelaaminen, Highscore-listan katseleminen, pelattavien hahmojen valitseminen
 
