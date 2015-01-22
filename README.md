@@ -1,4 +1,2 @@
 # hymiopeli
-Moi
-*moi*
-__moi__
+*Smile!*
