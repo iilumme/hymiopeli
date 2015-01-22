@@ -1,0 +1,16 @@
+[Käyttöliittymä]<>-[Piirtoalusta]
+[Piirtoalusta]-[Hymiöpeli]
+[Hymiöpeli]-[<<abstract>>;Hahmo]
+[Käyttöliittymä]<>-[Näppäimistönkuuntelija]
+[Näppäimistönkuuntelija]-[note: Monia{bg:orange}]
+[HighscoreTallentaja]->[Highscore]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Pelaaja]
+[<<abstract>>;Pelaaja]^-[Hymiö]
+[<<abstract>>;Pelaaja]^-[Iron Man]
+[<<abstract>>;Pelaaja]^-[Tiikeri]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Vastus]
+[<<abstract>>;Vastus]^-[Killian]
+[<<abstract>>;Vastus]^-[Kissa]
+[<<abstract>>;Vastus]^-[Surullinen]
