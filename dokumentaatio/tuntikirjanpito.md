@@ -14,4 +14,8 @@
 
 - *7,5h* Luokkakaavio, lisää hahmoja ja luokkia, piirtoalusta, HighscoreTallentaja, testit
 
+**27.1.15**
+
+-
+
 
