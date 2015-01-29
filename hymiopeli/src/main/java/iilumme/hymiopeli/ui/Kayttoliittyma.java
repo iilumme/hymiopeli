@@ -1,18 +1,12 @@
 package iilumme.hymiopeli.ui;
 
 import iilumme.hymiopeli.logiikka.HymioPeli;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.io.FileInputStream;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
 import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,66 +38,31 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container c) {
+        
+        //Layout
+        BorderLayout cLayout = new BorderLayout();
+        c.setLayout(cLayout);
+        c.setBackground(new Color(178, 97, 240));
 
-        //otsikko
+        //Otsikko
         JLabel logo = new JLabel(new ImageIcon("/Users/iina/hymiopeli/hymiopeli/Images/logo.png"));
-//        
-//        //buttons
-//        JButton suomi = new JButton("FI");
-//        JButton englanti = new JButton("EN");
-//        JButton espanja = new JButton("ES");
-//        
-//        //kielinäkymä
-//        GroupLayout layoutti = new GroupLayout(c);
-//        c.setLayout(layoutti);
-//        
-//        layoutti.setAutoCreateGaps(true);
-//        layoutti.setAutoCreateContainerGaps(true);        
-//        
-//        layoutti.setHorizontalGroup(layoutti.createParallelGroup().addComponent(logo));             
-//        layoutti.setHorizontalGroup(layoutti.createSequentialGroup().addComponent(suomi).addComponent(englanti).addComponent(espanja));
-//               
-//        c.add(suomi);
-
-        BoxLayout layout = new BoxLayout(c, BoxLayout.Y_AXIS);
-        c.setLayout(layout);
-
-        //resourcebundels
-        ResourceBundle bundleFi = ResourceBundle.getBundle("hymiopeli", new Locale("fi", "FI"));
-        ResourceBundle bundleEn = ResourceBundle.getBundle("hymiopeli", new Locale("en", "US"));
-        ResourceBundle bundleEsp = ResourceBundle.getBundle("hymiopeli", new Locale("es", "ES"));
-        ResourceBundle activeBundle = bundleFi;
-
-        //buttons
-        JButton uusiPeli = new JButton(activeBundle.getString("uusipeli"));
-        JButton hymio = new JButton("icon");
-
-        //kuvat tulossa!
-        JLabel tikru = new JLabel(new ImageIcon());
-        JLabel ironman = new JLabel(new ImageIcon());
-
-        JButton highscore = new JButton(activeBundle.getString("highscore"));
-        JButton poistu = new JButton(activeBundle.getString("poistu"));
-
-        //kuuntelijat
-        frame.addMouseListener(new NapinKuuntelija());
-
-        //paneeli
-        JPanel kuvioPaneeli = new JPanel();
-        GridLayout kuvioPaneeliLayout = new GridLayout(1, 3);
-        kuvioPaneeli.setLayout(kuvioPaneeliLayout);
-
-        //paneeliin lisäys
-        kuvioPaneeli.add(hymio);
-        kuvioPaneeli.add(tikru);
-        kuvioPaneeli.add(ironman);
-
-        //contentPane-lisäys
-        c.add(logo);
-        c.add(uusiPeli);
-        c.add(kuvioPaneeli);
-        c.add(highscore);
-        c.add(poistu);
+        
+        //Iso-paneeli & Iso-layout    
+        JPanel iso = new JPanel();
+        iso.setLayout(new BoxLayout(iso, BoxLayout.Y_AXIS));
+        iso.setBackground(new Color(178, 97, 240));
+        
+        //Paneelit
+        KieliPanel kielet = new KieliPanel(frame);               
+        ValikkoPanel valikkoPaneeli = new ValikkoPanel();
+        HahmoPanel hahmoPaneeli = new HahmoPanel();
+        
+        //Add 
+        c.add(logo, BorderLayout.NORTH);
+        iso.add(kielet);
+        iso.add(hahmoPaneeli);
+        iso.add(valikkoPaneeli);
+        c.add(iso, BorderLayout.CENTER);        
 
     }
 
