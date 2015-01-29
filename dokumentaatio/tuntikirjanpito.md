@@ -12,6 +12,13 @@
 
 **22.1.15**
 
-- *3h* Luokkakaavio, lisää hahmoja, piirtoalusta
+- *7,5h* Luokkakaavio, lisää hahmoja ja luokkia, piirtoalusta, HighscoreTallentaja, testit
 
+**27.1.15**
+
+- *1h* HymioPeli
+
+**28.1.15**
+
+- *8h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, paljon refaktorointia, Käyttöliittymän ulkonäköä paremmaksi
 
