@@ -1,3 +1,5 @@
+//eka yuml
+
 [Käyttöliittymä]<>-[Piirtoalusta]
 [Piirtoalusta]-[Hymiöpeli]
 [Hymiöpeli]-[<<abstract>>;Hahmo]
@@ -14,3 +16,34 @@
 [<<abstract>>;Vastus]^-[Killian]
 [<<abstract>>;Vastus]^-[Kissa]
 [<<abstract>>;Vastus]^-[Surullinen]
+
+
+
+
+//toka yuml
+
+[Käyttöliittymä]<>-[Piirtoalusta]
+[Käyttöliittymä]<>-[HahmoPanel]
+[Käyttöliittymä]<>-[KieliPanel]
+[Käyttöliittymä]<>-[ValikkoPanel]
+
+[HahmoPanel]<>-[HahmoNapinkuuntelija{bg:yellow}]
+[ValikkoPanel]<>-[ValikkoNapinkuuntelija{bg:yellow}]
+[KieliPanel]<>-[Napinkuuntelija{bg:yellow}]
+
+[Piirtoalusta]<->[Hymiöpeli]
+[Hymiöpeli]<>-[<<abstract>>;Hahmo]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Pelaaja]
+[<<abstract>>;Pelaaja]^-[Hymiö]
+[<<abstract>>;Pelaaja]^-[Iron Man]
+[<<abstract>>;Pelaaja]^-[Tiikeri]
+[<<abstract>>;Pelaaja]<>-[Näppäimistönkuuntelija{bg:yellow}]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Vastus]
+[<<abstract>>;Vastus]^-[Killian]
+[<<abstract>>;Vastus]^-[Kissa]
+[<<abstract>>;Vastus]^-[Surullinen]
+
+[HighscoreTallentaja]->[Highscore]
+[KieliUtil]-[note: Kaikki luokat voivat käyttää {bg:orange}]
