@@ -20,5 +20,5 @@
 
 **28.1.15**
 
-- *7h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, refaktorointia a lot, Käyttöliittymän ulkonäköä paremmaksi
+- *8h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, paljon refaktorointia, Käyttöliittymän ulkonäköä paremmaksi
 
