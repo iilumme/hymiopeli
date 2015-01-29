@@ -18,4 +18,7 @@
 
 - *1h* HymioPeli
 
+**28.1.15**
+
+- *7h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, refaktorointia a lot, Käyttöliittymän ulkonäköä paremmaksi
 
