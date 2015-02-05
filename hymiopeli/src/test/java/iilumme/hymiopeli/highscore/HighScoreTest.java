@@ -57,4 +57,13 @@ public class HighScoreTest {
         assertTrue(eka.compareTo(toka) < 0);
 
     }
+
+    @Test
+    public void toStringToimiiOikein() {
+
+        HighScore eka = new HighScore("Iina", 1995);
+
+        assertEquals("Iina,1995", eka.toString());
+
+    }
 }

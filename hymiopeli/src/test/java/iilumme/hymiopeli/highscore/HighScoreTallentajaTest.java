@@ -51,7 +51,7 @@ public class HighScoreTallentajaTest {
         assertEquals(tallentaja.getEka().getNimi(), "abc");
 
     }
-    
+
     @Test
     public void kahdenHighscorenLisaysNimiOikein() {
 
@@ -60,13 +60,21 @@ public class HighScoreTallentajaTest {
         assertEquals(tallentaja.getEka().getNimi(), "iina");
 
     }
-    
+
     @Test
     public void kahdenHighscorenLisaysPisteetOikein() {
 
         tallentaja.lisaaHighscore("iina", 1995);
         tallentaja.lisaaHighscore("isi", 1963);
         assertEquals(tallentaja.getEka().getPisteet(), 1995);
+
+    }
+
+    @Test
+    public void paivitaListaToimii() {
+
+        tallentaja.paivitaLista();
+        assertEquals(tallentaja.getEka().getPisteet(), 1000);
 
     }
 

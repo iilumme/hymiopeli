@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="iilumme.hymiopeli.logiikka.HymioPeliTest" time="1.352" errors="0" skipped="0">
+<testsuite tests="18" failures="0" name="iilumme.hymiopeli.logiikka.HymioPeliTest" time="1.621" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -66,16 +66,22 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaNolla" time="1.313"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksi" time="0.008"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="korkeusOikein" time="0.074"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="leveysOikein" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaNolla" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksi" time="0.032"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksiAlussa" time="0.003"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tiikereitaYksiAlussa" time="0.007"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="ironmanejaYksiAlussa" time="0.009"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="surullisia40Alussa" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="kissoja40Alussa" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="killianeja40Alussa" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetEiNull" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetIsEmpty" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotIsEmpty" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tiikereitaYksiAlussa" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="ironmanejaYksiAlussa" time="0.012"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="surullisia20Alussa" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="kissoja20Alussa" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="killianeja20Alussa" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetEiNull" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetIsEmpty" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotIsEmpty" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotEiOleTyhja" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="piirtoalustaAsennettu" time="1.493"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="paivitettavaEIAsennettu" time="0.001"/>
 </testsuite>

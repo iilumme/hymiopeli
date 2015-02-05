@@ -1,3 +1,8 @@
+/**
+ * Luokka ylläpitää tietoa parhaista pelituloksista.
+ * Tallentaa HighScore-olioita ja lukee tiedostosta.
+ */
+
 package iilumme.hymiopeli.highscore;
 
 import java.io.File;
@@ -20,6 +25,11 @@ public class HighScoreTallentaja {
         this.toplista = new ArrayList<>();
         haeScoret();
     }
+    
+    /**
+     * Haetaan tiedostosta Highscorelista ja muunnetaan se eroteltavaan muotoon.
+     * @return lista String merkkijonona.
+     */
 
     public String haeLista() {
 
@@ -47,6 +57,12 @@ public class HighScoreTallentaja {
         }
 
     }
+    
+    /**
+     * Lisätään HighScore listaan.
+     * @param nimi Pelaajan nimi
+     * @param pisteet Pelaajan saamat pisteet
+     */
 
     public void lisaaHighscore(String nimi, int pisteet) {
 
@@ -55,21 +71,28 @@ public class HighScoreTallentaja {
 
     }
     
+    /**
+     * Haetaan HighScorelistan ensimmäinen pelaaja&pisteet
+     * @return HighScore-olio
+     */
+
     public HighScore getEka() {
-        
+
         if (toplista.isEmpty()) {
             return null;
         }
         return toplista.get(0);
     }
+    
+    /**
+     * Päivitetään tiedostoon lista.
+     */
 
     public void paivitaLista() {
 
         try {
             FileWriter kirjoitin = new FileWriter(tiedosto, false);
-
             try {
-
                 for (HighScore score : toplista) {
                     kirjoitin.write(score.toString() + "\n");
                 }

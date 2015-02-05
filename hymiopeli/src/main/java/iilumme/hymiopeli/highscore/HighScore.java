@@ -1,9 +1,12 @@
-
+/**
+ * Luokka tarjoaa käyttöön HighScore-olioita, joita hyödynnetään, kun pelaajien highscoreja tallennetaan.
+ * Luokan oliot ovat verrattavissa toistensa kanssa.
+ * 
+ */
 package iilumme.hymiopeli.highscore;
 
+public class HighScore implements Comparable<HighScore> {
 
-public class HighScore implements Comparable<HighScore>{
-    
     private int pisteet;
     private String nimi;
 
@@ -18,7 +21,12 @@ public class HighScore implements Comparable<HighScore>{
 
     public String getNimi() {
         return nimi;
-    }   
+    }
+    /**
+     * Verrataan kahta HighScorea toisiinsa.
+     * @param o toinen HighScore
+     * @return suuremman kahdesta
+     */
 
     @Override
     public int compareTo(HighScore o) {
@@ -27,9 +35,7 @@ public class HighScore implements Comparable<HighScore>{
 
     @Override
     public String toString() {
-        return this.nimi + "," +  this.pisteet;
+        return this.nimi + "," + this.pisteet;
     }
-    
-    
-    
+
 }

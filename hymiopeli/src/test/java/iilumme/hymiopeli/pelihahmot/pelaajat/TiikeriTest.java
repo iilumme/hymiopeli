@@ -67,4 +67,46 @@ public class TiikeriTest {
         assertFalse(tiikeri.osuu(suru));
 
     }
+
+    @Test
+    public void osuuMetodiToimiiOikeinKunEIOsu4() {
+
+        Surullinen suru = new Surullinen(50, 500);
+
+        assertFalse(tiikeri.osuu(suru));
+
+    }
+    
+     @Test
+    public void oikeaSijaintiY() {
+
+        tiikeri.siirra(0, 4);
+
+        assertEquals(304, tiikeri.getY());
+    }
+
+    @Test
+    public void oikeaSijaintiX() {
+
+        tiikeri.siirra(4, 0);
+
+        assertEquals(54, tiikeri.getX());
+    }
+
+    @Test
+    public void oikeaSijaintiYNegLuku() {
+
+        tiikeri.siirra(0, -4);
+
+        assertEquals(296, tiikeri.getY());
+    }
+
+    @Test
+    public void oikeaSijaintiXNegLuku() {
+
+        tiikeri.siirra(-4, 0);
+
+        assertEquals(46, tiikeri.getX());
+    }
+
 }

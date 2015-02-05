@@ -4,10 +4,8 @@ import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Hymio;
 import iilumme.hymiopeli.pelihahmot.pelaajat.IronMan;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Tiikeri;
-import org.junit.After;
-import org.junit.AfterClass;
+import iilumme.hymiopeli.ui.Piirtoalusta;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,6 +19,27 @@ public class HymioPeliTest {
     @Before
     public void setUp() {
         hymiopeli = new HymioPeli(600, 600);
+    }
+
+    @Test
+    public void korkeusOikein() {
+        assertEquals(600, hymiopeli.getKorkeus());
+    }
+
+    @Test
+    public void leveysOikein() {
+        assertEquals(600, hymiopeli.getLeveys());
+    }
+
+    @Test
+    public void tasoOikein() {
+        assertEquals(1, hymiopeli.getTaso());
+    }
+
+    @Test
+    public void tasoOikein2() {
+        hymiopeli.kasvataTasoa();
+        assertEquals(2, hymiopeli.getTaso());
     }
 
     @Test
@@ -70,44 +89,57 @@ public class HymioPeliTest {
     }
 
     @Test
-    public void surullisia40Alussa() {
+    public void surullisia20Alussa() {
         hymiopeli.lisaaHahmot(1);
-        assertEquals(40, hymiopeli.vastustenMaara());
+        assertEquals(20, hymiopeli.vastustenMaara());
     }
 
     @Test
-    public void kissoja40Alussa() {
+    public void kissoja20Alussa() {
         hymiopeli.lisaaHahmot(2);
-        assertEquals(40, hymiopeli.vastustenMaara());
+        assertEquals(20, hymiopeli.vastustenMaara());
     }
 
     @Test
-    public void killianeja40Alussa() {
+    public void killianeja20Alussa() {
         hymiopeli.lisaaHahmot(3);
-        assertEquals(40, hymiopeli.vastustenMaara());
+        assertEquals(20, hymiopeli.vastustenMaara());
     }
-    
+
     @Test
     public void getVastuksetEiNull() {
         hymiopeli.lisaaHahmot(3);
         assertNotNull(hymiopeli.getVastukset());
     }
-    
+
     @Test
     public void getVastuksetIsEmpty() {
         assertEquals(true, hymiopeli.getVastukset().isEmpty());
     }
-    
+
     @Test
     public void getHahmotIsEmpty() {
         assertEquals(true, hymiopeli.getHahmot().isEmpty());
     }
-    
+
     @Test
     public void getHahmotEiOleTyhja() {
         hymiopeli.lisaaHahmot(1);
         assertEquals(false, hymiopeli.getHahmot().isEmpty());
     }
-    
-    
+
+    @Test
+    public void piirtoalustaAsennettu() {
+        hymiopeli.setPiirtoalusta(new Piirtoalusta(hymiopeli));
+
+        assertTrue(hymiopeli.onkoPiirtoalustaAsennettu());
+
+    }
+
+    @Test
+    public void paivitettavaEIAsennettu() {
+
+        assertFalse(hymiopeli.onkoPiirtoalustaAsennettu());
+
+    }
 }

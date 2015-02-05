@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class KieliUtilTest {
-    
+
     private KieliUtil util;
 
     public KieliUtilTest() {
@@ -30,10 +30,10 @@ public class KieliUtilTest {
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void bundleAluksiSuomi() {
-       
+
         assertEquals(KieliUtil.getString("uusipeli"), "Uusi Peli");
     }
 
@@ -41,25 +41,25 @@ public class KieliUtilTest {
     public void vaihtaaBundlenEnglanniksi() {
 
         KieliUtil.setLanguage("EN");
-        
+
         assertEquals(KieliUtil.getString("uusipeli"), "New Game");
     }
-    
+
     @Test
     public void vaihtaaBundlenEspanjaksi() {
 
         KieliUtil.setLanguage("ES");
-        
+
         assertEquals(KieliUtil.getString("uusipeli"), "A Jugar!");
     }
-    
+
     @Test
     public void vaihtaaBundlenSuomeksi() {
 
         KieliUtil.setLanguage("ES");
         KieliUtil.setLanguage("FI");
-        
+
         assertEquals(KieliUtil.getString("uusipeli"), "Uusi Peli");
     }
-    
+
 }

@@ -1,8 +1,14 @@
+/**
+ * Yksi hahmoista, jota yritetään muuttaa (tässä tapauksessa IronManiksi).
+ */
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
 import java.awt.Graphics;
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class Killian extends Vastus {
 
@@ -10,9 +16,19 @@ public class Killian extends Vastus {
         super(x, y);
     }
 
+    /**
+     * Haetaan hahmolle kuva.
+     *
+     * @param g
+     */
     @Override
     public void piirra(Graphics g) {
-        g.drawImage(null, x, y, null);
+        try {
+            BufferedImage image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/killianpieni.jpg"));
+            g.drawImage(image, x, y, null);
+        } catch (IOException ex) {
+            System.out.println("Kuvaa ei löydy");
+        }
     }
-    
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="iilumme.hymiopeli.pelihahmot.HahmoTest" time="0" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="iilumme.hymiopeli.pelihahmot.HahmoTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -70,4 +70,12 @@
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoLiikkuuOikeinY_AkselillaPositiivisellaLuvulla" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoLiikkuuOikeinX_AkselillaPNegatiivisellaLuvulla" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoLiikkuuOikeinY_AkselillaPNegatiivisellaLuvulla" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleXAkseli" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleYAkseli" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleXAkseli2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleYAkseli2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusLiikkuuRajojenUlkopuolelleXAkseli" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusLiikkuuRajojenUlkopuolelleYAkseli" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusVoiOllaRajojenUlkopuolelleXAkseli2" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusVoiOllaRajojenUlkopuolelleYAkseli2" time="0"/>
 </testsuite>

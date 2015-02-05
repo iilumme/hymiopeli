@@ -1,3 +1,9 @@
+/**
+ * HymioPeli on koko pelin aivot.
+ * Luokka luo hahmot, antaa ne käytettäväksi, liikuttaa niitä 
+ * ja tulee mahdollisesti huolehtimaan pisteidenlaskusta.
+ */
+
 package iilumme.hymiopeli.logiikka;
 
 import iilumme.hymiopeli.pelihahmot.*;
@@ -18,14 +24,15 @@ import javax.swing.Timer;
 
 public class HymioPeli extends Timer implements ActionListener {
 
-    private int leveys;
-    private int korkeus;
+    private final int leveys;
+    private final int korkeus;
     private int taso;
     private boolean jatkuukoPeli;
 
     private Pelaaja pelaaja;
     private ArrayList<Hahmo> hahmot;
-    private Piirtoalusta piirtoalusta;
+    private Piirtoalusta p;
+    private Random random;
 
     public HymioPeli(int leveys, int korkeus) {
         super(1000, null);
@@ -36,51 +43,25 @@ public class HymioPeli extends Timer implements ActionListener {
         this.jatkuukoPeli = true;
 
         this.hahmot = new ArrayList<>();
-        this.piirtoalusta = new Piirtoalusta(this);
+        this.random = new Random();
 
         addActionListener(this);
-        setInitialDelay(1000);
+        setInitialDelay(200);
     }
 
-    public void lisaaHahmot(int hahmovalinta) {
-
-        int vastustenmaara = 40;
-
-        if (hahmovalinta == 1) {
-
-            pelaaja = new Hymio();
-            this.hahmot.add(pelaaja);
-
-            for (int i = 0; i < vastustenmaara; i++) {
-                Random random = new Random();
-                int luku = random.nextInt(korkeus + 1);
-                this.hahmot.add(new Surullinen(leveys + 50, luku));
-            }
-
-        } else if (hahmovalinta == 2) {
-            
-            pelaaja = new Tiikeri();
-            this.hahmot.add(pelaaja);
-
-            for (int i = 0; i < vastustenmaara; i++) {
-                Random random = new Random();
-                int luku = random.nextInt(korkeus + 1);
-                this.hahmot.add(new Kissa(leveys + 50, luku));
-            }
-        } else if (hahmovalinta == 3) {
-            
-            pelaaja = new IronMan();
-            this.hahmot.add(pelaaja);
-
-            for (int i = 0; i < vastustenmaara; i++) {
-                Random random = new Random();
-                int luku = random.nextInt(korkeus + 1);
-                this.hahmot.add(new Killian(leveys + 50, luku));
-            }
-        }        
-
+    //getterit
+    public int getLeveys() {
+        return leveys;
     }
-    
+
+    public int getKorkeus() {
+        return korkeus;
+    }
+
+    public int getTaso() {
+        return taso;
+    }
+
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
@@ -88,19 +69,104 @@ public class HymioPeli extends Timer implements ActionListener {
     public ArrayList<Hahmo> getHahmot() {
         return hahmot;
     }
-    
+
     public ArrayList<Hahmo> getVastukset() {
         ArrayList<Hahmo> vastukset = new ArrayList<>();
-        
+
         for (Hahmo hahmo : hahmot) {
             if (hahmo instanceof Vastus) {
                 vastukset.add(hahmo);
             }
         }
-        
+
         return vastukset;
     }
+    
+    /**
+     * Tarkistetaan onko HymiöPelille asetettu Piirtoalusta
+     * 
+     * @return true tai false
+     */
 
+    public boolean onkoPiirtoalustaAsennettu() {
+        return p != null;
+    }
+    
+    /**
+     * Taso muuttuu ja tulevaisuudessa tulee myös kasvattamaan nopeutta ja väehntämään luotavien hahmojen määrää.
+     */
+
+    public void kasvataTasoa() {
+        this.taso++;
+    }
+    
+    /**
+     * Asetetaan Piirtoalusta HymioPelille.
+     */
+
+    public void setPiirtoalusta(Piirtoalusta p) {
+        this.p = p;
+    }
+
+    /**
+     * Luodaan hahmot pelille, lisätään ne ArrayList:aan.
+     * 
+     * @param hahmovalinta Käyttäjän tekemä valinta, millä hahmoilla haluaa pelata
+     */
+    public void lisaaHahmot(int hahmovalinta) {
+
+        int vastustenmaara = 20;
+
+        switch (hahmovalinta) {
+            case 1:
+                hymioVSsurullset(vastustenmaara);
+                break;
+            case 2:
+                tiikeriVSkissat(vastustenmaara);
+                break;
+            case 3:
+                ironmanVSkillian(vastustenmaara);
+                break;
+        }
+    }
+
+    private void hymioVSsurullset(int vastustenmaara) {
+        pelaaja = new Hymio();
+        this.hahmot.add(pelaaja);
+
+        for (int i = 0; i < vastustenmaara; i++) {
+            int kor = random.nextInt(korkeus + 1);
+            int lev = random.nextInt(300);
+            this.hahmot.add(new Surullinen(leveys + lev, kor));
+        }
+    }
+
+    private void tiikeriVSkissat(int vastustenmaara) {
+        pelaaja = new Tiikeri();
+        this.hahmot.add(pelaaja);
+
+        for (int i = 0; i < vastustenmaara; i++) {
+            int kor = random.nextInt(korkeus + 1);
+            int lev = random.nextInt(300);
+            this.hahmot.add(new Kissa(leveys + lev, kor));
+        }
+    }
+
+    private void ironmanVSkillian(int vastustenmaara) {
+        pelaaja = new IronMan();
+        this.hahmot.add(pelaaja);
+
+        for (int i = 0; i < vastustenmaara; i++) {
+            int kor = random.nextInt(korkeus + 1);
+            int lev = random.nextInt(300);
+            this.hahmot.add(new Killian(leveys + lev, kor));
+        }
+    }
+
+    /**
+     * Lasketaan kuinka paljon "hyviksiä" eli pelaaja-olioita on.
+     * @return pelaajien määrä
+     */
     public int hyvistenMaara() {
         int maara = 0;
 
@@ -112,12 +178,20 @@ public class HymioPeli extends Timer implements ActionListener {
 
         return maara;
     }
-
+    
+    /**
+     * Lasketaan kuinka paljon vastus-olioita on.
+     * @return vastusten määrä
+     */
     public int vastustenMaara() {
 
         return getVastukset().size();
     }
 
+    /**
+     * Liikutetaan vastuksia ja päivitetään piirtoalustaa.
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!jatkuukoPeli) {
@@ -125,10 +199,11 @@ public class HymioPeli extends Timer implements ActionListener {
 
         } else {
             for (Hahmo hahmo : getVastukset()) {
-                hahmo.siirra(-3, 0);
+                hahmo.siirra(-5, 0);
             }
 
-            piirtoalusta.paivita();
+            p.paivita();
+            setDelay(10);
         }
     }
 

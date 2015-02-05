@@ -1,3 +1,6 @@
+/**
+ * Apuluokka, jonka avulla voidaan hakea oikean kielinen teksti.
+ */
 package iilumme.hymiopeli.util;
 
 import java.util.Locale;
@@ -10,9 +13,19 @@ public class KieliUtil {
     private static final ResourceBundle bundleEsp = ResourceBundle.getBundle("hymiopeli", new Locale("es", "ES"));
     private static ResourceBundle activeBundle = bundleFi;
 
+    /**
+     * Haetaan teksti.
+     * @param teksti avain tekstille, joka halutaan.
+     * @return haluttu teksti.
+     */
     public static String getString(String teksti) {
         return activeBundle.getString(teksti);
     }
+    
+    /**
+     * Asetetaan kieli.
+     * @param kieli Käyttäjän valitsema kieli.
+     */
 
     public static void setLanguage(String kieli) {
 
