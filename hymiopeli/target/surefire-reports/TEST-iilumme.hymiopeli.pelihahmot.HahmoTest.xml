@@ -74,8 +74,8 @@
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleYAkseli" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleXAkseli2" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="hahmoEiLiikuRajojenUlkopuolelleYAkseli2" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusLiikkuuRajojenUlkopuolelleXAkseli" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusLiikkuuRajojenUlkopuolelleXAkseli" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusLiikkuuRajojenUlkopuolelleYAkseli" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusVoiOllaRajojenUlkopuolelleXAkseli2" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusVoiOllaRajojenUlkopuolelleYAkseli2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.HahmoTest" name="vastusVoiOllaRajojenUlkopuolelleYAkseli2" time="0.001"/>
 </testsuite>

@@ -69,10 +69,10 @@
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuukoMetodiToimiiOikeinKunOsuu" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuukoMetodiToimiiOikeinKunEIOsuu" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuukoMetodiToimiiOikeinKunEIOsuu2" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuukoMetodiToimiiOikeinKunEIOsuu3" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuukoMetodiToimiiOikeinKunEIOsuu3" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="osuuMetodiToimiiOikeinKunEIOsu4" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiY" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiY" time="0.002"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiX" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiYNegLuku" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiXNegLuku" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.TiikeriTest" name="oikeaSijaintiXNegLuku" time="0"/>
 </testsuite>
