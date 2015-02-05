@@ -24,5 +24,5 @@
 
 **5.2.15**
 
-- *4h* PaneelienKasittelija, eri paneelit käyttökelpoisiksi eli tekevätki jopa jotain :), vähän testejä, kuvien muokkausta, Tiikeri/IronMan/Kissa/Killian-hahmoille kuvat, piirtoalusta toimintaan 
+- *4h* PaneelienKasittelija, eri paneelit käyttökelpoisiksi eli tekevätki jopa jotain :), listeners, vähän testejä, kuvien muokkausta, Tiikeri/IronMan/Kissa/Killian-hahmoille kuvat, piirtoalusta toimintaan 
 
