@@ -22,3 +22,7 @@
 
 - *8h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, paljon refaktorointia, Käyttöliittymän ulkonäköä paremmaksi
 
+**5.2.15**
+
+- *4h* PaneelienKasittelija 
+
