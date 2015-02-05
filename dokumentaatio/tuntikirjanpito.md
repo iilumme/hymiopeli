@@ -22,7 +22,7 @@
 
 - *8h* Testejä, ValikkoPanel, KieliPanel, HahmoPanel, KieliUtil, paljon refaktorointia, Käyttöliittymän ulkonäköä paremmaksi
 
-**5.2.15**
+**5.2.15** ja **6.2.15**
 
 - *8h* PaneelienKasittelija, eri paneelit käyttökelpoisiksi eli tekevätki jopa jotain :), listeners, testejä, kuvien muokkausta, Tiikeri/IronMan/Kissa/Killian-hahmoille kuvat, piirtoalustaa toimintaan, javadocs
 
