@@ -30,13 +30,16 @@ public class HahmoNapinKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (nappi.getText()) {
             case "hy":
-                pK.getHymiopeli().lisaaHahmot(1);
+                pK.getHymiopeli().setHahmovalinta(1);
+                pK.getHymiopeli().lisaaHahmot();
                 break;
             case "ti":
-                pK.getHymiopeli().lisaaHahmot(2);
+                pK.getHymiopeli().setHahmovalinta(2);
+                pK.getHymiopeli().lisaaHahmot();
                 break;
             case "ir":
-                pK.getHymiopeli().lisaaHahmot(3);
+                pK.getHymiopeli().setHahmovalinta(3);
+                pK.getHymiopeli().lisaaHahmot();
                 break;
         }
 

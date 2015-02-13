@@ -115,3 +115,103 @@ ZIP 30.1.  klo 12.15.
 
 [HighscoreTallentaja]->[Highscore]
 [KieliUtil]-[note: Kaikki luokat voivat käyttää {bg:orange}]
+
+//sekvenssi1
+
+title Kayttoliittyman luonti
+
+Main->SwingUtilities: invokeLater(new Kayttoliittyma)
+Kayttoliittyma->Hymiopeli: new Hymiopeli()
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this) 
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+
+Kayttoliittyma->Hymiopeli: setPaneelienKasittelija() 
+
+Kayttoliittyma->Piirtoalusta: new Piirtoalusta(hymiopeli)
+
+Kayttoliittyma->Hymiopeli: setPiirtoalusta()
+
+Kayttoliittyma->NappaimistonKuuntelija: new NappaimistonKuuntelija(hymiopeli, piirtoalusta)
+
+
+//sekvenssi2
+
+title Kielen valinta
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+KieliPanel->KieliNapinKuuntelija: actionPerformed()
+
+alt "FI"
+KieliNapinKuuntelija->KieliUtil: setLanguage("FI")
+else "EN"
+KieliNapinKuuntelija->KieliUtil: setLanguage("EN")
+else "Es"
+KieliNapinKuuntelija->KieliUtil: setLanguage("ES")
+end
+
+KieliNapinKuuntelija->PaneelienKasittelija: getKieliPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: kieliPanel
+KieliNapinKuuntelija->KieliPanel: asetaPois();
+
+KieliNapinKuuntelija->PaneelienKasittelija: getValikkoPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: paivita();
+
+KieliNapinKuuntelija->PaneelienKasittelija: getValikkoPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: asetaNakyviin();
+
+
+//sekvenssi3
+
+title Uusi peli
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+ValikkoPanel->ValikkoNapinKuuntelija: actionPerformed()
+
+alt "uusipeli"
+
+ValikkoNapinKuuntelija-> PaneelienKasittelija: getHahmoPaneeli()
+PaneelienKasittelija-->ValikkoNapinKuuntelija: hahmoPaneeli
+ValikkoNapinKuuntelija->HahmoPanel: asetaNakyviin(
+
+else "highscore"
+
+ValikkoNapinKuuntelija->JOptionPane:showMessageDialog
+
+else "poistu"
+ValikkoNapinKuuntelija->System:exit(0)
+end
+

@@ -96,6 +96,5 @@ public class Kayttoliittyma implements Runnable {
     public Piirtoalusta getPiirtoalusta() {
         return piirtoalusta;
     }
-
     
 }

@@ -121,5 +121,11 @@ public class IronManTest {
 
         assertEquals(46, ironman.getX());
     }
+    
+    @Test
+    public void piirtoOnnistuuAluksiNull() {
+
+        assertNull(ironman.getImage());
+    }
 
 }

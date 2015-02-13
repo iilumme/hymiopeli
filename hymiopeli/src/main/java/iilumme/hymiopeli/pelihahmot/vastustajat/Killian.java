@@ -12,10 +12,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Killian extends Vastus {
+    
+    private BufferedImage image;
 
     public Killian(int x, int y) {
         super(x, y);
+        
     }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+    
 
     /**
      * Haetaan hahmolle kuva.
@@ -25,7 +33,7 @@ public class Killian extends Vastus {
     @Override
     public void piirra(Graphics g) {
         try {
-            BufferedImage image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/killianpieni.jpg"));
+            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/killianpieni.jpg"));
             g.drawImage(image, x, y, null);
         } catch (IOException ex) {
             System.out.println("Kuvaa ei löydy");

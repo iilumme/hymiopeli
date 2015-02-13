@@ -53,6 +53,20 @@ public class HighScoreTallentajaTest {
     }
 
     @Test
+    public void getEkaToimii() {
+
+        assertNotNull(tallentaja.getEka());
+
+    }
+
+    @Test
+    public void getEkaToimii2() {
+
+        assertEquals("abc,1000",tallentaja.getEka().toString());
+
+    }
+
+    @Test
     public void kahdenHighscorenLisaysNimiOikein() {
 
         tallentaja.lisaaHighscore("iina", 1995);

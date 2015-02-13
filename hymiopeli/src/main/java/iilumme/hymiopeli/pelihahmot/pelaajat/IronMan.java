@@ -4,7 +4,6 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
-import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -14,8 +13,14 @@ import javax.imageio.ImageIO;
 
 public class IronMan extends Pelaaja {
 
+    private BufferedImage image;
+
     public IronMan() {
         super();
+    }
+
+    public BufferedImage getImage() {
+        return image;
     }
 
     /**
@@ -27,10 +32,8 @@ public class IronMan extends Pelaaja {
     public void piirra(Graphics g) {
 
         try {
-            BufferedImage image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/ironmanpieni.png"));
+            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/ironmanpieni.png"));
             g.drawImage(image, x, y, null);
-            System.out.println(image.getWidth() + "w");
-            System.out.println(image.getHeight() + "h");
         } catch (IOException ex) {
             System.out.println("Kuvaa ei löydy");
         }

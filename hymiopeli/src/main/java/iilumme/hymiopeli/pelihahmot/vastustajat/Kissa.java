@@ -13,8 +13,14 @@ import javax.imageio.ImageIO;
 
 public class Kissa extends Vastus {
 
+    private BufferedImage image;
+
     public Kissa(int x, int y) {
         super(x, y);
+    }
+
+    public BufferedImage getImage() {
+        return image;
     }
 
     /**
@@ -25,18 +31,18 @@ public class Kissa extends Vastus {
     @Override
     public void piirra(Graphics g) {
         try {
-            BufferedImage image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/catpieni.jpg"));
+            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/catpieni.jpg"));
             g.drawImage(image, x, y, null);
         } catch (IOException ex) {
             System.out.println("Kuvaa ei löydy");
         }
     }
-    
+
     /**
      * Palauttaa kissan rajat.
+     *
      * @return Rectangle
      */
-
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 45, 48);

@@ -1,5 +1,6 @@
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
+import java.awt.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,6 +15,62 @@ public class SurullinenTest {
     @Before
     public void setUp() {
         suru = new Surullinen(40, 50);
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinXAkseli() {
+
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(40, nelio.x);
+
+    }
+
+    @Test
+    public void getRajatToimiiOikeinYAkseli() {
+
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(50, nelio.y);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinXAkseliSiirronJalkeen() {
+
+        suru.siirra(5, 5);
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(45, nelio.x);
+
+    }
+
+    @Test
+    public void getRajatToimiiOikeinYAkseliSiirronJalkeen() {
+
+        suru.siirra(5, 5);
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(55, nelio.y);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinLeveys() {
+
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(52, nelio.width);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinKorkeus() {
+
+        Rectangle nelio = suru.getRajat();
+
+        assertEquals(62, nelio.height);
+
     }
 
     @Test

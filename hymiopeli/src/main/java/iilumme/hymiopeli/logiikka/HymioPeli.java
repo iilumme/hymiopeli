@@ -83,6 +83,15 @@ public class HymioPeli extends Timer implements ActionListener {
         return pelaaja;
     }
 
+    public int getHahmovalinta() {
+        return hahmovalinta;
+    }
+
+    public void setHahmovalinta(int hahmovalinta) {
+        this.hahmovalinta = hahmovalinta;
+    }
+    
+
     public ArrayList<Hahmo> getHahmot() {
         return hahmot;
     }
@@ -142,9 +151,8 @@ public class HymioPeli extends Timer implements ActionListener {
      * @param hahmovalinta Käyttäjän tekemä valinta, millä hahmoilla haluaa
      * pelata
      */
-    public void lisaaHahmot(int hahmovalinta) {
+    public void lisaaHahmot() {
 
-        this.hahmovalinta = hahmovalinta;
         int vastustenmaara = 20;
 
         switch (hahmovalinta) {
@@ -255,7 +263,7 @@ public class HymioPeli extends Timer implements ActionListener {
         }
     }
 
-    private void muutu(Hahmo hahmo) {
+    public void muutu(Hahmo hahmo) {
 
         int x = hahmo.getX();
         int y = hahmo.getY();

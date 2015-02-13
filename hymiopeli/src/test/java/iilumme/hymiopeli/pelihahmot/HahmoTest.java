@@ -168,4 +168,51 @@ public class HahmoTest {
         assertEquals(800, hahmo.getY());
 
     }
+    
+    @Test
+    public void setYXToimiiX() {
+
+        Hahmo hahmo = new Kissa(0,700);
+
+        hahmo.setXY(3, 0);
+
+        assertEquals(3, hahmo.getX());
+
+    }
+    
+    @Test
+    public void setYXToimiiY() {
+
+        Hahmo hahmo = new Kissa(0,200);
+
+        hahmo.setXY(0, 7);
+
+        assertEquals(7, hahmo.getY());
+
+    }
+    
+    @Test
+    public void setYXToimiiXY() {
+
+        Hahmo hahmo = new Kissa(100,200);
+
+        hahmo.setXY(5, 5);
+
+        assertEquals(5, hahmo.getX());
+        assertEquals(5, hahmo.getY());
+
+    }
+    
+    @Test
+    public void setYXToimiiXYNeg() {
+
+        Hahmo hahmo = new Kissa(100,200);
+
+        hahmo.setXY(-5, -5);
+
+        assertEquals(-5, hahmo.getX());
+        assertEquals(-5, hahmo.getY());
+
+    }
+    
 }
