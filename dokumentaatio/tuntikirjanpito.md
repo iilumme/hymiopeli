@@ -26,3 +26,6 @@
 
 - *8h* PaneelienKasittelija, eri paneelit käyttökelpoisiksi eli tekevätki jopa jotain :), listeners, testejä, kuvien muokkausta, Tiikeri/IronMan/Kissa/Killian-hahmoille kuvat, piirtoalustaa toimintaan, javadocs
 
+**12.2.15** ja **13.2.15**
+
+- *7h* Pelaaja-hahmot liikkumaan vihdoin (jes!), piirtoalusta-nappaimistonkuuntelija-gui-hymiopeli -yhteyden refaktorointia, testien refkatorointia, Hahmojen uusi metodi getRajat, törmäystoiminnallisuuden luonti, Hahmojen muuttuminen törmätessä, HighScore-message boxin luonti, "Poistu" nappi toimimaan, yleistä refaktorointia, javadodc refactor, taustavärien vaihto
