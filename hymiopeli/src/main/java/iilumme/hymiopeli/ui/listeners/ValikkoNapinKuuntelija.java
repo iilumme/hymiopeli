@@ -8,6 +8,7 @@ import iilumme.hymiopeli.util.KieliUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class ValikkoNapinKuuntelija implements ActionListener {
 
@@ -25,7 +26,6 @@ public class ValikkoNapinKuuntelija implements ActionListener {
      *
      * @param ae
      */
-
     @Override
     public void actionPerformed(ActionEvent ae) {
 
@@ -34,9 +34,10 @@ public class ValikkoNapinKuuntelija implements ActionListener {
         if (teksti.equals(KieliUtil.getString("uusipeli"))) {
             pK.getHahmoPaneeli().asetaNakyviin();
         } else if (teksti.equals(KieliUtil.getString("highscore"))) {
-            //tulossa
+            JOptionPane.showMessageDialog(pK.getLiittyma().getFrame(),
+                    "Highscoret", "Highscoret", JOptionPane.PLAIN_MESSAGE);
         } else if (teksti.equals(KieliUtil.getString("poistu"))) {
-            //tulossa
+            System.exit(0);
         }
     }
 

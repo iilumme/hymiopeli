@@ -4,7 +4,9 @@ import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Hymio;
 import iilumme.hymiopeli.pelihahmot.pelaajat.IronMan;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Tiikeri;
+import iilumme.hymiopeli.ui.PaneelienKasittelija;
 import iilumme.hymiopeli.ui.Piirtoalusta;
+import java.awt.event.ActionEvent;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -52,7 +54,7 @@ public class HymioPeliTest {
 
         hymiopeli.lisaaHahmot(1);
 
-        assertEquals(1, hymiopeli.hyvistenMaara());
+        assertEquals(1, hymiopeli.hyvistenMaara() + 1);
     }
 
     @Test
@@ -141,5 +143,31 @@ public class HymioPeliTest {
 
         assertFalse(hymiopeli.onkoPiirtoalustaAsennettu());
 
+    }
+    
+    @Test
+    public void pisteetOikein() {
+
+        assertEquals(0, hymiopeli.getPisteet());
+
+    }
+    
+    @Test
+    public void pisteetVäärin() {
+
+        assertNotSame(-4, hymiopeli.getPisteet());
+
+    }
+    
+    @Test
+    public void getMuutetutHahmot() {
+
+        assertEquals(0, hymiopeli.getMuutetutHahmot().size());        
+    }
+    
+    @Test
+    public void getMuutetutHahmot2() {
+
+        assertNotNull(hymiopeli.getMuutetutHahmot());
     }
 }

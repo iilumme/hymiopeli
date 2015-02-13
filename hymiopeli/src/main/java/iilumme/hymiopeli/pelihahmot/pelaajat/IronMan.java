@@ -6,6 +6,7 @@ package iilumme.hymiopeli.pelihahmot.pelaajat;
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +20,8 @@ public class IronMan extends Pelaaja {
 
     /**
      * Haetaan hahmolle kuva.
-     * @param g 
+     *
+     * @param g
      */
     @Override
     public void piirra(Graphics g) {
@@ -27,22 +29,21 @@ public class IronMan extends Pelaaja {
         try {
             BufferedImage image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/ironmanpieni.png"));
             g.drawImage(image, x, y, null);
+            System.out.println(image.getWidth() + "w");
+            System.out.println(image.getHeight() + "h");
         } catch (IOException ex) {
             System.out.println("Kuvaa ei löydy");
         }
 
     }
-    
-    /**
-     * Tarkistetaan osuiko IronMan toiseen hahmoon.
-     * @param hahmo toinen hahmo
-     * @return true, jos osui. False, jos ei osunut.
-     */
 
-    public boolean osuu(Hahmo hahmo) {
-        if (super.getX() == hahmo.getX() && super.getY() == hahmo.getY()) {
-            return true;
-        }
-        return false;
+    /**
+     * Palauttaa Iron Manin rajat.
+     *
+     * @return Rectangle
+     */
+    @Override
+    public Rectangle getRajat() {
+        return new Rectangle(getX(), getY(), 45, 48);
     }
 }

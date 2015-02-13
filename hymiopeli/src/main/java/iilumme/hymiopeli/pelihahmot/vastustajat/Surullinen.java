@@ -6,18 +6,19 @@ package iilumme.hymiopeli.pelihahmot.vastustajat;
 import iilumme.hymiopeli.pelihahmot.Vastus;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Surullinen extends Vastus {
 
     public Surullinen(int x, int y) {
         super(x, y);
     }
-    
+
     /**
      * Piirretään surullinen hymio.
-     * @param g 
+     *
+     * @param g
      */
-
     @Override
     public void piirra(Graphics g) {
 
@@ -41,5 +42,14 @@ public class Surullinen extends Vastus {
         g.drawArc(x, y + 20, 30, 30, 0, 180);
         g.setColor(Color.LIGHT_GRAY);
     }
+    
+    /**
+     * Palauttaa surullisen rajat.
+     * @return Rectangle
+     */
 
+    @Override
+    public Rectangle getRajat() {
+        return new Rectangle(getX(), getY(), 52, 62);
+    }
 }

@@ -25,7 +25,7 @@ public class ValikkoPanel extends JPanel {
 
         this.pK = p;
         luoKomponentit();
-        setBackground(new Color(0, 0, 102));
+        setBackground(new Color(249, 108, 57));
         asetaPois();
     }
 

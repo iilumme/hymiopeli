@@ -83,3 +83,35 @@
 
 
 ZIP 30.1.  klo 12.15.
+
+//neljäs yuml
+
+[Käyttöliittymä]<>-[Piirtoalusta]
+[Käyttöliittymä]<>-[Hymiöpeli]
+[Käyttöliittymä]<>-[PaneelienKasittelija]
+
+[PaneelienKasittelija]<>-[HahmoPanel]
+[PaneelienKasittelija]<>-[KieliPanel]
+[PaneelienKasittelija]<>-[ValikkoPanel]
+[PaneelienKasittelija]<->[Hymiöpeli]
+
+[HahmoPanel]<>-[HahmoNapinkuuntelija{bg:yellow}]
+[ValikkoPanel]<>-[ValikkoNapinkuuntelija{bg:yellow}]
+[KieliPanel]<>-[KieliNapinkuuntelija{bg:yellow}]
+
+[Hymiöpeli]<>-[<<abstract>>;Hahmo]
+[Piirtoalusta]<->[Hymiöpeli]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Pelaaja]
+[<<abstract>>;Pelaaja]^-[Hymiö]
+[<<abstract>>;Pelaaja]^-[Iron Man]
+[<<abstract>>;Pelaaja]^-[Tiikeri]
+[<<abstract>>;Pelaaja]<>-[Näppäimistönkuuntelija{bg:yellow}]
+
+[<<abstract>>;Hahmo]^-[<<abstract>>;Vastus]
+[<<abstract>>;Vastus]^-[Killian]
+[<<abstract>>;Vastus]^-[Kissa]
+[<<abstract>>;Vastus]^-[Surullinen]
+
+[HighscoreTallentaja]->[Highscore]
+[KieliUtil]-[note: Kaikki luokat voivat käyttää {bg:orange}]

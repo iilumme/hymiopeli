@@ -1,7 +1,8 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
-import iilumme.hymiopeli.pelihahmot.vastustajat.Surullinen;
+import iilumme.hymiopeli.pelihahmot.pelaajat.IronMan;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,53 +34,63 @@ public class IronManTest {
     public void tearDown() {
     }
 
-    //iron manin sijanti alussa: x=50 y=300
     @Test
-    public void osuuMetodiToimiiOikeinKunOsuu() {
+    public void getRajatToimiiOikeinXAkseli() {
 
-        Surullinen suru = new Surullinen(50, 300);
+        Rectangle nelio = ironman.getRajat();
 
-        assertTrue(ironman.osuu(suru));
+        assertEquals(50, nelio.x);
 
     }
 
     @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu() {
+    public void getRajatToimiiOikeinYAkseli() {
 
-        Surullinen suru = new Surullinen(200, 100);
+        Rectangle nelio = ironman.getRajat();
 
-        assertFalse(ironman.osuu(suru));
-
-    }
-
-    @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu2() {
-
-        Surullinen suru = new Surullinen(30, 100);
-
-        assertFalse(ironman.osuu(suru));
+        assertEquals(300, nelio.y);
 
     }
 
     @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu3() {
+    public void getRajatToimiiOikeinXAkseliSiirronJalkeen() {
 
-        Surullinen suru = new Surullinen(500, 300);
+        ironman.siirra(5, 5);
+        Rectangle nelio = ironman.getRajat();
 
-        assertFalse(ironman.osuu(suru));
+        assertEquals(55, nelio.x);
 
     }
 
     @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu4() {
+    public void getRajatToimiiOikeinYAkseliSiirronJalkeen() {
 
-        Surullinen suru = new Surullinen(50, 500);
+        ironman.siirra(5, 5);
+        Rectangle nelio = ironman.getRajat();
 
-        assertFalse(ironman.osuu(suru));
+        assertEquals(305, nelio.y);
 
     }
-    
-     @Test
+
+    @Test
+    public void getRajatToimiiOikeinLeveys() {
+
+        Rectangle nelio = ironman.getRajat();
+
+        assertEquals(45, nelio.width);
+
+    }
+
+    @Test
+    public void getRajatToimiiOikeinKorkeus() {
+
+        Rectangle nelio = ironman.getRajat();
+
+        assertEquals(48, nelio.height);
+
+    }
+
+    @Test
     public void oikeaSijaintiY() {
 
         ironman.siirra(0, 4);

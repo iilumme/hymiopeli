@@ -6,6 +6,7 @@
 package iilumme.hymiopeli.pelihahmot;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class Hahmo {
 
@@ -25,6 +26,11 @@ public abstract class Hahmo {
         return y;
     }
 
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     /**
      * Metodi siirtää oliota.
      * 
@@ -42,5 +48,7 @@ public abstract class Hahmo {
      */
     
     public abstract void piirra(Graphics g);
+    
+    public abstract Rectangle getRajat();
 
 }

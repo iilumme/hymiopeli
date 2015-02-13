@@ -1,6 +1,7 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.vastustajat.Surullinen;
+import java.awt.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,51 +19,62 @@ public class HymioTest {
     }
 
     @Test
-    public void osuukoMetodiToimiiOikeinKunOsuu() {
+    public void getRajatToimiiOikeinXAkseli() {
 
-        Surullinen suru = new Surullinen(50, 300);
+        Rectangle nelio = hymio.getRajat();
 
-        assertTrue(hymio.osuu(suru));
-
-    }
-
-    @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu() {
-
-        Surullinen suru = new Surullinen(200, 100);
-
-        assertFalse(hymio.osuu(suru));
+        assertEquals(50, nelio.x);
 
     }
 
     @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu2() {
+    public void getRajatToimiiOikeinYAkseli() {
 
-        Surullinen suru = new Surullinen(30, 100);
+        Rectangle nelio = hymio.getRajat();
 
-        assertFalse(hymio.osuu(suru));
-
-    }
-
-    @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu3() {
-
-        Surullinen suru = new Surullinen(500, 300);
-
-        assertFalse(hymio.osuu(suru));
-
-    }
-
-    @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu4() {
-
-        Surullinen suru = new Surullinen(50, 500);
-
-        assertFalse(hymio.osuu(suru));
+        assertEquals(300, nelio.y);
 
     }
     
-     @Test
+    @Test
+    public void getRajatToimiiOikeinXAkseliSiirronJalkeen() {
+
+        hymio.siirra(5, 5);
+        Rectangle nelio = hymio.getRajat();
+
+        assertEquals(55, nelio.x);
+
+    }
+
+    @Test
+    public void getRajatToimiiOikeinYAkseliSiirronJalkeen() {
+
+        hymio.siirra(5, 5);
+        Rectangle nelio = hymio.getRajat();
+
+        assertEquals(305, nelio.y);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinLeveys() {
+
+        Rectangle nelio = hymio.getRajat();
+
+        assertEquals(52, nelio.width);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinKorkeus() {
+
+        Rectangle nelio = hymio.getRajat();
+
+        assertEquals(62, nelio.height);
+
+    }
+
+    @Test
     public void oikeaSijaintiY() {
 
         hymio.siirra(0, 4);
@@ -93,6 +105,5 @@ public class HymioTest {
 
         assertEquals(46, hymio.getX());
     }
-
 
 }

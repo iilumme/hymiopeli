@@ -5,6 +5,7 @@ package iilumme.hymiopeli.pelihahmot.vastustajat;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +30,16 @@ public class Killian extends Vastus {
         } catch (IOException ex) {
             System.out.println("Kuvaa ei löydy");
         }
+    }
+    
+    /**
+     * Palauttaa Killianin rajat.
+     * @return Rectangle
+     */
+
+    @Override
+    public Rectangle getRajat() {
+        return new Rectangle(getX(), getY(), 45, 48);
     }
 
 }

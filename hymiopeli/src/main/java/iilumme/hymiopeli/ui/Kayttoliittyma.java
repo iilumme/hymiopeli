@@ -36,6 +36,8 @@ public class Kayttoliittyma implements Runnable {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
+        setPiirtoalusta();
+        setKeyListener();
         frame.pack();
         frame.setVisible(true);
     }
@@ -45,7 +47,7 @@ public class Kayttoliittyma implements Runnable {
         //Layout
         BorderLayout cLayout = new BorderLayout();
         c.setLayout(cLayout);
-        c.setBackground(new Color(0, 0, 102));
+        c.setBackground(new Color(249, 108, 57));
 
         //Otsikko
         JLabel logo = new JLabel(new ImageIcon("/Users/iina/hymiopeli/hymiopeli/Images/logo.png"));
@@ -57,6 +59,7 @@ public class Kayttoliittyma implements Runnable {
 
         //Paneelit
         PaneelienKasittelija pK = new PaneelienKasittelija(hymiopeli, this);
+        hymiopeli.setPaneelienKasittelija(pK);
 
         //Add 
         c.add(logo, BorderLayout.NORTH);
@@ -68,17 +71,31 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void setKeyListener() {
-        frame.addKeyListener(new NappaimistonKuuntelija(hymiopeli.getPelaaja()));
+        frame.setFocusable(true);
+        frame.addKeyListener(new NappaimistonKuuntelija(hymiopeli, piirtoalusta));
     }
 
-    /**
-     * Asetetaan Piirtoalusta ja luodaan pelaajalle kuuntelija.
-     */
-    public void setPiirtoalusta() {
+    
+    private void setPiirtoalusta() {
         this.piirtoalusta = new Piirtoalusta(hymiopeli);
         hymiopeli.setPiirtoalusta(piirtoalusta);
-        setKeyListener();
-        this.frame.getContentPane().add(piirtoalusta);
+        frame.getContentPane().add(piirtoalusta, BorderLayout.SOUTH);
+        piirtoalusta.setVisible(false);
+    }
+    /**
+     * Asetetaan Piirtoalusta oikeaan paikkaan.
+     */
+    public void siirraPiirtoalusta(){
+        frame.getContentPane().add(piirtoalusta, BorderLayout.CENTER);
     }
 
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public Piirtoalusta getPiirtoalusta() {
+        return piirtoalusta;
+    }
+
+    
 }

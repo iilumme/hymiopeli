@@ -7,6 +7,7 @@ import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Hymio extends Pelaaja {
 
@@ -49,18 +50,15 @@ public class Hymio extends Pelaaja {
         g.fillArc(x + 5, y + 18, 20, 18, 170, 200);
 
     }
-
+    
     /**
-     * Tarkistetaan osuiko Hymio toiseen hahmoon.
-     *
-     * @param hahmo toinen hahmo
-     * @return true, jos osui. False, jos ei osunut.
+     * Palauttaa hymiön rajat.
+     * @return Rectangle
      */
-    public boolean osuu(Hahmo hahmo) {
-        if (super.getX() == hahmo.getX() && super.getY() == hahmo.getY()) {
-            return true;
-        }
-        return false;
+
+    @Override
+    public Rectangle getRajat() {
+        return new Rectangle(getX(), getY(), 52, 62);
     }
 
 }

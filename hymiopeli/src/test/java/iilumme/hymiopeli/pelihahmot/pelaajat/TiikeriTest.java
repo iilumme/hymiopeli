@@ -1,6 +1,7 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.vastustajat.Surullinen;
+import java.awt.Rectangle;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -32,51 +33,62 @@ public class TiikeriTest {
     public void tearDown() {
     }
 
-    @Test
-    public void osuukoMetodiToimiiOikeinKunOsuu() {
+    
+        @Test
+    public void getRajatToimiiOikeinXAkseli() {
 
-        Surullinen suru = new Surullinen(50, 300);
+        Rectangle nelio = tiikeri.getRajat();
 
-        assertTrue(tiikeri.osuu(suru));
-
-    }
-
-    @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu() {
-
-        Surullinen suru = new Surullinen(200, 100);
-
-        assertFalse(tiikeri.osuu(suru));
+        assertEquals(50, nelio.x);
 
     }
 
     @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu2() {
+    public void getRajatToimiiOikeinYAkseli() {
 
-        Surullinen suru = new Surullinen(30, 100);
+        Rectangle nelio = tiikeri.getRajat();
 
-        assertFalse(tiikeri.osuu(suru));
-
-    }
-
-    @Test
-    public void osuukoMetodiToimiiOikeinKunEIOsuu3() {
-
-        Surullinen suru = new Surullinen(500, 300);
-
-        assertFalse(tiikeri.osuu(suru));
-
-    }
-
-    @Test
-    public void osuuMetodiToimiiOikeinKunEIOsu4() {
-
-        Surullinen suru = new Surullinen(50, 500);
-
-        assertFalse(tiikeri.osuu(suru));
+        assertEquals(300, nelio.y);
 
     }
     
+    @Test
+    public void getRajatToimiiOikeinXAkseliSiirronJalkeen() {
+
+        tiikeri.siirra(5, 5);
+        Rectangle nelio = tiikeri.getRajat();
+
+        assertEquals(55, nelio.x);
+
+    }
+
+    @Test
+    public void getRajatToimiiOikeinYAkseliSiirronJalkeen() {
+
+        tiikeri.siirra(5, 5);
+        Rectangle nelio = tiikeri.getRajat();
+
+        assertEquals(305, nelio.y);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinLeveys() {
+
+        Rectangle nelio = tiikeri.getRajat();
+
+        assertEquals(45, nelio.width);
+
+    }
+    
+    @Test
+    public void getRajatToimiiOikeinKorkeus() {
+
+        Rectangle nelio = tiikeri.getRajat();
+
+        assertEquals(48, nelio.height);
+
+    }    
      @Test
     public void oikeaSijaintiY() {
 

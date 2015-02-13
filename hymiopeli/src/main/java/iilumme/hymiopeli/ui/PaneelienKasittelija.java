@@ -39,13 +39,21 @@ public class PaneelienKasittelija {
     public HymioPeli getHymiopeli() {
         return hymiopeli;
     }
+
+    public Kayttoliittyma getLiittyma() {
+        return liittyma;
+    }
+    
+    
     
     /**
-     * Käskee käyttöliittymää asettamaan Piirtoalustan.
+     * Käskee käyttöliittymää tekemään valmisteluja ja sitten aloittaa pelin.
      */
 
-    public void aloita() {
-        liittyma.setPiirtoalusta();
+    public void aloita() {       
+        liittyma.siirraPiirtoalusta();
+        liittyma.getPiirtoalusta().setVisible(true);
+        hymiopeli.start();
     }
 
 }
