@@ -29,3 +29,8 @@
 **12.2.15** ja **13.2.15**
 
 - *7h* Pelaaja-hahmot liikkumaan vihdoin (jes!), piirtoalusta-nappaimistonkuuntelija-gui-hymiopeli -yhteyden refaktorointia, testien refkatorointia, Hahmojen uusi metodi getRajat, törmäystoiminnallisuuden luonti, Hahmojen muuttuminen törmätessä, HighScore-message boxin luonti, "Poistu" nappi toimimaan, yleistä refaktorointia, javadodc refactor, taustavärien vaihto
+
+**17.2.15**
+
+- *1h* Pelihahmot päivitetty tehokkaammiksi, uuden pelin aloittaminen edellisen jälkeen
+
