@@ -32,5 +32,5 @@
 
 **17.2.15**
 
-- *1h* Pelihahmot päivitetty tehokkaammiksi, uuden pelin aloittaminen edellisen jälkeen
+- *3h* Pelihahmot päivitetty tehokkaammiksi, uuden pelin aloittaminen edellisen jälkeen, highscorejen näyttäminen
 
