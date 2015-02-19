@@ -29,3 +29,15 @@
 **12.2.15** ja **13.2.15**
 
 - *7h* Pelaaja-hahmot liikkumaan vihdoin (jes!), piirtoalusta-nappaimistonkuuntelija-gui-hymiopeli -yhteyden refaktorointia, testien refkatorointia, Hahmojen uusi metodi getRajat, törmäystoiminnallisuuden luonti, Hahmojen muuttuminen törmätessä, HighScore-message boxin luonti, "Poistu" nappi toimimaan, yleistä refaktorointia, javadodc refactor, taustavärien vaihto
+
+**17.2.15**
+
+- *3h* Pelihahmot päivitetty tehokkaammiksi, uuden pelin aloittaminen edellisen jälkeen, highscorejen näyttäminen
+
+**18.2.15**
+
+- *3h* Highscoret
+
+**19.2.15**
+
+- *9h* Tasojen vaihtuminen, TietoPanel, Highscoret toimimaan oikein, pisteiden lasku, JOptionPanes, Game Over, staattiset tiedostopolut pois ja tilalle classpath
