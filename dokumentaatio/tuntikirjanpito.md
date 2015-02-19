@@ -34,3 +34,10 @@
 
 - *3h* Pelihahmot päivitetty tehokkaammiksi, uuden pelin aloittaminen edellisen jälkeen, highscorejen näyttäminen
 
+**18.2.15**
+
+- *3h* Highscoret
+
+**19.2.15**
+
+- *7h* Tasojen vaihtuminen, TietoPanel, Highscoret toimimaan oikein, pisteiden lasku, JOptionPanes, Game Over
