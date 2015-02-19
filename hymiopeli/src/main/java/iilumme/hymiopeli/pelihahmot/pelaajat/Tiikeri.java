@@ -4,26 +4,26 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
-import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Tiikeri extends Pelaaja {
-    
-    private BufferedImage image;
+
+    private Image image;
 
     public Tiikeri() {
         super();
+        
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/tigerpieni.jpg")).getImage();
+        
     }
 
-        public BufferedImage getImage() {
+    public Image getImage() {
         return image;
     }
-    
+
     /**
      * Haetaan hahmolle kuva.
      *
@@ -31,19 +31,16 @@ public class Tiikeri extends Pelaaja {
      */
     @Override
     public void piirra(Graphics g) {
-        try {
-            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/tigerpieni.jpg"));
-            g.drawImage(image, x, y, null);
-        } catch (IOException ex) {
-            System.out.println("Kuvaa ei löydy");
-        }
+
+        g.drawImage(image, x, y, null);
+
     }
-    
+
     /**
      * Palauttaa tiikerin rajat.
+     *
      * @return Rectangle
      */
-    
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 45, 48);

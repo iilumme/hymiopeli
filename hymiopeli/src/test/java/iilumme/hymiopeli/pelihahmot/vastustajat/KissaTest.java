@@ -104,11 +104,5 @@ public class KissaTest {
 
         assertEquals(36, kisu.getX());
     }
-    
-    @Test
-    public void piirtoOnnistuuAluksiNull() {
-
-        assertNull(kisu.getImage());
-    } 
 
 }

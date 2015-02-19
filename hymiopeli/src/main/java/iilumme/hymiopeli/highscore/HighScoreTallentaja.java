@@ -1,12 +1,13 @@
 /**
- * Luokka ylläpitää tietoa parhaista pelituloksista.
- * Tallentaa HighScore-olioita ja lukee tiedostosta.
+ * Luokka ylläpitää tietoa parhaista pelituloksista. Tallentaa HighScore-olioita
+ * ja lukee tiedostosta.
  */
-
 package iilumme.hymiopeli.highscore;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -18,64 +19,54 @@ public class HighScoreTallentaja {
 
     private ArrayList<HighScore> toplista;
 
-    public HighScoreTallentaja() throws Exception {
-        this.tiedosto = new File("/Users/iina/hymiopeli/hymiopeli/src/main/java/iilumme/hymiopeli/highscore/highscorelista.txt");
+    public HighScoreTallentaja() throws IOException {
+
+        this.tiedosto = new File("highscorelista.txt");
+
+        if (!this.tiedosto.exists()) {
+            this.tiedosto.createNewFile();
+        }
+
         this.scanner = new Scanner(tiedosto);
 
         this.toplista = new ArrayList<>();
-        haeScoret();
+        haeLista();
     }
-    
+
     /**
-     * Haetaan tiedostosta Highscorelista ja muunnetaan se eroteltavaan muotoon.
-     * @return lista String merkkijonona.
+     * Haetaan tiedostosta Highscorelista ja laitetaan highscoret listaan.
+     *
      */
+    public void haeLista() {
 
-    public String haeLista() {
+        while (scanner.hasNextLine()) {
 
-        String lista = new String();
+            String[] score = scanner.nextLine().split(",");
 
-        if (scanner.hasNextLine()) {
-            lista += scanner.nextLine();
-            lista += ':';
+            this.toplista.add(new HighScore(score[0], Integer.parseInt(score[1])));
+
         }
+        scanner.close();
 
-        return lista;
     }
 
-    private void haeScoret() {
-
-        String[] scoret = haeLista().split(":");
-
-        if (scoret.length > 1) {
-
-            for (int i = 0; i < scoret.length; i++) {
-                String[] score = scoret[i].split(",");
-
-                this.toplista.add(new HighScore(score[0], Integer.parseInt(score[1])));
-            }
-        }
-
-    }
-    
     /**
      * Lisätään HighScore listaan.
+     *
      * @param nimi Pelaajan nimi
      * @param pisteet Pelaajan saamat pisteet
      */
-
     public void lisaaHighscore(String nimi, int pisteet) {
 
         toplista.add(new HighScore(nimi, pisteet));
-        Collections.sort(toplista);
 
     }
-    
+
     /**
      * Haetaan HighScorelistan ensimmäinen pelaaja&pisteet
+     *
      * @return HighScore-olio
      */
-
     public HighScore getEka() {
 
         if (toplista.isEmpty()) {
@@ -83,11 +74,22 @@ public class HighScoreTallentaja {
         }
         return toplista.get(0);
     }
-    
+
+    /**
+     * Haetaan Highscoret Arraylistinä
+     *
+     * @return StringBuilder
+     */
+    public ArrayList<HighScore> getHighscoret() {
+
+        Collections.sort(toplista);
+        return this.toplista;
+
+    }
+
     /**
      * Päivitetään tiedostoon lista.
      */
-
     public void paivitaLista() {
 
         try {

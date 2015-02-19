@@ -121,11 +121,4 @@ public class TiikeriTest {
 
         assertEquals(46, tiikeri.getX());
     }
-
-    @Test
-    public void piirtoOnnistuuAluksiNull() {
-
-        assertNull(tiikeri.getImage());
-    }
-
 }

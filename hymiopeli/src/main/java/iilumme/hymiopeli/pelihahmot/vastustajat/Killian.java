@@ -5,25 +5,22 @@ package iilumme.hymiopeli.pelihahmot.vastustajat;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Killian extends Vastus {
-    
-    private BufferedImage image;
+
+    private Image image;
 
     public Killian(int x, int y) {
         super(x, y);
-        
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/killianpieni.jpg")).getImage();
     }
 
-    public BufferedImage getImage() {
+    public Image getImage() {
         return image;
     }
-    
 
     /**
      * Haetaan hahmolle kuva.
@@ -32,19 +29,16 @@ public class Killian extends Vastus {
      */
     @Override
     public void piirra(Graphics g) {
-        try {
-            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/killianpieni.jpg"));
-            g.drawImage(image, x, y, null);
-        } catch (IOException ex) {
-            System.out.println("Kuvaa ei löydy");
-        }
+
+        g.drawImage(image, x, y, null);
+
     }
-    
+
     /**
      * Palauttaa Killianin rajat.
+     *
      * @return Rectangle
      */
-
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 45, 48);

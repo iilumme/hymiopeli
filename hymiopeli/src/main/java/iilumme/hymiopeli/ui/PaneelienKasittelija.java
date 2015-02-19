@@ -4,7 +4,9 @@
  */
 package iilumme.hymiopeli.ui;
 
+import iilumme.hymiopeli.highscore.HighScoreTallentaja;
 import iilumme.hymiopeli.logiikka.HymioPeli;
+import java.io.IOException;
 
 public class PaneelienKasittelija {
 
@@ -13,14 +15,18 @@ public class PaneelienKasittelija {
     private final KieliPanel kieliPaneeli;
     private final HahmoPanel hahmoPaneeli;
     private final ValikkoPanel valikkoPaneeli;
+    private final TietoPanel tietoPaneeli;
+    private final HighScoreTallentaja hst;
 
     private Kayttoliittyma liittyma;
 
-    public PaneelienKasittelija(HymioPeli h, Kayttoliittyma liittyma) {
+    public PaneelienKasittelija(HymioPeli h, Kayttoliittyma liittyma) throws IOException {
         this.hymiopeli = h;
         this.kieliPaneeli = new KieliPanel(this);
         this.hahmoPaneeli = new HahmoPanel(this);
         this.valikkoPaneeli = new ValikkoPanel(this);
+        this.tietoPaneeli = new TietoPanel(this);
+        this.hst = new HighScoreTallentaja();
         this.liittyma = liittyma;
     }
 
@@ -36,6 +42,10 @@ public class PaneelienKasittelija {
         return valikkoPaneeli;
     }
 
+    public TietoPanel getTietoPaneeli() {
+        return tietoPaneeli;
+    }
+
     public HymioPeli getHymiopeli() {
         return hymiopeli;
     }
@@ -43,7 +53,10 @@ public class PaneelienKasittelija {
     public Kayttoliittyma getLiittyma() {
         return liittyma;
     }
-    
+
+    public HighScoreTallentaja getHst() {
+        return hst;
+    }
     
     
     /**
@@ -53,6 +66,7 @@ public class PaneelienKasittelija {
     public void aloita() {       
         liittyma.siirraPiirtoalusta();
         liittyma.getPiirtoalusta().setVisible(true);
+        tietoPaneeli.asetaNakyviin();
         hymiopeli.start();
     }
 

@@ -117,7 +117,7 @@ public class HahmoTest {
 
         hahmo.siirra(0, 400);
 
-        assertEquals(600, hahmo.getY());
+        assertEquals(475, hahmo.getY());
 
     }
     

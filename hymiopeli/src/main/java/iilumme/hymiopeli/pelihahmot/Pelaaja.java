@@ -21,7 +21,7 @@ public abstract class Pelaaja extends Hahmo {
      */
     @Override
     public void siirra(int dx, int dy) {
-        if (x + dx > -1 && x + dx < 601 && y + dy > -1 && y + dy < 601) {
+        if (x + dx > -1 && x + dx < 601 && y + dy > -1 && y + dy < 476) {
             x += dx;
             y += dy;
         } else if (x + dx < 0) {
@@ -30,8 +30,8 @@ public abstract class Pelaaja extends Hahmo {
             y = 0;
         } else if (x + dx > 600) {
             x = 600;
-        } else if (y + dy > 600) {
-            y = 600;
+        } else if (y + dy > 475) {
+            y = 475;
         }
 
     }

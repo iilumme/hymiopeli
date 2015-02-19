@@ -28,7 +28,8 @@ public class HahmoNapinKuuntelija implements ActionListener {
     //tätä pitää miettiä vielä :]
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (nappi.getText()) {
+        
+        switch (nappi.getName()) {
             case "hy":
                 pK.getHymiopeli().setHahmovalinta(1);
                 pK.getHymiopeli().lisaaHahmot();

@@ -109,11 +109,4 @@ public class KillianTest {
 
         assertEquals(36, killian.getX());
     }
-    
-    @Test
-    public void piirtoOnnistuuAluksiNull() {
-
-        assertNull(killian.getImage());
-    }   
-
 }

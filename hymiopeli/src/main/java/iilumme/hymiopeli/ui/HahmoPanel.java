@@ -25,14 +25,18 @@ public class HahmoPanel extends JPanel {
 
     private void luoKomponentit() {
 
-        JButton hymio = new JButton("hy", new ImageIcon("/Users/iina/hymiopeli/hymiopeli/Images/hymio.jpg"));
-        JButton tikru = new JButton("ti", new ImageIcon("/Users/iina/hymiopeli/hymiopeli/Images/tiger.jpg"));
-        JButton ironman = new JButton("ir", new ImageIcon("/Users/iina/hymiopeli/hymiopeli/Images/ironman.png"));
+        JButton hymio = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/hymio.jpg")));
+        JButton tikru = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/tiger.jpg")));
+        JButton ironman = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/ironman.png")));
 
         hymio.addActionListener(new HahmoNapinKuuntelija(hymio, pK));
         tikru.addActionListener(new HahmoNapinKuuntelija(tikru, pK));
         ironman.addActionListener(new HahmoNapinKuuntelija(ironman, pK));
-
+        
+        hymio.setName("hy");
+        tikru.setName("ti");
+        ironman.setName("ir");
+        
         add(hymio);
         add(tikru);
         add(ironman);

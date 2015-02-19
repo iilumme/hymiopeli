@@ -8,7 +8,6 @@ import iilumme.hymiopeli.logiikka.HymioPeli;
 import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -19,8 +18,8 @@ public class Piirtoalusta extends JPanel {
     public Piirtoalusta(HymioPeli hymiopeli) {
         super.setBackground(new Color(253, 243, 218));
         super.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+        super.setSize(600, 475);
         this.hymiopeli = hymiopeli;
-        //this.hymiopeli.start();
     }
 
     /**
@@ -38,8 +37,6 @@ public class Piirtoalusta extends JPanel {
             hahmo.piirra(g);
         }
         
-//        JLabel pisteet = new JLabel("Pisteet: " + hymiopeli.getPisteet());
-//        add(pisteet);
     }
 
     public void paivita() {

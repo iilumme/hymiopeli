@@ -34,7 +34,7 @@ public class KieliUtilTest {
     @Test
     public void bundleAluksiSuomi() {
 
-        assertEquals(KieliUtil.getString("uusipeli"), "Uusi Peli");
+        assertEquals("Uusi Peli", KieliUtil.getString("uusipeli"));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class KieliUtilTest {
 
         KieliUtil.setLanguage("EN");
 
-        assertEquals(KieliUtil.getString("uusipeli"), "New Game");
+        assertEquals("New Game", KieliUtil.getString("uusipeli"));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class KieliUtilTest {
 
         KieliUtil.setLanguage("ES");
 
-        assertEquals(KieliUtil.getString("uusipeli"), "A Jugar!");
+        assertEquals("A Jugar!", KieliUtil.getString("uusipeli"));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class KieliUtilTest {
         KieliUtil.setLanguage("ES");
         KieliUtil.setLanguage("FI");
 
-        assertEquals(KieliUtil.getString("uusipeli"), "Uusi Peli");
+        assertEquals("Uusi Peli", KieliUtil.getString("uusipeli"));
     }
 
 }

@@ -5,21 +5,20 @@ package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class IronMan extends Pelaaja {
 
-    private BufferedImage image;
+    private Image image;
 
     public IronMan() {
         super();
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/ironmanpieni.png")).getImage();
     }
 
-    public BufferedImage getImage() {
+    public Image getImage() {
         return image;
     }
 
@@ -31,12 +30,7 @@ public class IronMan extends Pelaaja {
     @Override
     public void piirra(Graphics g) {
 
-        try {
-            image = ImageIO.read(new File("/Users/iina/hymiopeli/hymiopeli/Images/ironmanpieni.png"));
-            g.drawImage(image, x, y, null);
-        } catch (IOException ex) {
-            System.out.println("Kuvaa ei löydy");
-        }
+        g.drawImage(image, x, y, null);   
 
     }
 
