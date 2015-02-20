@@ -7,4 +7,4 @@ Fazu,95
 Fasu,15
 FasuAgain,15
 Sampo,15
-,135
+OK,75

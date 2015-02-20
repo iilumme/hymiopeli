@@ -149,8 +149,6 @@ public class HymioPeli extends Timer implements ActionListener {
     public void setTaso(int taso) {
         this.taso = taso;
     }
-    
-    
 
     /**
      * Taso muuttuu ja tulevaisuudessa tulee myös kasvattamaan nopeutta ja
@@ -168,8 +166,8 @@ public class HymioPeli extends Timer implements ActionListener {
     public void setPiirtoalusta(Piirtoalusta p) {
         this.p = p;
     }
-    
-    public void setNappaimistonKuuntelija(NappaimistonKuuntelija nK){
+
+    public void setNappaimistonKuuntelija(NappaimistonKuuntelija nK) {
         this.nK = nK;
     }
 
@@ -364,6 +362,7 @@ public class HymioPeli extends Timer implements ActionListener {
     }
 
     private void highscore() throws HeadlessException {
+
         String nimi = JOptionPane.showInputDialog(
                 pK.getLiittyma().getFrame(),
                 KieliUtil.getString("annanimi"),
@@ -371,7 +370,7 @@ public class HymioPeli extends Timer implements ActionListener {
                 JOptionPane.PLAIN_MESSAGE
         );
 
-        if (nimi == null && nimi.equals(" ")) {
+        if (nimi.length() == 0) {
             pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
         } else {
             pK.getHst().lisaaHighscore(nimi, this.pisteet);
