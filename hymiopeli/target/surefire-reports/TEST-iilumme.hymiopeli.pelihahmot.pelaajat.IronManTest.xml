@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" time="0.026" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" time="0.069" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -66,14 +66,14 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinXAkseli" time="0.004"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinYAkseli" time="0.004"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinXAkseli" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinYAkseli" time="0.048"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinXAkseliSiirronJalkeen" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinYAkseliSiirronJalkeen" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinLeveys" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinKorkeus" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiY" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinYAkseliSiirronJalkeen" time="0.013"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinLeveys" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="getRajatToimiiOikeinKorkeus" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiY" time="0"/>
   <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiX" time="0"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiYNegLuku" time="0.016"/>
-  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiXNegLuku" time="0"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiYNegLuku" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.pelihahmot.pelaajat.IronManTest" name="oikeaSijaintiXNegLuku" time="0.001"/>
 </testsuite>
