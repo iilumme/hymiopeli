@@ -308,7 +308,7 @@ public class HymioPeli extends Timer implements ActionListener {
             }
 
             p.paivita();
-            nK.paivita();
+            //nK.paivita();
 
             pK.getTietoPaneeli().paivita();
 

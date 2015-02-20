@@ -3,9 +3,8 @@ Iiiiiiiiina,575
 Fazi,390
 Iisu,245
 Iskä,210
-i,180
 Fazu,95
 Fasu,15
 FasuAgain,15
 Sampo,15
-,110
+,135
