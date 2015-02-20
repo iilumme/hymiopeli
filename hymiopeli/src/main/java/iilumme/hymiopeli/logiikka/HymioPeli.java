@@ -11,6 +11,7 @@ import iilumme.hymiopeli.pelihahmot.pelaajat.*;
 import iilumme.hymiopeli.pelihahmot.vastustajat.*;
 import iilumme.hymiopeli.ui.PaneelienKasittelija;
 import iilumme.hymiopeli.ui.Piirtoalusta;
+import iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija;
 import iilumme.hymiopeli.util.KieliUtil;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -39,6 +40,7 @@ public class HymioPeli extends Timer implements ActionListener {
 
     private Pelaaja pelaaja;
     private PaneelienKasittelija pK;
+    private NappaimistonKuuntelija nK;
 
     private ArrayList<Hahmo> hahmot;
     private ArrayList<Hahmo> muutetutHahmot;
@@ -165,6 +167,10 @@ public class HymioPeli extends Timer implements ActionListener {
      */
     public void setPiirtoalusta(Piirtoalusta p) {
         this.p = p;
+    }
+    
+    public void setNappaimistonKuuntelija(NappaimistonKuuntelija nK){
+        this.nK = nK;
     }
 
     /**
@@ -302,6 +308,7 @@ public class HymioPeli extends Timer implements ActionListener {
             }
 
             p.paivita();
+            nK.paivita();
 
             pK.getTietoPaneeli().paivita();
 
@@ -364,7 +371,7 @@ public class HymioPeli extends Timer implements ActionListener {
                 JOptionPane.PLAIN_MESSAGE
         );
 
-        if (nimi == null) {
+        if (nimi == null && nimi.equals(" ")) {
             pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
         } else {
             pK.getHst().lisaaHighscore(nimi, this.pisteet);

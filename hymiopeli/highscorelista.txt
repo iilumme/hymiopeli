@@ -1,15 +1,11 @@
 IinaTheBest,940
 Iiiiiiiiina,575
-IinaL,555
-Iina,415
 Fazi,390
 Iisu,245
 Iskä,210
-Iina,200
+i,180
 Fazu,95
-g,60
 Fasu,15
 FasuAgain,15
 Sampo,15
-hopso,70
-i,180
+,110

@@ -89,7 +89,9 @@ public class Kayttoliittyma implements Runnable {
 
     private void setKeyListener() {
         frame.setFocusable(true);
-        frame.addKeyListener(new NappaimistonKuuntelija(hymiopeli, piirtoalusta));
+        NappaimistonKuuntelija nK = new NappaimistonKuuntelija(hymiopeli, piirtoalusta);
+        frame.addKeyListener(nK);
+        hymiopeli.setNappaimistonKuuntelija(nK);
     }
 
     private void setPiirtoalusta() {
