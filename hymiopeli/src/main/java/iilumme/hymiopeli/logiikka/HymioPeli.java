@@ -144,6 +144,12 @@ public class HymioPeli extends Timer implements ActionListener {
         return p != null;
     }
 
+    public void setTaso(int taso) {
+        this.taso = taso;
+    }
+    
+    
+
     /**
      * Taso muuttuu ja tulevaisuudessa tulee myös kasvattamaan nopeutta ja
      * väehntämään luotavien hahmojen määrää.
@@ -346,6 +352,7 @@ public class HymioPeli extends Timer implements ActionListener {
         this.muutetutHahmot.clear();
         this.hahmot.clear();
         jatkuukoPeli = true;
+        setTaso(1);
         setPisteet(0);
     }
 

@@ -12,3 +12,4 @@ Fasu,15
 FasuAgain,15
 Sampo,15
 hopso,70
+i,180
