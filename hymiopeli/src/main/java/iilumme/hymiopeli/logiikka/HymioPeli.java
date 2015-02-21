@@ -20,7 +20,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.AbstractAction;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.Timer;
 
 public class HymioPeli extends Timer implements ActionListener {
@@ -363,19 +366,38 @@ public class HymioPeli extends Timer implements ActionListener {
 
     private void highscore() throws HeadlessException {
 
-        String nimi = JOptionPane.showInputDialog(
-                pK.getLiittyma().getFrame(),
-                KieliUtil.getString("annanimi"),
-                KieliUtil.getString("highscorelistalle"),
-                JOptionPane.PLAIN_MESSAGE
-        );
+        String[] options = {"OK"};
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel(KieliUtil.getString("annanimi"));
+        JTextField name = new JTextField(10);
+        panel.add(label);
+        panel.add(name);
+        int selectedOption = JOptionPane.showOptionDialog(pK.getLiittyma().getFrame(), panel, KieliUtil.getString("highscorelistalle"), JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 
-        if (nimi.length() == 0) {
-            pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
-        } else {
-            pK.getHst().lisaaHighscore(nimi, this.pisteet);
+        if (selectedOption == 0) {
+            String nimi = name.getText();
+            if (nimi.length() == 0) {
+                pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
+            } else {
+                pK.getHst().lisaaHighscore(nimi, this.pisteet);
+            }
+            pK.getHst().paivitaLista();
+
         }
-        pK.getHst().paivitaLista();
+
+//        String nimi = JOptionPane.showInputDialog(
+//                pK.getLiittyma().getFrame(),
+//                KieliUtil.getString("annanimi"),
+//                KieliUtil.getString("highscorelistalle"),
+//                JOptionPane.PLAIN_MESSAGE
+//        );
+//
+//        if (nimi.length() == 0) {
+//            pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
+//        } else {
+//            pK.getHst().lisaaHighscore(nimi, this.pisteet);
+//        }
+//        pK.getHst().paivitaLista();
     }
 
     /**
