@@ -41,3 +41,11 @@
 **19.2.15**
 
 - *11h* Tasojen vaihtuminen, TietoPanel, Highscoret toimimaan oikein, pisteiden lasku, JOptionPanes, Game Over, staattiset tiedostopolut pois ja tilalle classpath, sekvenssikaavioiden päivitys ja kaksi uutta, luokkakaavion päivitys
+
+**20.2.15**
+
+- *3h* Parin virheen korjaus, diagonal movement kokeilu
+
+**23.2.15**
+
+- *3h* Diagonal movement toimimaan ja käyttöön, nopeus, HymioPelin actionPerformed siistimmäksi, kuvallisiin hahmoihin pyöreät kulmat, muutetut hahmot katoavat (viimesin näkyvissä)
