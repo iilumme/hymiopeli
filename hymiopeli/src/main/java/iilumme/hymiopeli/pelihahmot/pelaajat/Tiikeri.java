@@ -4,6 +4,7 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -15,9 +16,9 @@ public class Tiikeri extends Pelaaja {
 
     public Tiikeri() {
         super();
-        
-        image = new ImageIcon(ClassLoader.getSystemResource("Images/tigerpieni.jpg")).getImage();
-        
+
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/tt.png")).getImage();
+
     }
 
     public Image getImage() {

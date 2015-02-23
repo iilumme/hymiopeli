@@ -50,12 +50,12 @@ public class Hymio extends Pelaaja {
         g.fillArc(x + 5, y + 18, 20, 18, 170, 200);
 
     }
-    
+
     /**
      * Palauttaa hymiön rajat.
+     *
      * @return Rectangle
      */
-
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 52, 62);

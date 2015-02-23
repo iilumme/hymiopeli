@@ -4,6 +4,7 @@
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -15,7 +16,7 @@ public class Kissa extends Vastus {
 
     public Kissa(int x, int y) {
         super(x, y);
-        image = new ImageIcon(ClassLoader.getSystemResource("Images/catpieni.jpg")).getImage();
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/cc.png")).getImage();
     }
 
     public Image getImage() {
@@ -31,7 +32,6 @@ public class Kissa extends Vastus {
     public void piirra(Graphics g) {
 
         g.drawImage(image, x, y, null);
-
     }
 
     /**

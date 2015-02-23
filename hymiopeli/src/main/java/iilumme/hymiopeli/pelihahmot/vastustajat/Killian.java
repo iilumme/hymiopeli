@@ -4,6 +4,7 @@
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -15,7 +16,7 @@ public class Killian extends Vastus {
 
     public Killian(int x, int y) {
         super(x, y);
-        image = new ImageIcon(ClassLoader.getSystemResource("Images/killianpieni.jpg")).getImage();
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/kk.png")).getImage();
     }
 
     public Image getImage() {
@@ -32,7 +33,7 @@ public class Killian extends Vastus {
 
         g.drawImage(image, x, y, null);
 
-    }
+    }   
 
     /**
      * Palauttaa Killianin rajat.

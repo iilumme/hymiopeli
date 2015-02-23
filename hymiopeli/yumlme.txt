@@ -431,3 +431,9 @@ end
 HymioPeli->PaneelienKasittelija: getHst()
 
 PaneelienKasittelija->HighScoreTallentaja: paivitaLista()
+
+
+
+//23.2. 17.10
+
+
