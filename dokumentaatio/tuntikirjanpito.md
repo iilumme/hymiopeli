@@ -48,4 +48,4 @@
 
 **23.2.15**
 
-- *2h* Diagonal movement toimimaan ja käyttöön, nopeus, HymioPelin actionPerformed siistimmäksi
+- *2h* Diagonal movement toimimaan ja käyttöön, nopeus, HymioPelin actionPerformed siistimmäksi, kuvallisiin hahmoihin pyöreät kulmat
