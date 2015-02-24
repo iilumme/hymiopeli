@@ -52,4 +52,4 @@
 
 **24.2.15**
 
-- *4h* Muutetut hahmot ovat värimaailmaltaan erilaisia verrattuna pelaajaan, refaktorointia, javadocs, käyttöohje, pelihahmon siirtymirajojen muuttaminen, vastuksia ilmestyy suuremmilla välimatkoilla
+- *4h* Muutetut hahmot ovat värimaailmaltaan erilaisia verrattuna pelaajaan, refaktorointia, javadocs, käyttöohje, pelihahmon siirtymirajojen muuttaminen, vastuksia ilmestyy suuremmilla välimatkoilla, lopeta-napin hahmottelua
