@@ -1,7 +1,7 @@
 package iilumme.hymiopeli.pelihahmot;
 
 import iilumme.hymiopeli.pelihahmot.pelaajat.Hymio;
-import iilumme.hymiopeli.pelihahmot.vastustajat.Kissa;
+import iilumme.hymiopeli.pelihahmot.vastukset.Kissa;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

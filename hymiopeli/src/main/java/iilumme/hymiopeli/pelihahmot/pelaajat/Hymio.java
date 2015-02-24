@@ -1,32 +1,29 @@
 /**
- * Yksi Hahmoista, jolla voi pelata.
+ * Pelaajahahmo, jonka kuvana on hymiö.
  */
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
-import iilumme.hymiopeli.pelihahmot.Hahmo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Hymio extends Pelaaja {
+    
+    private Color vari;
 
     public Hymio() {
         super();
+        this.vari = Color.YELLOW;
     }
 
-    /**
-     * Piirretään erittäin oudon näköinen hymiö.
-     *
-     * @param g
-     */
     @Override
     public void piirra(Graphics g) {
 
         //pää
         g.setColor(Color.BLACK);
         g.drawRoundRect(x - 11, y - 11, 52, 62, 20, 20);
-        g.setColor(Color.YELLOW);
+        g.setColor(vari);
         g.fillRoundRect(x - 10, y - 10, 50, 60, 20, 20);
 
         //silmät
@@ -50,12 +47,12 @@ public class Hymio extends Pelaaja {
         g.fillArc(x + 5, y + 18, 20, 18, 170, 200);
 
     }
+    
+    @Override
+    public void muutaVari(){
+        this.vari = Color.ORANGE;
+    }
 
-    /**
-     * Palauttaa hymiön rajat.
-     *
-     * @return Rectangle
-     */
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 52, 62);

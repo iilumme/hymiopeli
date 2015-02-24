@@ -1,6 +1,5 @@
 /**
- * Alusta pelitilanteelle.
- * Piirtää hahmot.
+ * Alusta,joka piirtää hahmot.
  */
 package iilumme.hymiopeli.ui;
 
@@ -13,7 +12,7 @@ import javax.swing.border.LineBorder;
 
 public class Piirtoalusta extends JPanel {
 
-    private HymioPeli hymiopeli;
+    private final HymioPeli hymiopeli;
 
     public Piirtoalusta(HymioPeli hymiopeli) {
         super.setBackground(new Color(253, 243, 218));
@@ -24,7 +23,8 @@ public class Piirtoalusta extends JPanel {
 
     /**
      * Piirtää hahmot.
-     * @param g 
+     *
+     * @param g Graphics
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -36,8 +36,11 @@ public class Piirtoalusta extends JPanel {
         for (Hahmo hahmo : hymiopeli.getMuutetutHahmot()) {
             hahmo.piirra(g);
         }
-        
     }
+    
+    /**
+     * Päivittää alustan.
+     */
 
     public void paivita() {
         super.repaint();

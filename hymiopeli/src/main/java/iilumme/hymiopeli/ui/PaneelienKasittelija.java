@@ -1,5 +1,5 @@
 /**
- * Ns apuluokka, joka luo paneelit ja auttaa niiden keskenäisen yhteistyön hallinnassa.
+ * Ns. apuluokka, joka luo paneelit ja auttaa niiden keskenäisen yhteistyön hallinnassa.
  * Tarjoaa kaikki eri paneelit käytettäviksi.
  */
 package iilumme.hymiopeli.ui;
@@ -18,7 +18,7 @@ public class PaneelienKasittelija {
     private final TietoPanel tietoPaneeli;
     private final HighScoreTallentaja hst;
 
-    private Kayttoliittyma liittyma;
+    private final Kayttoliittyma liittyma;
 
     public PaneelienKasittelija(HymioPeli h, Kayttoliittyma liittyma) throws IOException {
         this.hymiopeli = h;
@@ -62,7 +62,6 @@ public class PaneelienKasittelija {
     /**
      * Käskee käyttöliittymää tekemään valmisteluja ja sitten aloittaa pelin.
      */
-
     public void aloita() {       
         liittyma.siirraPiirtoalusta();
         liittyma.getPiirtoalusta().setVisible(true);

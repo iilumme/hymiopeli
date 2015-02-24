@@ -5,13 +5,20 @@ import iilumme.hymiopeli.pelihahmot.Pelaaja;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Hymio;
 import iilumme.hymiopeli.pelihahmot.pelaajat.IronMan;
 import iilumme.hymiopeli.pelihahmot.pelaajat.Tiikeri;
-import iilumme.hymiopeli.pelihahmot.vastustajat.Killian;
-import iilumme.hymiopeli.pelihahmot.vastustajat.Kissa;
-import iilumme.hymiopeli.pelihahmot.vastustajat.Surullinen;
+import iilumme.hymiopeli.pelihahmot.vastukset.Killian;
+import iilumme.hymiopeli.pelihahmot.vastukset.Kissa;
+import iilumme.hymiopeli.pelihahmot.vastukset.Surullinen;
+import iilumme.hymiopeli.ui.PaneelienKasittelija;
 import iilumme.hymiopeli.ui.Piirtoalusta;
+import iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 public class HymioPeliTest {
 
@@ -99,21 +106,21 @@ public class HymioPeliTest {
     public void surullisia38Alussa() {
         hymiopeli.setHahmovalinta(1);
         hymiopeli.lisaaHahmot();
-        assertEquals(38, hymiopeli.getVastustenMaara());
+        assertEquals(38, hymiopeli.getVastustenmaara());
     }
 
     @Test
     public void kissoja38Alussa() {
         hymiopeli.setHahmovalinta(2);
         hymiopeli.lisaaHahmot();
-        assertEquals(38, hymiopeli.getVastustenMaara());
+        assertEquals(38, hymiopeli.getVastustenmaara());
     }
 
     @Test
     public void killianeja38Alussa() {
         hymiopeli.setHahmovalinta(3);
         hymiopeli.lisaaHahmot();
-        assertEquals(38, hymiopeli.getVastustenMaara());
+        assertEquals(38, hymiopeli.getVastustenmaara());
     }
 
     @Test
@@ -327,20 +334,20 @@ public class HymioPeliTest {
 
         hymiopeli.setHahmovalinta(1);
         hymiopeli.lisaaHahmot();
-        assertEquals(38, hymiopeli.getPiirrettavienVastustenmaara());
+        assertEquals(38, hymiopeli.getVastustenmaara());
     }
     
     @Test
     public void getPiirrettavienVastustenMaara2() {
 
         hymiopeli.lisaaHahmot();
-        assertEquals(38, hymiopeli.getPiirrettavienVastustenmaara());
+        assertEquals(38, hymiopeli.getVastustenmaara());
     }
     
     @Test
     public void getPiirrettavienVastustenMaara3() {
 
-        assertEquals(0, hymiopeli.getPiirrettavienVastustenmaara());
+        assertEquals(0, hymiopeli.getVastustenmaara());
     }
     
     @Test

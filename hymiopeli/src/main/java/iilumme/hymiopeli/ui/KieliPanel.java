@@ -1,6 +1,6 @@
 /**
- * Luokka, joka luo "paneelin", jossa on kolme JButtonia. Buttonit edustavat
- * valittavia kieliä.
+ * Luokka, joka luo paneelin, jossa on kolme nappia. Napit edustavat valittavia
+ * kieliä.
  */
 package iilumme.hymiopeli.ui;
 
@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class KieliPanel extends JPanel {
 
-    private PaneelienKasittelija pK;
+    private final PaneelienKasittelija pK;
 
     public KieliPanel(PaneelienKasittelija p) {
         super(new GridLayout(1, 3));
@@ -38,9 +38,8 @@ public class KieliPanel extends JPanel {
     }
 
     /**
-     * Asetaan paneeli näkymättömäksi sekä toimimattomaksi.
+     * Asettaa paneelin näkymättömäksi sekä toimimattomaksi.
      */
-
     public void asetaPois() {
         setEnabled(false);
         setVisible(false);

@@ -1,5 +1,5 @@
 /**
- * Kuuntelija HahmoPanelin buttoneille.
+ * Kuuntelija HahmoPanelin napeille.
  */
 package iilumme.hymiopeli.ui.listeners;
 
@@ -10,8 +10,8 @@ import javax.swing.JButton;
 
 public class HahmoNapinKuuntelija implements ActionListener {
 
-    private JButton nappi;
-    private PaneelienKasittelija pK;
+    private final JButton nappi;
+    private final PaneelienKasittelija pK;
 
     public HahmoNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
         this.nappi = nappi;
@@ -19,16 +19,15 @@ public class HahmoNapinKuuntelija implements ActionListener {
     }
 
     /**
-     * Käyttäjän valitseman hahmojen perusteella luodatetaan HymioPelilla
-     * hahmot. Asetetaan myös ValikkoPanel ja HahmoPanel toimimattomiksi, ja
-     * kerrotaan käyttöliittymälle, että voidaan aloittaa.
+     * Käyttäjän valitseman hahmon perusteella luodatetaan HymioPelilla hahmot.
+     * Asetetaan myös ValikkoPanel ja HahmoPanel toimimattomiksi, ja kerrotaan
+     * käyttöliittymälle, että voidaan aloittaa.
      *
      * @param e
      */
-    //tätä pitää miettiä vielä :]
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         switch (nappi.getName()) {
             case "hy":
                 pK.getHymiopeli().setHahmovalinta(1);

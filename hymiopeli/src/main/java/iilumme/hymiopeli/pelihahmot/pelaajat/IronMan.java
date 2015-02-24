@@ -1,10 +1,9 @@
 /**
- * Yksi hahmoista, jolla voi pelata.
+ * Pelaaja Hahmo, jonka kuvana on Iron Man.
  */
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -23,25 +22,18 @@ public class IronMan extends Pelaaja {
         return image;
     }
 
-    /**
-     * Haetaan hahmolle kuva.
-     *
-     * @param g
-     */
     @Override
     public void piirra(Graphics g) {
-
         g.drawImage(image, x, y, null);
-
     }
 
-    /**
-     * Palauttaa Iron Manin rajat.
-     *
-     * @return Rectangle
-     */
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 45, 48);
+    }
+
+    @Override
+    public void muutaVari() {
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/iivari.png")).getImage();
     }
 }

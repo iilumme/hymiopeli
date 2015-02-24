@@ -1,5 +1,5 @@
 /**
- * Kuuntelija näppäimistölle buttoneille.
+ * Kuuntelija näppäimistölle.
  */
 package iilumme.hymiopeli.ui.listeners;
 
@@ -10,22 +10,30 @@ import java.awt.event.KeyListener;
 
 public class NappaimistonKuuntelija implements KeyListener {
 
-    private HymioPeli h;
-    private Piirtoalusta p;
+    private final HymioPeli h;
+    private final Piirtoalusta p;
     private boolean up;
     private boolean down;
     private boolean left;
     private boolean right;
+    private int kerroin;
+    private boolean kerroinMuutettu;
 
     public NappaimistonKuuntelija(HymioPeli h, Piirtoalusta p) {
         this.h = h;
         this.p = p;
+        this.kerroin = 1;
+        this.kerroinMuutettu = true;
+    }
+
+    public void setKerroinMuutettu(boolean kM) {
+        this.kerroinMuutettu = kM;
     }
 
     /**
-     * Käyttäjän tekemien painallusten perusteella muutetaan booleaneja.
+     * Muuttaa suunta-booleaneja trueksi.
      *
-     * @param e
+     * @param e näppäintapahtuma
      */
     @Override
     public void keyPressed(KeyEvent e) {
@@ -45,9 +53,9 @@ public class NappaimistonKuuntelija implements KeyListener {
     }
 
     /**
-     * Käyttäjän tekemien painallusten perusteella muutetaan booleaneja.
+     * Muutetaan suunta-booleaneja falseksi.
      *
-     * @param e
+     * @param e näppäintapahtuma
      */
     @Override
     public void keyReleased(KeyEvent e) {
@@ -67,9 +75,8 @@ public class NappaimistonKuuntelija implements KeyListener {
     }
 
     /**
-     * Asetetaan booleanit false.
+     * Asetetaan suunta-booleanit false.
      */
-
     public void asetaFalse() {
         up = false;
         down = false;
@@ -81,13 +88,13 @@ public class NappaimistonKuuntelija implements KeyListener {
      * Päivitetään Pelaajan sijaintia.
      */
     public void paivita() {
-
-        int kerroin = h.getTaso() / 2;
-
-        if (kerroin == 0) {
-            kerroin = 1;
+        
+        if (h.getTaso() % 5 == 0 && !kerroinMuutettu) {
+            kerroinMuutettu = true;
+            kerroin++;
+            
         }
-
+        
         if (up) {
             h.getPelaaja().siirra(0, -10 * kerroin);
         }
@@ -104,7 +111,7 @@ public class NappaimistonKuuntelija implements KeyListener {
         p.paivita();
     }
 
-    //turhat
+    //turha
     @Override
     public void keyTyped(KeyEvent e) {
     }

@@ -1,5 +1,5 @@
 /**
- * Apuluokka, jonka avulla voidaan hakea oikean kielinen teksti.
+ * Apuluokka, jonka avulla haetaan oikean kielinen teksti.
  */
 package iilumme.hymiopeli.util;
 
@@ -14,19 +14,20 @@ public class KieliUtil {
     private static ResourceBundle activeBundle = bundleFi;
 
     /**
-     * Haetaan teksti.
-     * @param teksti avain tekstille, joka halutaan.
-     * @return haluttu teksti.
+     * Hakee tekstin.
+     *
+     * @param teksti avain tekstille, joka halutaan
+     * @return haluttu teksti
      */
     public static String getString(String teksti) {
         return activeBundle.getString(teksti);
     }
-    
-    /**
-     * Asetetaan kieli.
-     * @param kieli Käyttäjän valitsema kieli.
-     */
 
+    /**
+     * Asettaa kielen.
+     *
+     * @param kieli käyttäjän valitsema kieli.
+     */
     public static void setLanguage(String kieli) {
 
         switch (kieli) {

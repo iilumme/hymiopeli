@@ -1,7 +1,7 @@
 /**
- * Yksi hahmoista, jota yritetään muuttaa (tässä tapauksessa Hymiöksi).
+ * Vastushahmo, jota yritetään muuttaa (tässä tapauksessa Hymiöksi).
  */
-package iilumme.hymiopeli.pelihahmot.vastustajat;
+package iilumme.hymiopeli.pelihahmot.vastukset;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
 import java.awt.Color;
@@ -14,11 +14,6 @@ public class Surullinen extends Vastus {
         super(x, y);
     }
 
-    /**
-     * Piirretään surullinen hymio.
-     *
-     * @param g
-     */
     @Override
     public void piirra(Graphics g) {
 
@@ -42,11 +37,6 @@ public class Surullinen extends Vastus {
         g.drawArc(x, y + 20, 30, 30, 0, 180);
         g.setColor(Color.LIGHT_GRAY);
     }
-    
-    /**
-     * Palauttaa surullisen rajat.
-     * @return Rectangle
-     */
 
     @Override
     public Rectangle getRajat() {

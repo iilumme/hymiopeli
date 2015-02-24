@@ -46,11 +46,8 @@ public class Kayttoliittyma implements Runnable {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        try {
-            luoKomponentit(frame.getContentPane());
-        } catch (IOException e) {
-            System.out.println("No voi voi, ei nyt onnistunut tänään :)" + e.getMessage());
-        }
+        luoKomponentit(frame.getContentPane());
+
         setPiirtoalusta();
         setKeyListener();
 
@@ -58,7 +55,7 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
-    private void luoKomponentit(Container c) throws IOException {
+    private void luoKomponentit(Container c) {
 
         //Layout
         BorderLayout cLayout = new BorderLayout();
@@ -74,7 +71,12 @@ public class Kayttoliittyma implements Runnable {
         iso.setBackground(new Color(249, 108, 57));
 
         //Paneelit
-        pK = new PaneelienKasittelija(hymiopeli, this);
+        try {
+            pK = new PaneelienKasittelija(hymiopeli, this);
+        } catch (IOException e) {
+            System.out.println("Tiedostoja ei löytynyt. Konsultoi iilumme@cs.helsinki.fi ;)");
+            System.exit(0);
+        }
         hymiopeli.setPaneelienKasittelija(pK);
 
         //Add 

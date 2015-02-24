@@ -1,6 +1,6 @@
 /**
- * Luokka, joka luo "paneelin", jossa on kolme JButtonia. Buttonit ovat
- * valittavia hahmoja.
+ * Luokka, joka luo paneelin, jossa on kolme nappia. Napit ovat valittavia
+ * hahmoja.
  */
 package iilumme.hymiopeli.ui;
 
@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class HahmoPanel extends JPanel {
 
-    private PaneelienKasittelija pK;
+    private final PaneelienKasittelija pK;
 
     public HahmoPanel(PaneelienKasittelija p) {
         super(new GridLayout(1, 3));
@@ -32,32 +32,29 @@ public class HahmoPanel extends JPanel {
         hymio.addActionListener(new HahmoNapinKuuntelija(hymio, pK));
         tikru.addActionListener(new HahmoNapinKuuntelija(tikru, pK));
         ironman.addActionListener(new HahmoNapinKuuntelija(ironman, pK));
-        
+
         hymio.setName("hy");
         tikru.setName("ti");
         ironman.setName("ir");
-        
+
         add(hymio);
         add(tikru);
         add(ironman);
     }
 
     /**
-     * Asetaan paneeli näkyväksi sekä toiminnalliseksi.
+     * Asettaa paneelin näkyväksi sekä toiminnalliseksi.
      */
-
     public void asetaNakyviin() {
         setEnabled(true);
         setVisible(true);
     }
 
     /**
-     * Asetaan paneeli näkymättömäksi sekä toimimattomaksi.
+     * Asettaa paneelin näkymättömäksi sekä toimimattomaksi.
      */
-
     public void asetaPois() {
         setEnabled(false);
         setVisible(false);
     }
-
 }

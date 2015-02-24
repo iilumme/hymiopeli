@@ -1,5 +1,6 @@
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
+import iilumme.hymiopeli.pelihahmot.vastukset.Kissa;
 import java.awt.Rectangle;
 import org.junit.Before;
 import org.junit.Test;

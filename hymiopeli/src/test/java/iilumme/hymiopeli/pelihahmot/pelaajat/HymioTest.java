@@ -1,6 +1,6 @@
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
-import iilumme.hymiopeli.pelihahmot.vastustajat.Surullinen;
+import iilumme.hymiopeli.pelihahmot.vastukset.Surullinen;
 import java.awt.Rectangle;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,5 +1,6 @@
 package iilumme.hymiopeli.pelihahmot.vastustajat;
 
+import iilumme.hymiopeli.pelihahmot.vastukset.Killian;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

@@ -1,5 +1,5 @@
 /**
- * Kuuntelija KieliPanelin buttoneille.
+ * Kuuntelija KieliPanelin napeillw.
  */
 package iilumme.hymiopeli.ui.listeners;
 
@@ -11,8 +11,8 @@ import javax.swing.JButton;
 
 public class KieliNapinKuuntelija implements ActionListener {
 
-    private JButton nappi;
-    private PaneelienKasittelija pK;
+    private final JButton nappi;
+    private final PaneelienKasittelija pK;
 
     public KieliNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
         this.nappi = nappi;

@@ -1,6 +1,6 @@
 /**
- * Luokka, joka luo "paneelin", jossa on kolme JButtonia. Buttonit edustavat eri
- * valikko buttoneita.
+ * Luokka, joka luo paneelin, jossa on kolme nappia. Napit edustavat eri
+ * valikkovalintoja.
  */
 package iilumme.hymiopeli.ui;
 
@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 public class ValikkoPanel extends JPanel {
     
-    private PaneelienKasittelija pK;
+    private final PaneelienKasittelija pK;
     
     private JButton uusiPeli;
     private JButton highscore;
@@ -45,7 +45,7 @@ public class ValikkoPanel extends JPanel {
     }
 
     /**
-     * Päivitään buttoneille oikean kieliset tekstit.
+     * Päivittää napeille oikean kieliset tekstit.
      */
     public void paivita() {
         uusiPeli.setText(KieliUtil.getString("uusipeli"));       
@@ -55,7 +55,7 @@ public class ValikkoPanel extends JPanel {
     }
 
     /**
-     * Asetaan paneeli näkyväksi sekä toiminnalliseksi.
+     * Asettaa paneelin näkyväksi sekä toiminnalliseksi.
      */
     public void asetaNakyviin() {
         setEnabled(true);
@@ -63,7 +63,7 @@ public class ValikkoPanel extends JPanel {
     }
 
     /**
-     * Asetaan paneeli näkymättömäksi sekä toimimattomaksi.
+     * Asettaa paneelin näkymättömäksi sekä toimimattomaksi.
      */
     public void asetaPois() {
         setEnabled(false);

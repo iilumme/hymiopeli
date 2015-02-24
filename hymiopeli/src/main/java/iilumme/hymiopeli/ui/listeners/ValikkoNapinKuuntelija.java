@@ -1,5 +1,5 @@
 /**
- * Kuuntelija ValikkoPanelin buttoneille.
+ * Kuuntelija ValikkoPanelin napeille.
  */
 package iilumme.hymiopeli.ui.listeners;
 
@@ -14,17 +14,17 @@ import javax.swing.JOptionPane;
 
 public class ValikkoNapinKuuntelija implements ActionListener {
 
-    private JButton nappi;
-    private PaneelienKasittelija pK;
+    private final JButton nappi;
+    private final PaneelienKasittelija pK;
 
     public ValikkoNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
         this.nappi = nappi;
-        this.pK = p;        
+        this.pK = p;
     }
 
     /**
      * Käyttäjän tekemän valinnan perusteella käynnistetään joko uusi peli,
-     * näytetään highscore sivu tai poistutaan.
+     * näytetään Highscore-sivu tai poistutaan pelistä.
      *
      * @param ae
      */
@@ -38,7 +38,9 @@ public class ValikkoNapinKuuntelija implements ActionListener {
         } else if (teksti.equals(KieliUtil.getString("highscore"))) {
 
             JOptionPane.showMessageDialog(pK.getLiittyma().getFrame(),
-                    getScoret(), KieliUtil.getString("highscorenaytto"), JOptionPane.PLAIN_MESSAGE, new ImageIcon(ClassLoader.getSystemResource("Images/caticon.png")));
+                    getScoret(), KieliUtil.getString("highscorenaytto"),
+                    JOptionPane.PLAIN_MESSAGE,
+                    new ImageIcon(ClassLoader.getSystemResource("Images/caticon.png")));
 
         } else if (teksti.equals(KieliUtil.getString("poistu"))) {
             System.exit(0);
@@ -55,7 +57,8 @@ public class ValikkoNapinKuuntelija implements ActionListener {
             }
         } else {
             for (int i = 0; i < 10; i++) {
-                palautus += i + 1 + ". " + pK.getHst().getHighscoret().get(i).getNimi() + " " + pK.getHst().getHighscoret().get(i).getPisteet() + "\n";
+                palautus += i + 1 + ". " + pK.getHst().getHighscoret().get(i).getNimi()
+                        + " " + pK.getHst().getHighscoret().get(i).getPisteet() + "\n";
             }
         }
         return palautus;

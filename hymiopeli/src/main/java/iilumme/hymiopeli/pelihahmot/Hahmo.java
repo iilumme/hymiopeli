@@ -1,8 +1,7 @@
 /**
- * Abstrakti luokka Hahmo määrittää kaikille Hahmo-luokan periville yhteiset metodit:
- * X- ja Y-koordinaatit, siirtymisen ja piirron.
+ * Abstrakti luokka Hahmo määrittää kaikille Hahmo-luokan periville yhteiset
+ * metodit.
  */
-
 package iilumme.hymiopeli.pelihahmot;
 
 import java.awt.Graphics;
@@ -27,15 +26,21 @@ public abstract class Hahmo {
     }
 
     public void setXY(int x, int y) {
-        this.x = x;
-        this.y = y;
+        if (x > -1) {
+            this.x = x;
+        }
+
+        if (y > -1) {
+            this.y = y;
+        }
+
     }
 
     /**
-     * Metodi siirtää oliota.
-     * 
-     * @param dx liike x-akselilla. "Käyttäjän antama syöte"
-     * @param dy liike y-akselilla. "Käyttäjän antama syöte"
+     * Siirtää Hahmo-oliota.
+     *
+     * @param dx liike x-akselilla
+     * @param dy liike y-akselilla
      */
     public void siirra(int dx, int dy) {
         x += dx;
@@ -43,12 +48,17 @@ public abstract class Hahmo {
     }
 
     /**
-     * Abstrakti metodi, jonka jokaisen luokan on itse määriteltävä.
-     * 
+     * Piirtää Hahmo-olion.
+     *
+     * @param g Graphics
      */
-    
     public abstract void piirra(Graphics g);
-    
+
+    /**
+     * Palauttaa Hahmo-olion rajat.
+     *
+     * @return Rectangle
+     */
     public abstract Rectangle getRajat();
 
 }

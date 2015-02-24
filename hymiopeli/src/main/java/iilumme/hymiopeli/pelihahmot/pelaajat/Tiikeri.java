@@ -1,10 +1,9 @@
 /**
- * Yksi hahmoista, jolla voi pelata.
+ * Pelaajahahmo, jonka kuvana on tiikeri.
  */
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -16,32 +15,23 @@ public class Tiikeri extends Pelaaja {
 
     public Tiikeri() {
         super();
-
         image = new ImageIcon(ClassLoader.getSystemResource("Images/tt.png")).getImage();
-
     }
 
     public Image getImage() {
         return image;
     }
 
-    /**
-     * Haetaan hahmolle kuva.
-     *
-     * @param g
-     */
     @Override
     public void piirra(Graphics g) {
-
         g.drawImage(image, x, y, null);
-
+    }
+    
+    @Override
+    public void muutaVari(){
+        image = new ImageIcon(ClassLoader.getSystemResource("Images/ttvari.png")).getImage();
     }
 
-    /**
-     * Palauttaa tiikerin rajat.
-     *
-     * @return Rectangle
-     */
     @Override
     public Rectangle getRajat() {
         return new Rectangle(getX(), getY(), 45, 48);

@@ -1,9 +1,12 @@
 IinaTheBest,940
+SapeZ,585
 Fazi,390
 Iskä,210
 Fazu,95
 Fasu,15
 FasuAgain,15
 Sampo,15
-i,480
-SapeZ,585
+äippä,65
+Fazu,805
+ii,190
+Pelaaja,0
