@@ -49,3 +49,7 @@
 **23.2.15**
 
 - *3h* Diagonal movement toimimaan ja käyttöön, nopeus, HymioPelin actionPerformed siistimmäksi, kuvallisiin hahmoihin pyöreät kulmat, muutetut hahmot katoavat (viimesin näkyvissä)
+
+**24.2.15**
+
+- *4h* Muutetut hahmot ovat värimaailmaltaan erilaisia verrattuna pelaajaan, refaktorointia, javadocs, käyttöohje, pelihahmon siirtymirajojen muuttaminen, vastuksia ilmestyy suuremmilla välimatkoilla, lopeta-napin hahmottelua
