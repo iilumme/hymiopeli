@@ -190,7 +190,7 @@ public class HymioPeliTest {
 
     @Test
     public void getDelayHakeeoikeanArvon() {
-        assertEquals(1000, hymiopeli.getDelay());
+        assertEquals(200, hymiopeli.getDelay());
     }
 
     @Test
