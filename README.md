@@ -1,2 +1,4 @@
 # hymiopeli
-*Smile!*
+*Javalabra-projekti*
+
+Höpsö peli, jossa muutetaan hahmoja.
