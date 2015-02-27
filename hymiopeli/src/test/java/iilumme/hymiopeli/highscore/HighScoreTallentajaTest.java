@@ -1,5 +1,6 @@
 package iilumme.hymiopeli.highscore;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -13,24 +14,11 @@ public class HighScoreTallentajaTest {
 
     private HighScoreTallentaja tallentaja;
 
-    public HighScoreTallentajaTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
-    public void setUp() {
-        try {
-            tallentaja = new HighScoreTallentaja();
-        } catch (Exception ex) {
-            Logger.getLogger(HighScoreTallentajaTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void setUp() throws IOException {
+        tallentaja = new HighScoreTallentaja();
+
+        tallentaja.lisaaHighscore("iina", 1940);
     }
 
     @After
@@ -40,14 +28,14 @@ public class HighScoreTallentajaTest {
     @Test
     public void highscorenLisaysPisteetOikein() {
 
-        assertEquals(tallentaja.getEka().getPisteet(), 940);
+        assertEquals(tallentaja.getEka().getPisteet(), 1940);
 
     }
 
     @Test
     public void highscorenLisaysNimiOikein() {
 
-        assertEquals(tallentaja.getEka().getNimi(), "IinaTheBest");
+        assertEquals(tallentaja.getEka().getNimi(), "iina");
 
     }
 
@@ -61,7 +49,7 @@ public class HighScoreTallentajaTest {
     @Test
     public void getEkaToimii2() {
 
-        assertEquals("IinaTheBest,940", tallentaja.getEka().toString());
+        assertEquals("iina,1940", tallentaja.getEka().toString());
 
     }
 
@@ -70,7 +58,7 @@ public class HighScoreTallentajaTest {
 
         tallentaja.lisaaHighscore("iina", 1995);
         tallentaja.lisaaHighscore("isi", 1963);
-        assertEquals(tallentaja.getEka().getNimi(), "IinaTheBest");
+        assertEquals(tallentaja.getEka().getNimi(), "iina");
 
     }
 
@@ -79,7 +67,7 @@ public class HighScoreTallentajaTest {
 
         tallentaja.lisaaHighscore("iina", 1995);
         tallentaja.lisaaHighscore("isi", 1963);
-        assertEquals(tallentaja.getEka().getPisteet(), 940);
+        assertEquals(tallentaja.getEka().getPisteet(), 1995);
 
     }
 
@@ -87,7 +75,7 @@ public class HighScoreTallentajaTest {
     public void paivitaListaToimii() {
 
         tallentaja.paivitaLista();
-        assertEquals(tallentaja.getEka().getPisteet(), 940);
+        assertEquals(tallentaja.getEka().getPisteet(), 1995);
 
     }
 

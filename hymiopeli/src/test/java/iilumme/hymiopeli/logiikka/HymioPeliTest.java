@@ -463,12 +463,9 @@ public class HymioPeliTest {
     }
 
     @Test
-    public void setApuriToimii2() {
-        try {
-            hymiopeli.setApuri(new Apuri(hymiopeli, null));
-        } catch (IOException ex) {
+    public void setApuriToimii2() throws IOException {
+        hymiopeli.setApuri(new Apuri(hymiopeli, null));
 
-        }
         assertEquals(true, hymiopeli.onkoApuriAsennettu());
     }
 
@@ -487,23 +484,5 @@ public class HymioPeliTest {
 
         assertEquals(0, hymiopeli.getPisteet());
         assertEquals(1, hymiopeli.getTaso());
-    }
-
-    @Test
-    public void tasoMuuttuuToimii() {
-
-        hymiopeli.setHahmovalinta(1);
-        hymiopeli.lisaaHahmot();
-        hymiopeli.start();
-        hymiopeli.setTasoMuuttui(true);
-        hymiopeli.setJatkuukoPeli(false);
-
-        assertEquals(0, hymiopeli.getMuutetut());
-        assertEquals(false, hymiopeli.getHahmot().isEmpty());
-        assertEquals(1, hymiopeli.getTaso());
-        assertEquals(38, hymiopeli.getVastustenmaara());
-        assertEquals(1, hymiopeli.getHahmovalinta());
-        assertEquals(0, hymiopeli.getJaljella());
-        assertEquals(false, hymiopeli.getMaaraSaavutettu());
     }
 }
