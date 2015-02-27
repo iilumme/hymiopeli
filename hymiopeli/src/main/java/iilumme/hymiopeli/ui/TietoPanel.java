@@ -1,6 +1,3 @@
-/**
- * Luokka, joka luo paneelin, jossa on neljä tietoa.
- */
 package iilumme.hymiopeli.ui;
 
 import iilumme.hymiopeli.ui.listeners.PoistuNapinKuuntelija;
@@ -11,21 +8,26 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Luokka, joka luo paneelin, jossa on neljä tietoa ja poistumisnappi.
+ */
 public class TietoPanel extends JPanel {
 
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
+
     private JLabel taso;
     private JLabel pelihahmot;
     private JLabel jaljella;
     private JLabel pisteet;
-    //private JButton poistu;
 
-    public TietoPanel(PaneelienKasittelija pK) {
-        super(new GridLayout(1, 4));
-        this.pK = pK;
+    private JButton poistu;
+
+    public TietoPanel(Apuri a) {
+        super(new GridLayout(1, 5));
+        this.apuri = a;
         luoKomponentit();
         super.setBackground(new Color(204, 204, 204));
-        asetaPois();
+        setVisible(false);
     }
 
     private void luoKomponentit() {
@@ -34,43 +36,75 @@ public class TietoPanel extends JPanel {
         pelihahmot = new JLabel(" ");
         jaljella = new JLabel(" ");
         pisteet = new JLabel(" ");
-        //poistu = new JButton("Lopeta");
+        poistu = new JButton();
+        poistu.addActionListener(new PoistuNapinKuuntelija(poistu, apuri));
 
         add(pelihahmot);
         add(jaljella);
         add(taso);
         add(pisteet);
-        //add(poistu);
-        
-        //poistu.addActionListener(new PoistuNapinKuuntelija(poistu, pK));
+        add(poistu);
+
     }
 
     /**
-     * Asettaa paneelin näkyväksi sekä toiminnalliseksi.
+     * Asettaa paneelin näkyväksi sekä poistu-JButtonin toiminnalliseksi.
      */
     public void asetaNakyviin() {
         setVisible(true);
-//        poistu.setVisible(true);
-//        poistu.setEnabled(true);
+        poistu.setEnabled(true);
     }
 
     /**
-     * Asettaa paneelin näkymättömäksi sekä toimimattomaksi.
+     * Asettaa paneelin näkymättömäksi sekä poistu-JButtonin toimimattomaksi.
      */
     public void asetaPois() {
         setVisible(false);
+        poistu.setEnabled(false);
     }
 
     /**
-     * Päivittaa paneelia, hakee tekstit ja luvut.
+     * Päivittää paneelia, hakee tekstit ja luvut.
+     *
+     * @see iilumme.hymiopeli.ui.Apuri#getHymiopeli()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#getHahmovalinta()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#getHyvistenMaara()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#getJaljella()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#getTaso()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#getPisteet()
+     * @see iilumme.hymiopeli.util.KieliUtil#getString(java.lang.String)
      */
     public void paivita() {
 
-        String tasoTeksti = KieliUtil.getString("taso") + ": " + pK.getHymiopeli().getTaso();
+        String hahmoTeksti = getHahmoteksti();
+        pelihahmot.setText(hahmoTeksti);
+
+        String jalj = getJaljellaTeksti();
+        jaljella.setText(jalj);
+
+        String tasoTeksti = KieliUtil.getString("taso") + ": " + apuri.getHymiopeli().getTaso();
         taso.setText(tasoTeksti);
 
+        String piste = "" + apuri.getHymiopeli().getPisteet();
+        pisteet.setText(piste);
+
+        String kasky = KieliUtil.getString("lopeta");
+        poistu.setText(kasky);
+    }
+
+    private String getJaljellaTeksti() {
+        String jalj;
+        if (apuri.getHymiopeli().getJaljella() < 0) {
+            jalj = "EXTRA";
+        } else {
+            jalj = "" + apuri.getHymiopeli().getJaljella();
+        }
+        return jalj;
+    }
+
+    private String getHahmoteksti() {
         String hahmoTeksti = new String();
-        switch (pK.getHymiopeli().getHahmovalinta()) {
+        switch (apuri.getHymiopeli().getHahmovalinta()) {
             case 1:
                 hahmoTeksti = KieliUtil.getString("hymis");
                 break;
@@ -81,17 +115,7 @@ public class TietoPanel extends JPanel {
                 hahmoTeksti = KieliUtil.getString("ironm");
                 break;
         }
-
-        hahmoTeksti += ": " + pK.getHymiopeli().getHyvistenMaara();
-        pelihahmot.setText(hahmoTeksti);
-
-        String jalj = "" + pK.getHymiopeli().getJaljella();
-        jaljella.setText(jalj);
-
-        String piste = "" + pK.getHymiopeli().getPisteet();
-        pisteet.setText(piste);
-        
-        //poistu.setVisible(true);
-        
+        hahmoTeksti += ": " + apuri.getHymiopeli().getMuutetut();
+        return hahmoTeksti;
     }
 }

@@ -1,9 +1,8 @@
-/**
- * Abstrakti luokka Vastus auttaa jakamaan hahmot kahteen eri ryhmään (Pelaaja-luokan kanssa).
- */
-
 package iilumme.hymiopeli.pelihahmot;
 
+/**
+ * Erottaa Vastukset Pelaajista.
+ */
 public abstract class Vastus extends Hahmo {
 
     public Vastus(int x, int y) {

@@ -1,12 +1,12 @@
-/**
- * Abstrakti luokka Hahmo määrittää kaikille Hahmo-luokan periville yhteiset
- * metodit.
- */
 package iilumme.hymiopeli.pelihahmot;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+/**
+ * Abstrakti luokka Hahmo määrittää kaikille Hahmo-luokan periville yhteiset
+ * metodit.
+ */
 public abstract class Hahmo {
 
     protected int x;
@@ -33,7 +33,6 @@ public abstract class Hahmo {
         if (y > -1) {
             this.y = y;
         }
-
     }
 
     /**

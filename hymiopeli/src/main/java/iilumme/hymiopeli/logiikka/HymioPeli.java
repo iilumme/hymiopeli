@@ -1,7 +1,3 @@
-/**
- * HymioPeli on Hymiöpelin aivot. Luokka luo hahmot, antaa ne käytettäväksi,
- * liikuttaa niitä, vaihtaa niiden muotoa ja huolehtii pisteidenlaskusta.
- */
 package iilumme.hymiopeli.logiikka;
 
 import iilumme.hymiopeli.pelihahmot.vastukset.Surullinen;
@@ -13,22 +9,16 @@ import iilumme.hymiopeli.pelihahmot.Vastus;
 import iilumme.hymiopeli.pelihahmot.pelaajat.*;
 import iilumme.hymiopeli.ui.*;
 import iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija;
-import iilumme.hymiopeli.util.KieliUtil;
-import java.awt.GridLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.AbstractAction;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.Timer;
 
+/**
+ * HymioPeli on Hymiöpelin aivot. Luokka mm. luo hahmot, antaa ne käytettäväksi,
+ * liikuttaa niitä, vaihtaa niiden muotoa ja huolehtii pisteidenlaskusta.
+ */
 public class HymioPeli extends Timer implements ActionListener {
 
     private final int leveys;
@@ -45,15 +35,16 @@ public class HymioPeli extends Timer implements ActionListener {
 
     private boolean jatkuukoPeli;
     private boolean tasoMuuttui;
+    private boolean maaraSaavutettu;
 
     private Pelaaja pelaaja;
-    private PaneelienKasittelija pK;
-    private NappaimistonKuuntelija nK;
+    private Apuri apuri;
+    private NappaimistonKuuntelija nappaimistonKuuntelija;
 
     private final ArrayList<Hahmo> hahmot;
-    private final ArrayList<Hahmo> muutetutHahmot;
+    private final ArrayList<Pelaaja> muutetutHahmot;
 
-    private Piirtoalusta p;
+    private Piirtoalusta piirtoalusta;
 
     public HymioPeli(int leveys, int korkeus) {
         super(200, null);
@@ -68,6 +59,7 @@ public class HymioPeli extends Timer implements ActionListener {
 
         this.jatkuukoPeli = true;
         this.tasoMuuttui = false;
+        this.maaraSaavutettu = false;
 
         this.pelaaja = new Hymio();
         this.hahmot = new ArrayList<>();
@@ -77,15 +69,7 @@ public class HymioPeli extends Timer implements ActionListener {
         setInitialDelay(200);
     }
 
-    //Get Set
-    public int getLeveys() {
-        return leveys;
-    }
-
-    public int getKorkeus() {
-        return korkeus;
-    }
-
+    //Hahmovalinta
     public int getHahmovalinta() {
         return hahmovalinta;
     }
@@ -94,6 +78,7 @@ public class HymioPeli extends Timer implements ActionListener {
         this.hahmovalinta = hahmovalinta;
     }
 
+    //Taso
     public int getTaso() {
         return taso;
     }
@@ -101,11 +86,10 @@ public class HymioPeli extends Timer implements ActionListener {
     public void setTaso(int taso) {
         if (taso >= 0) {
             this.taso = taso;
-        } else {
-            this.taso = 0;
         }
     }
 
+    //Pisteet
     public int getPisteet() {
         return pisteet;
     }
@@ -113,11 +97,10 @@ public class HymioPeli extends Timer implements ActionListener {
     public void setPisteet(int pisteet) {
         if (pisteet >= 0) {
             this.pisteet = pisteet;
-        } else {
-            this.pisteet = 0;
         }
     }
 
+    //Muutetut
     public int getMuutetut() {
         return muutetut;
     }
@@ -125,35 +108,57 @@ public class HymioPeli extends Timer implements ActionListener {
     public void setMuutetut(int muutetut) {
         if (muutetut >= 0) {
             this.muutetut = muutetut;
-        } else {
-            this.muutetut = 0;
         }
+    }
+
+    //JatkuukoPeli
+    public boolean getJatkuukoPeli() {
+        return jatkuukoPeli;
     }
 
     public void setJatkuukoPeli(boolean jatkuukoPeli) {
         this.jatkuukoPeli = jatkuukoPeli;
     }
 
+    //TasoMuuttui
+//    public boolean getTasoMuuttui() {
+//        return tasoMuuttui;
+//    }
+    public void setTasoMuuttui(boolean tasoMuuttui) {
+        this.tasoMuuttui = tasoMuuttui;
+    }
+
+    //Vastustenmaara
     public int getVastustenmaara() {
         return vastustenmaara;
     }
 
+    //Muutettavana
     public int getMuutettavana() {
         return muutettavana;
     }
 
+    //Jaljella
     public int getJaljella() {
         return jaljella;
     }
 
+    //maaraSaavutettu
+    public boolean getMaaraSaavutettu() {
+        return maaraSaavutettu;
+    }
+
+    //Pelaaja
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
 
+    //Kaikki hahmot
     public ArrayList<Hahmo> getHahmot() {
         return this.hahmot;
     }
 
+    //Vain vastukset
     public ArrayList<Hahmo> getVastukset() {
         ArrayList<Hahmo> vastukset = new ArrayList<>();
 
@@ -166,26 +171,36 @@ public class HymioPeli extends Timer implements ActionListener {
         return vastukset;
     }
 
-    public ArrayList<Hahmo> getMuutetutHahmot() {
+    //Muutetut Hahmot
+    public ArrayList<Pelaaja> getMuutetutHahmot() {
         return this.muutetutHahmot;
     }
 
-    /**
-     * Laskee kuinka monta pelaaja-oliota pelissä on.
-     *
-     * @return pelaajien määrä
-     */
-    public int getHyvistenMaara() {
-        return this.muutetut;
+    //Piirtoalusta
+    public void setPiirtoalusta(Piirtoalusta a) {
+        this.piirtoalusta = a;
     }
 
-    /**
-     * Tarkistaa onko HymioPelille asetettu Piirtoalusta.
-     *
-     * @return true/false
-     */
     public boolean onkoPiirtoalustaAsennettu() {
-        return this.p != null;
+        return this.piirtoalusta != null;
+    }
+
+    //NappaimistonKuuntelija
+    public void setNappaimistonKuuntelija(NappaimistonKuuntelija n) {
+        this.nappaimistonKuuntelija = n;
+    }
+
+    public boolean onkoNappaimistonKuuntelijaAsennettu() {
+        return this.nappaimistonKuuntelija != null;
+    }
+
+    //Apuri
+    public void setApuri(Apuri a) {
+        this.apuri = a;
+    }
+
+    public boolean onkoApuriAsennettu() {
+        return this.apuri != null;
     }
 
     /**
@@ -193,18 +208,6 @@ public class HymioPeli extends Timer implements ActionListener {
      */
     public void kasvataTasoa() {
         this.taso++;
-    }
-
-    public void setPiirtoalusta(Piirtoalusta a) {
-        this.p = a;
-    }
-
-    public void setNappaimistonKuuntelija(NappaimistonKuuntelija n) {
-        this.nK = n;
-    }
-
-    public void setPaneelienKasittelija(PaneelienKasittelija p) {
-        this.pK = p;
     }
 
     /**
@@ -274,6 +277,23 @@ public class HymioPeli extends Timer implements ActionListener {
      * TietoPaneelin lukuja.
      *
      * @param e
+     * @see iilumme.hymiopeli.pelihahmot.Hahmo#siirra(int, int)
+     * @see iilumme.hymiopeli.pelihahmot.Hahmo#getRajat()
+     * @see iilumme.hymiopeli.pelihahmot.Hahmo#setXY(int, int)
+     * @see iilumme.hymiopeli.pelihahmot.Pelaaja#muutaVari()
+     * @see iilumme.hymiopeli.pelihahmot.Pelaaja#setMuutettu(boolean)
+     * @see iilumme.hymiopeli.ui.Piirtoalusta#paivita()
+     * @see iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija#paivita()
+     * @see iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija#setKerroinMuutettu(boolean)
+     * @see iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija#asetaFalse()
+     * @see iilumme.hymiopeli.ui.Apuri#getTietoPaneeli()
+     * @see iilumme.hymiopeli.ui.Apuri#getViestiapuri()
+     * @see iilumme.hymiopeli.ui.Apuri#getValikkoPaneeli()
+     * @see iilumme.hymiopeli.ui.TietoPanel#paivita()
+     * @see iilumme.hymiopeli.ui.TietoPanel#asetaPois()
+     * @see iilumme.hymiopeli.ui.ViestiApuri#tasonVaihtumisJOptionPane()
+     * @see iilumme.hymiopeli.ui.ViestiApuri#highScoreLisaysJOptionPane()
+     * @see iilumme.hymiopeli.ui.ValikkoPanel#asetaNakyviin()
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -295,31 +315,38 @@ public class HymioPeli extends Timer implements ActionListener {
             for (Hahmo hahmo : getVastukset()) {
                 hahmo.siirra(-5 * kerroin, 0);
 
-                pelaajaOsuu(hahmo);
-                jaljella = muutettavana - muutetut;
-                if (vaihtuukoTaso()) {
-                    break;
-                }
-                onkoVastuksetUlkona();
+                pelaajaVastaanVastusTarkistukset(hahmo);
             }
 
-            p.paivita();
-            nK.paivita();
-            pK.getTietoPaneeli().paivita();
+            for (Hahmo hahmo : this.muutetutHahmot) {
+                hahmo.siirra(-5 * kerroin, 0);
+            }
+
+            paivita();
             setDelay(200);
         }
     }
 
+    private void pelaajaVastaanVastusTarkistukset(Hahmo hahmo) {
+        pelaajaOsuu(hahmo);
+        jaljella = muutettavana - muutetut;
+        onkoMaaraSaavutettu();
+        vaihtuukoTasoVaiLoppuukoPeli();
+    }
+
     private void pelaajaOsuu(Hahmo hahmo) {
         if (getPelaaja().getRajat().intersects(hahmo.getRajat())) {
-            pisteet += 5;
+            if (maaraSaavutettu) {
+                pisteet += 4;
+            } else {
+                pisteet += 2;
+            }
             muutu(hahmo);
         }
     }
 
     /**
-     * Muuttaa parametrinä annetun hahmon "vastaavaksi" pelaajahahmoksi. Poistaa
-     * aikaisemmin muutettuja hahmoja.
+     * Muuttaa parametrinä annetun hahmon "vastaavaksi" pelaajahahmoksi.
      *
      * @param hahmo muutettava hahmo
      */
@@ -334,30 +361,37 @@ public class HymioPeli extends Timer implements ActionListener {
                 hymio.setXY(x, y);
                 this.muutetutHahmot.add(hymio);
                 hymio.muutaVari();
+                hymio.setMuutettu(true);
                 break;
             case 2:
                 Tiikeri tikru = new Tiikeri();
                 tikru.setXY(x, y);
                 this.muutetutHahmot.add(tikru);
                 tikru.muutaVari();
+                tikru.setMuutettu(true);
                 break;
             case 3:
                 IronMan iron = new IronMan();
                 iron.setXY(x, y);
                 this.muutetutHahmot.add(iron);
                 iron.muutaVari();
+                iron.setMuutettu(true);
                 break;
         }
-        
+
         this.muutetut++;
 
         this.hahmot.remove(hahmo);
-        if (muutetut > 1) {
-            muutetutHahmot.remove(0);
-        }
     }
 
-    private void onkoVastuksetUlkona() {
+    private void paivita() {
+        piirtoalusta.paivita();
+        nappaimistonKuuntelija.paivita();
+        apuri.getTietoPaneeli().paivita();
+    }
+
+    //Tasoihin liittyvät metodit
+    private boolean onkoVastuksetUlkona() {
         boolean vastuksetUlkona = true;
 
         for (Hahmo h : getVastukset()) {
@@ -366,101 +400,73 @@ public class HymioPeli extends Timer implements ActionListener {
                 break;
             }
         }
-
-        if (vastuksetUlkona) {
-            jatkuukoPeli = false;
-        }
+        return vastuksetUlkona;
     }
 
-    //Tasoihin liittyvät metodit
-    private boolean vaihtuukoTaso() {
+    private void onkoMaaraSaavutettu() {
         if (muutetut >= muutettavana) {
-            jatkuukoPeli = false;
-            tasoMuuttui = true;            
-            kasvataTasoa();
-            nK.setKerroinMuutettu(false);
-            return true;
+            maaraSaavutettu = true;
         }
-        return false;
     }
 
     private void tasoMuuttui() {
 
-        p.setVisible(false);
-        tasoMessage();
+        //Näkyvyys, taso ja stop
+        piirtoalusta.setVisible(false);
+        nappaimistonKuuntelija.setKerroinMuutettu(false);
+        nappaimistonKuuntelija.asetaFalse();
+        kasvataTasoa();
+        apuri.getViestiapuri().tasonVaihtumisJOptionPane();
         stop();
+
+        //Hahmo-kontrolli
         this.muutetutHahmot.clear();
         this.muutetut = 0;
         this.hahmot.clear();
         lisaaHahmot();
-        nK.asetaFalse();
+
+        //Booleans
         jatkuukoPeli = true;
         tasoMuuttui = false;
+        maaraSaavutettu = false;
+
+        //Näkyvyys ja start
+        piirtoalusta.setVisible(true);
         start();
-        p.setVisible(true);
 
     }
 
-    private void tasoMessage() {
-
-        JOptionPane optionPane = new JOptionPane(KieliUtil.getString("tasonvaihdos") + " " + taso, JOptionPane.PLAIN_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
-
-        final JDialog dialogi = new JDialog();
-        dialogi.setTitle(KieliUtil.getString("tasomuuttui"));
-        dialogi.setModal(true);
-        dialogi.setContentPane(optionPane);
-        dialogi.setLocation(170, 270);
-        dialogi.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-        dialogi.pack();
-
-        Timer aika = new Timer(2500, new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                dialogi.dispose();
-            }
-        });
-        aika.setRepeats(false);
-        aika.start();
-        dialogi.setVisible(true);
+    private void vaihtuukoTasoVaiLoppuukoPeli() {
+        if (maaraSaavutettu && onkoVastuksetUlkona()) {
+            jatkuukoPeli = false;
+            tasoMuuttui = true;
+        } else if (!maaraSaavutettu && onkoVastuksetUlkona()) {
+            jatkuukoPeli = false;
+            tasoMuuttui = false;
+        }
     }
 
-    //Pelin loppumiseen liittyvät metodit
-    private void peliLoppui() throws HeadlessException {
+    //Pelin loppumiseen liittyvä metodi
+    private void peliLoppui() {
+
+        //Näkyvyys, HighscoreKysely, Paneelit
         stop();
-        highscore();
-        p.setVisible(false);
-        pK.getValikkoPaneeli().asetaNakyviin();
+        apuri.getViestiapuri().highScoreLisaysJOptionPane();
+        piirtoalusta.setVisible(false);
+        nappaimistonKuuntelija.asetaFalse();
+        apuri.getTietoPaneeli().asetaPois();
+        apuri.getValikkoPaneeli().asetaNakyviin();
+
+        //Hahmo-, taso- ja pistekontrolli
         this.muutetutHahmot.clear();
         this.muutetut = 0;
         this.hahmot.clear();
         setTaso(1);
         setPisteet(0);
-        nK.asetaFalse();
+
+        //Booleans
         jatkuukoPeli = true;
-
-    }
-
-    private void highscore() throws HeadlessException {
-
-        String[] options = {"OK"};
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2, 0));
-        JLabel label = new JLabel(KieliUtil.getString("annanimi"));
-        JTextField name = new JTextField(10);
-        panel.add(label);
-        panel.add(name);
-
-        int valinta = JOptionPane.showOptionDialog(pK.getLiittyma().getFrame(), panel, KieliUtil.getString("highscorelistalle"), JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, new ImageIcon(ClassLoader.getSystemResource("Images/gameo.png")), options, options[0]);
-
-        if (valinta == 0) {
-            String nimi = name.getText();
-            if (nimi.length() == 0) {
-                pK.getHst().lisaaHighscore(KieliUtil.getString("pelaaja"), this.pisteet);
-            } else {
-                pK.getHst().lisaaHighscore(nimi, this.pisteet);
-            }
-            pK.getHst().paivitaLista();
-        }
+        maaraSaavutettu = false;
     }
 
 }

@@ -29,9 +29,6 @@ public class HahmoTest {
     @After
     public void tearDown() {
     }
-    
-    
-    //pelaaja hahmot eivät saa liikku rajojen ulkopuolelle
 
     @Test
     public void hahmoLiikkuuOikeinX_AkselillaPositiivisellaLuvulla() {

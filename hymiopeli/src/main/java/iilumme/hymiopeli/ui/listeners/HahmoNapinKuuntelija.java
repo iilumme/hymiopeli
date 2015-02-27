@@ -1,21 +1,21 @@
-/**
- * Kuuntelija HahmoPanelin napeille.
- */
 package iilumme.hymiopeli.ui.listeners;
 
-import iilumme.hymiopeli.ui.PaneelienKasittelija;
+import iilumme.hymiopeli.ui.Apuri;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
+/**
+ * Kuuntelija HahmoPanelin napeille.
+ */
 public class HahmoNapinKuuntelija implements ActionListener {
 
     private final JButton nappi;
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
 
-    public HahmoNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
+    public HahmoNapinKuuntelija(JButton nappi, Apuri a) {
         this.nappi = nappi;
-        this.pK = p;
+        this.apuri = a;
     }
 
     /**
@@ -24,28 +24,34 @@ public class HahmoNapinKuuntelija implements ActionListener {
      * käyttöliittymälle, että voidaan aloittaa.
      *
      * @param e
+     * @see iilumme.hymiopeli.ui.Apuri#getHymiopeli()
+     * @see iilumme.hymiopeli.ui.Apuri#getValikkoPaneeli()
+     * @see iilumme.hymiopeli.ui.Apuri#getHahmoPaneeli()
+     * @see iilumme.hymiopeli.ui.Apuri#aloita()
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#setHahmovalinta(int)
+     * @see iilumme.hymiopeli.logiikka.HymioPeli#lisaaHahmot()
      */
     @Override
     public void actionPerformed(ActionEvent e) {
 
         switch (nappi.getName()) {
             case "hy":
-                pK.getHymiopeli().setHahmovalinta(1);
-                pK.getHymiopeli().lisaaHahmot();
+                apuri.getHymiopeli().setHahmovalinta(1);
+                apuri.getHymiopeli().lisaaHahmot();
                 break;
             case "ti":
-                pK.getHymiopeli().setHahmovalinta(2);
-                pK.getHymiopeli().lisaaHahmot();
+                apuri.getHymiopeli().setHahmovalinta(2);
+                apuri.getHymiopeli().lisaaHahmot();
                 break;
             case "ir":
-                pK.getHymiopeli().setHahmovalinta(3);
-                pK.getHymiopeli().lisaaHahmot();
+                apuri.getHymiopeli().setHahmovalinta(3);
+                apuri.getHymiopeli().lisaaHahmot();
                 break;
         }
 
-        pK.getValikkoPaneeli().asetaPois();
-        pK.getHahmoPaneeli().asetaPois();
-        pK.aloita();
+        apuri.getValikkoPaneeli().asetaPois();
+        apuri.getHahmoPaneeli().asetaPois();
+        apuri.aloita();
     }
 
 }

@@ -1,37 +1,43 @@
-/**
- * Kuuntelija KieliPanelin napeillw.
- */
 package iilumme.hymiopeli.ui.listeners;
 
-import iilumme.hymiopeli.ui.PaneelienKasittelija;
+import iilumme.hymiopeli.ui.Apuri;
 import iilumme.hymiopeli.util.KieliUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
+/**
+ * Kuuntelija KieliPanelin napeille.
+ */
 public class KieliNapinKuuntelija implements ActionListener {
 
     private final JButton nappi;
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
 
-    public KieliNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
+    public KieliNapinKuuntelija(JButton nappi, Apuri a) {
         this.nappi = nappi;
-        this.pK = p;
+        this.apuri = a;
     }
 
     /**
-     * Asetetaan kieleksi se minkä käyttäjä on valinnut. Päivitetään
+     * Asettaa kieleksi sen minkä käyttäjä on valinnut. Päivitetään
      * ValikkoPanelin tekstit ja asetetaan se näkyväksi.
      *
      * @param ae
+     *
+     * @see iilumme.hymiopeli.ui.Apuri#getKieliPaneeli()
+     * @see iilumme.hymiopeli.ui.Apuri#getValikkoPaneeli()
+     * @see iilumme.hymiopeli.ui.KieliPanel#asetaPois()
+     * @see iilumme.hymiopeli.ui.ValikkoPanel#paivita()
+     * @see iilumme.hymiopeli.ui.ValikkoPanel#asetaNakyviin()
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
 
         KieliUtil.setLanguage(nappi.getText());
-        pK.getKieliPaneeli().asetaPois();
-        pK.getValikkoPaneeli().paivita();
-        pK.getValikkoPaneeli().asetaNakyviin();
+        apuri.getKieliPaneeli().asetaPois();
+        apuri.getValikkoPaneeli().paivita();
+        apuri.getValikkoPaneeli().asetaNakyviin();
 
     }
 

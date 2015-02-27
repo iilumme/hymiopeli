@@ -1,6 +1,3 @@
-/**
- * Pelaajahahmo, jonka kuvana on hymiö.
- */
 package iilumme.hymiopeli.pelihahmot.pelaajat;
 
 import iilumme.hymiopeli.pelihahmot.Pelaaja;
@@ -8,8 +5,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+/**
+ * Pelaajahahmo, jonka kuvana on hymiö.
+ */
 public class Hymio extends Pelaaja {
-    
+
     private Color vari;
 
     public Hymio() {
@@ -47,9 +47,9 @@ public class Hymio extends Pelaaja {
         g.fillArc(x + 5, y + 18, 20, 18, 170, 200);
 
     }
-    
+
     @Override
-    public void muutaVari(){
+    public void muutaVari() {
         this.vari = Color.ORANGE;
     }
 

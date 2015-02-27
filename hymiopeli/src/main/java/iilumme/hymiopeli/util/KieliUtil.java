@@ -1,17 +1,17 @@
-/**
- * Apuluokka, jonka avulla haetaan oikean kielinen teksti.
- */
 package iilumme.hymiopeli.util;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Apuluokka, jonka avulla haetaan oikean kielinen teksti.
+ */
 public class KieliUtil {
 
-    private static final ResourceBundle bundleFi = ResourceBundle.getBundle("hymiopeli", new Locale("fi", "FI"));
-    private static final ResourceBundle bundleEn = ResourceBundle.getBundle("hymiopeli", new Locale("en", "UK"));
-    private static final ResourceBundle bundleEsp = ResourceBundle.getBundle("hymiopeli", new Locale("es", "ES"));
-    private static ResourceBundle activeBundle = bundleFi;
+    private static final ResourceBundle BUNDLEFI = ResourceBundle.getBundle("hymiopeli", new Locale("fi", "FI"));
+    private static final ResourceBundle BUNDLEEN = ResourceBundle.getBundle("hymiopeli", new Locale("en", "UK"));
+    private static final ResourceBundle BUNDLEESP = ResourceBundle.getBundle("hymiopeli", new Locale("es", "ES"));
+    private static ResourceBundle activeBundle = BUNDLEFI;
 
     /**
      * Hakee tekstin.
@@ -32,13 +32,13 @@ public class KieliUtil {
 
         switch (kieli) {
             case "FI":
-                activeBundle = bundleFi;
+                activeBundle = BUNDLEFI;
                 break;
             case "EN":
-                activeBundle = bundleEn;
+                activeBundle = BUNDLEEN;
                 break;
             case "ES":
-                activeBundle = bundleEsp;
+                activeBundle = BUNDLEESP;
                 break;
         }
 

@@ -1,32 +1,35 @@
-/**
- * Kuuntelija ValikkoPanelin napeille.
- */
 package iilumme.hymiopeli.ui.listeners;
 
-import iilumme.hymiopeli.highscore.HighScore;
-import iilumme.hymiopeli.ui.PaneelienKasittelija;
+import iilumme.hymiopeli.ui.Apuri;
 import iilumme.hymiopeli.util.KieliUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
+/**
+ * Kuuntelija ValikkoPanelin napeille.
+ */
 public class ValikkoNapinKuuntelija implements ActionListener {
 
     private final JButton nappi;
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
 
-    public ValikkoNapinKuuntelija(JButton nappi, PaneelienKasittelija p) {
+    public ValikkoNapinKuuntelija(JButton nappi, Apuri a) {
         this.nappi = nappi;
-        this.pK = p;
+        this.apuri = a;
     }
 
     /**
      * Käyttäjän tekemän valinnan perusteella käynnistetään joko uusi peli,
-     * näytetään Highscore-sivu tai poistutaan pelistä.
+     * näytetään Highscore-sivu, näytetään ohjeet tai poistutaan pelistä.
      *
      * @param ae
+     *
+     * @see iilumme.hymiopeli.ui.Apuri#getHahmoPaneeli()
+     * @see iilumme.hymiopeli.ui.ViestiApuri#highScoreNayttoJOptionPane()
+     * @see iilumme.hymiopeli.ui.ViestiApuri#ohjeetNayttoJOptionPane()
+     * @see iilumme.hymiopeli.ui.HahmoPanel#asetaNakyviin()
+     * @see iilumme.hymiopeli.util.KieliUtil#getString(java.lang.String)
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -34,33 +37,13 @@ public class ValikkoNapinKuuntelija implements ActionListener {
         String teksti = nappi.getText();
 
         if (teksti.equals(KieliUtil.getString("uusipeli"))) {
-            pK.getHahmoPaneeli().asetaNakyviin();
+            apuri.getHahmoPaneeli().asetaNakyviin();
         } else if (teksti.equals(KieliUtil.getString("highscore"))) {
-
-            JOptionPane.showMessageDialog(pK.getLiittyma().getFrame(),
-                    getScoret(), KieliUtil.getString("highscorenaytto"),
-                    JOptionPane.PLAIN_MESSAGE,
-                    new ImageIcon(ClassLoader.getSystemResource("Images/caticon.png")));
-
+            apuri.getViestiapuri().highScoreNayttoJOptionPane();
+        } else if (teksti.equals(KieliUtil.getString("ohjeet"))) {
+            apuri.getViestiapuri().ohjeetNayttoJOptionPane();
         } else if (teksti.equals(KieliUtil.getString("poistu"))) {
             System.exit(0);
         }
-    }
-
-    private String getScoret() {
-        String palautus = new String();
-        if (pK.getHst().getHighscoret().size() <= 10) {
-            int sija = 1;
-            for (HighScore s : pK.getHst().getHighscoret()) {
-                palautus += sija + ". " + s.getNimi() + " " + s.getPisteet() + "\n";
-                sija++;
-            }
-        } else {
-            for (int i = 0; i < 10; i++) {
-                palautus += i + 1 + ". " + pK.getHst().getHighscoret().get(i).getNimi()
-                        + " " + pK.getHst().getHighscoret().get(i).getPisteet() + "\n";
-            }
-        }
-        return palautus;
     }
 }

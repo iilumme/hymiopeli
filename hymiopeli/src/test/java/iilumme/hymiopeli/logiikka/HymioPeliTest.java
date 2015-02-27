@@ -8,17 +8,14 @@ import iilumme.hymiopeli.pelihahmot.pelaajat.Tiikeri;
 import iilumme.hymiopeli.pelihahmot.vastukset.Killian;
 import iilumme.hymiopeli.pelihahmot.vastukset.Kissa;
 import iilumme.hymiopeli.pelihahmot.vastukset.Surullinen;
-import iilumme.hymiopeli.ui.PaneelienKasittelija;
+import iilumme.hymiopeli.ui.Apuri;
 import iilumme.hymiopeli.ui.Piirtoalusta;
 import iilumme.hymiopeli.ui.listeners.NappaimistonKuuntelija;
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 
 public class HymioPeliTest {
 
@@ -30,16 +27,6 @@ public class HymioPeliTest {
     @Before
     public void setUp() {
         hymiopeli = new HymioPeli(600, 600);
-    }
-
-    @Test
-    public void korkeusOikein() {
-        assertEquals(600, hymiopeli.getKorkeus());
-    }
-
-    @Test
-    public void leveysOikein() {
-        assertEquals(600, hymiopeli.getLeveys());
     }
 
     @Test
@@ -55,7 +42,7 @@ public class HymioPeliTest {
 
     @Test
     public void hymioitaNolla() {
-        assertEquals(0, hymiopeli.getHyvistenMaara());
+        assertEquals(0, hymiopeli.getMuutetut());
     }
 
     @Test
@@ -63,7 +50,7 @@ public class HymioPeliTest {
         hymiopeli.setHahmovalinta(1);
         hymiopeli.lisaaHahmot();
 
-        assertEquals(1, hymiopeli.getHyvistenMaara() + 1);
+        assertEquals(1, hymiopeli.getMuutetut() + 1);
     }
 
     @Test
@@ -156,7 +143,7 @@ public class HymioPeliTest {
     }
 
     @Test
-    public void paivitettavaEIAsennettu() {
+    public void piirtoalustaEIAsennettu() {
 
         assertFalse(hymiopeli.onkoPiirtoalustaAsennettu());
 
@@ -307,28 +294,28 @@ public class HymioPeliTest {
         hymiopeli.setHahmovalinta(1);
         assertEquals(1, hymiopeli.getHahmovalinta());
     }
-    
+
     @Test
     public void setPisteetToimii() {
 
         hymiopeli.setPisteet(40);
         assertEquals(40, hymiopeli.getPisteet());
     }
-    
+
     @Test
     public void setPisteetToimiiNegLuku() {
 
         hymiopeli.setPisteet(-20);
         assertEquals(0, hymiopeli.getPisteet());
     }
-    
+
     @Test
     public void setPisteetToimiiNollalla() {
 
         hymiopeli.setPisteet(0);
         assertEquals(0, hymiopeli.getPisteet());
     }
-    
+
     @Test
     public void getPiirrettavienVastustenMaara() {
 
@@ -336,40 +323,39 @@ public class HymioPeliTest {
         hymiopeli.lisaaHahmot();
         assertEquals(38, hymiopeli.getVastustenmaara());
     }
-    
+
     @Test
     public void getPiirrettavienVastustenMaara2() {
 
         hymiopeli.lisaaHahmot();
         assertEquals(38, hymiopeli.getVastustenmaara());
     }
-    
+
     @Test
     public void getPiirrettavienVastustenMaara3() {
 
         assertEquals(0, hymiopeli.getVastustenmaara());
     }
-    
+
     @Test
     public void getMuutettavana() {
 
         assertEquals(0, hymiopeli.getMuutettavana());
     }
-    
+
     @Test
     public void getMuutettavana2() {
 
         hymiopeli.lisaaHahmot();
         assertEquals(23, hymiopeli.getMuutettavana());
     }
-    
-    
+
     @Test
     public void getJaljella() {
 
         assertEquals(0, hymiopeli.getJaljella());
     }
-    
+
     @Test
     public void getJaljella2() {
 
@@ -377,4 +363,147 @@ public class HymioPeliTest {
         assertEquals(0, hymiopeli.getJaljella());
     }
 
+    @Test
+    public void setTasoToimiiPos() {
+
+        hymiopeli.setTaso(6);
+        assertEquals(6, hymiopeli.getTaso());
+    }
+
+    @Test
+    public void setTasoToimiiNeg() {
+
+        hymiopeli.setTaso(2);
+        hymiopeli.setTaso(-7);
+        assertEquals(2, hymiopeli.getTaso());
+    }
+
+    @Test
+    public void getMuutetutToimii() {
+        hymiopeli.lisaaHahmot();
+        assertEquals(0, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void getMuutetutToimii2() {
+        hymiopeli.setHahmovalinta(1);
+        hymiopeli.lisaaHahmot();
+
+        ArrayList<Hahmo> vastukset = hymiopeli.getVastukset();
+        for (Hahmo v : vastukset) {
+            hymiopeli.muutu(v);
+        }
+        assertEquals(38, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void getMuutetutToimii3() {
+        hymiopeli.setMuutetut(0);
+        assertEquals(0, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void getMuutetutToimii4() {
+        hymiopeli.setMuutetut(6);
+        assertEquals(6, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void getMuutetutToimii5() {
+        hymiopeli.setMuutetut(4);
+        hymiopeli.setMuutetut(-1);
+        assertEquals(4, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void getMuutetutToimii6() {
+        hymiopeli.setHahmovalinta(1);
+        hymiopeli.lisaaHahmot();
+
+        ArrayList<Hahmo> vastukset = hymiopeli.getVastukset();
+        for (int i = 0; i < 10; i++) {
+            hymiopeli.muutu(vastukset.get(i));
+        }
+        assertEquals(10, hymiopeli.getMuutetut());
+    }
+
+    @Test
+    public void setJatkuukoPeliToimii() {
+        hymiopeli.setJatkuukoPeli(true);
+        assertEquals(true, hymiopeli.getJatkuukoPeli());
+    }
+
+    @Test
+    public void setJatkuukoPeliToimii2() {
+        hymiopeli.setJatkuukoPeli(false);
+        assertEquals(false, hymiopeli.getJatkuukoPeli());
+    }
+
+    @Test
+    public void setJatkuukoPeliToimii3() {
+        hymiopeli.setJatkuukoPeli(false);
+        hymiopeli.setJatkuukoPeli(true);
+        assertEquals(true, hymiopeli.getJatkuukoPeli());
+    }
+
+    @Test
+    public void setNappaimistonKuuntelijaToimii() {
+        assertEquals(false, hymiopeli.onkoNappaimistonKuuntelijaAsennettu());
+    }
+
+    @Test
+    public void setNappaimistonKuuntelijaToimii2() {
+        hymiopeli.setNappaimistonKuuntelija(new NappaimistonKuuntelija(hymiopeli, null));
+        assertEquals(true, hymiopeli.onkoNappaimistonKuuntelijaAsennettu());
+    }
+
+    @Test
+    public void setApuriToimii() {
+        assertEquals(false, hymiopeli.onkoApuriAsennettu());
+    }
+
+    @Test
+    public void setApuriToimii2() {
+        try {
+            hymiopeli.setApuri(new Apuri(hymiopeli, null));
+        } catch (IOException ex) {
+
+        }
+        assertEquals(true, hymiopeli.onkoApuriAsennettu());
+    }
+
+    @Test
+    public void vastustenMaaraToimiiAlle6() {
+        hymiopeli.setHahmovalinta(1);
+        hymiopeli.setTaso(18);
+        hymiopeli.lisaaHahmot();
+        assertEquals(6, hymiopeli.getVastustenmaara());
+    }
+
+    @Test
+    public void peliLoppuuToimii() {
+        hymiopeli.start();
+        hymiopeli.setJatkuukoPeli(false);
+
+        assertEquals(0, hymiopeli.getPisteet());
+        assertEquals(1, hymiopeli.getTaso());
+    }
+
+    @Test
+    public void tasoMuuttuuToimii() {
+
+        hymiopeli.setHahmovalinta(1);
+        hymiopeli.lisaaHahmot();
+        hymiopeli.start();
+        hymiopeli.setTasoMuuttui(true);
+        hymiopeli.setJatkuukoPeli(false);
+
+        assertEquals(0, hymiopeli.getMuutetut());
+        assertEquals(false, hymiopeli.getHahmot().isEmpty());
+        assertEquals(1, hymiopeli.getTaso());
+        assertEquals(38, hymiopeli.getVastustenmaara());
+        assertEquals(1, hymiopeli.getHahmovalinta());
+        assertEquals(0, hymiopeli.getJaljella());
+        assertEquals(false, hymiopeli.getMaaraSaavutettu());
+    }
 }

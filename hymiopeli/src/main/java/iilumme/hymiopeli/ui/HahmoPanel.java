@@ -1,7 +1,3 @@
-/**
- * Luokka, joka luo paneelin, jossa on kolme nappia. Napit ovat valittavia
- * hahmoja.
- */
 package iilumme.hymiopeli.ui;
 
 import iilumme.hymiopeli.ui.listeners.HahmoNapinKuuntelija;
@@ -11,13 +7,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * Luokka, joka luo paneelin, jossa on kolme nappia. Napit ovat valittavia
+ * hahmoja.
+ */
 public class HahmoPanel extends JPanel {
 
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
+    private static final String IRONMANLOGO = "Images/ironman.png";
+    private static final String TIIKERILOGO = "Images/tiger.jpg";
+    private static final String HYMIOLOGO = "Images/hymio.jpg";
 
-    public HahmoPanel(PaneelienKasittelija p) {
+    public HahmoPanel(Apuri a) {
         super(new GridLayout(1, 3));
-        this.pK = p;
+        this.apuri = a;
         luoKomponentit();
         setBackground(new Color(249, 108, 57));
         asetaPois();
@@ -25,13 +28,13 @@ public class HahmoPanel extends JPanel {
 
     private void luoKomponentit() {
 
-        JButton hymio = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/hymio.jpg")));
-        JButton tikru = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/tiger.jpg")));
-        JButton ironman = new JButton(new ImageIcon(ClassLoader.getSystemResource("Images/ironman.png")));
+        JButton hymio = new JButton(new ImageIcon(ClassLoader.getSystemResource(HYMIOLOGO)));
+        JButton tikru = new JButton(new ImageIcon(ClassLoader.getSystemResource(TIIKERILOGO)));
+        JButton ironman = new JButton(new ImageIcon(ClassLoader.getSystemResource(IRONMANLOGO)));
 
-        hymio.addActionListener(new HahmoNapinKuuntelija(hymio, pK));
-        tikru.addActionListener(new HahmoNapinKuuntelija(tikru, pK));
-        ironman.addActionListener(new HahmoNapinKuuntelija(ironman, pK));
+        hymio.addActionListener(new HahmoNapinKuuntelija(hymio, apuri));
+        tikru.addActionListener(new HahmoNapinKuuntelija(tikru, apuri));
+        ironman.addActionListener(new HahmoNapinKuuntelija(ironman, apuri));
 
         hymio.setName("hy");
         tikru.setName("ti");

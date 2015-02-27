@@ -1,6 +1,3 @@
-/**
- * Graaffinen käyttöliittymä Hymiöpelille.
- */
 package iilumme.hymiopeli.ui;
 
 import iilumme.hymiopeli.logiikka.HymioPeli;
@@ -17,15 +14,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+/**
+ * Graaffinen käyttöliittymä Hymiöpelille.
+ */
 public class Kayttoliittyma implements Runnable {
 
     private static final int LEVEYS = 600;
     private static final int KORKEUS = 600;
 
+    private static final String HYMIOPELILOGO = "Images/logo.png";
+
     private JFrame frame;
     private Piirtoalusta piirtoalusta;
     private final HymioPeli hymiopeli;
-    private PaneelienKasittelija pK;
+    private Apuri apuri;
 
     public Kayttoliittyma() {
         this.hymiopeli = new HymioPeli(LEVEYS, LEVEYS);
@@ -47,8 +49,6 @@ public class Kayttoliittyma implements Runnable {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
-
-        setPiirtoalusta();
         setKeyListener();
 
         frame.pack();
@@ -63,30 +63,39 @@ public class Kayttoliittyma implements Runnable {
         c.setBackground(new Color(249, 108, 57));
 
         //Otsikko
-        JLabel logo = new JLabel(new ImageIcon(ClassLoader.getSystemResource("Images/logo.png")));
+        JLabel logo = new JLabel(new ImageIcon(ClassLoader.getSystemResource(HYMIOPELILOGO)));
 
         //Iso-paneeli & Iso-layout    
         JPanel iso = new JPanel();
         iso.setLayout(new BoxLayout(iso, BoxLayout.Y_AXIS));
         iso.setBackground(new Color(249, 108, 57));
 
-        //Paneelit
+        //Apuri & Paneelit
         try {
-            pK = new PaneelienKasittelija(hymiopeli, this);
+            apuri = new Apuri(hymiopeli, this);
         } catch (IOException e) {
             System.out.println("Tiedostoja ei löytynyt. Konsultoi iilumme@cs.helsinki.fi ;)");
             System.exit(0);
         }
-        hymiopeli.setPaneelienKasittelija(pK);
+
+        //Piirtoalusta
+        this.piirtoalusta = new Piirtoalusta(hymiopeli);
+        piirtoalusta.setVisible(false);
+
+        //HymioPeli
+        hymiopeli.setApuri(apuri);
+        hymiopeli.setPiirtoalusta(piirtoalusta);
 
         //Add 
         c.add(logo, BorderLayout.NORTH);
-        iso.add(pK.getKieliPaneeli());
-        iso.add(pK.getValikkoPaneeli());
-        iso.add(pK.getHahmoPaneeli());
-        c.add(iso, BorderLayout.CENTER);
-        c.add(pK.getTietoPaneeli(), BorderLayout.SOUTH);
 
+        iso.add(apuri.getKieliPaneeli());
+        iso.add(apuri.getValikkoPaneeli());
+        iso.add(apuri.getHahmoPaneeli());
+        iso.add(piirtoalusta);
+
+        c.add(iso, BorderLayout.CENTER);
+        c.add(apuri.getTietoPaneeli(), BorderLayout.SOUTH);
     }
 
     private void setKeyListener() {
@@ -94,21 +103,6 @@ public class Kayttoliittyma implements Runnable {
         NappaimistonKuuntelija nK = new NappaimistonKuuntelija(hymiopeli, piirtoalusta);
         frame.addKeyListener(nK);
         hymiopeli.setNappaimistonKuuntelija(nK);
-    }
-
-    private void setPiirtoalusta() {
-        this.piirtoalusta = new Piirtoalusta(hymiopeli);
-        hymiopeli.setPiirtoalusta(piirtoalusta);
-        frame.getContentPane().add(piirtoalusta, BorderLayout.SOUTH);
-        piirtoalusta.setVisible(false);
-    }
-
-    /**
-     * Asetetaan Piirtoalusta ja TietoPaneeli oikeaan paikkaan.
-     */
-    public void siirraPiirtoalusta() {
-        frame.getContentPane().add(piirtoalusta, BorderLayout.CENTER);
-        frame.getContentPane().add(pK.getTietoPaneeli(), BorderLayout.SOUTH);
     }
 
 }

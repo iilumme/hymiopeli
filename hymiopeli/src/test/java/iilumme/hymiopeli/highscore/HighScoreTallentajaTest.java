@@ -61,7 +61,7 @@ public class HighScoreTallentajaTest {
     @Test
     public void getEkaToimii2() {
 
-        assertEquals("IinaTheBest,940",tallentaja.getEka().toString());
+        assertEquals("IinaTheBest,940", tallentaja.getEka().toString());
 
     }
 

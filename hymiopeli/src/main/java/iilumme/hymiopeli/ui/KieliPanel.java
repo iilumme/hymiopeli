@@ -1,7 +1,3 @@
-/**
- * Luokka, joka luo paneelin, jossa on kolme nappia. Napit edustavat valittavia
- * kieliä.
- */
 package iilumme.hymiopeli.ui;
 
 import iilumme.hymiopeli.ui.listeners.KieliNapinKuuntelija;
@@ -10,13 +6,17 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * Luokka, joka luo paneelin, jossa on kolme nappia. Napit edustavat valittavia
+ * kieliä.
+ */
 public class KieliPanel extends JPanel {
 
-    private final PaneelienKasittelija pK;
+    private final Apuri apuri;
 
-    public KieliPanel(PaneelienKasittelija p) {
+    public KieliPanel(Apuri a) {
         super(new GridLayout(1, 3));
-        this.pK = p;
+        this.apuri = a;
         luoKomponentit();
         setBackground(new Color(249, 108, 57));
     }
@@ -27,14 +27,13 @@ public class KieliPanel extends JPanel {
         JButton englanti = new JButton("EN");
         JButton espanja = new JButton("ES");
 
-        suomi.addActionListener(new KieliNapinKuuntelija(suomi, pK));
-        englanti.addActionListener(new KieliNapinKuuntelija(englanti, pK));
-        espanja.addActionListener(new KieliNapinKuuntelija(espanja, pK));
+        suomi.addActionListener(new KieliNapinKuuntelija(suomi, apuri));
+        englanti.addActionListener(new KieliNapinKuuntelija(englanti, apuri));
+        espanja.addActionListener(new KieliNapinKuuntelija(espanja, apuri));
 
         add(suomi);
         add(englanti);
         add(espanja);
-
     }
 
     /**

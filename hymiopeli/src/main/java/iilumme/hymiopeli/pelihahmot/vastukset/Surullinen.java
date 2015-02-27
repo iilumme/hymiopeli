@@ -1,6 +1,3 @@
-/**
- * Vastushahmo, jota yritetään muuttaa (tässä tapauksessa Hymiöksi).
- */
 package iilumme.hymiopeli.pelihahmot.vastukset;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
@@ -8,6 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+/**
+ * Vastushahmo, jota yritetään muuttaa (tässä tapauksessa Hymiöksi).
+ */
 public class Surullinen extends Vastus {
 
     public Surullinen(int x, int y) {

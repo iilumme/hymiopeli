@@ -1,0 +1,616 @@
+//sekvenssi1
+
+title Kayttoliittyman luonti
+
+Main->SwingUtilities: invokeLater(new Kayttoliittyma)
+Kayttoliittyma->Hymiopeli: new Hymiopeli()
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this) 
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+
+Kayttoliittyma->Hymiopeli: setPaneelienKasittelija() 
+
+Kayttoliittyma->Piirtoalusta: new Piirtoalusta(hymiopeli)
+
+Kayttoliittyma->Hymiopeli: setPiirtoalusta()
+
+Kayttoliittyma->NappaimistonKuuntelija: new NappaimistonKuuntelija(hymiopeli, piirtoalusta)
+
+
+
+//sekvenssi 1 päivitys
+
+title Kayttoliittyman luonti
+
+Main->SwingUtilities: invokeLater(new Kayttoliittyma)
+Kayttoliittyma->Hymiopeli: new Hymiopeli()
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->Apuri: new Apuri(hymiopeli, this)
+
+Apuri->HighScoreTallentaja: new HighScoreTallentaja()
+Apuri->KieliPanel: new KieliPanel(this)
+Apuri->HahmoPanel: new HahmoPanel(this) 
+Apuri->ValikkoPanel: new ValikkoPanel(this)
+Apuri->TietoPanel: new TietoPanel(this)
+
+
+Kayttoliittyma->Hymiopeli: setApuri(apuri) 
+
+Kayttoliittyma->Piirtoalusta: new Piirtoalusta(hymiopeli)
+
+Kayttoliittyma->Hymiopeli: setPiirtoalusta(piirtoalusta)
+
+Kayttoliittyma->Piirtoalusta: setVisible(false)
+
+Kayttoliittyma->NappaimistonKuuntelija: new NappaimistonKuuntelija(hymiopeli, piirtoalusta)
+
+Kayttoliittyma->Hymiopeli:setNappaimistonKuuntelija(nappaimistonKuuntelija)
+
+
+
+
+
+
+
+//sekvenssi2
+
+title Kielen valinta
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+KieliPanel->KieliNapinKuuntelija: actionPerformed()
+
+alt "FI"
+KieliNapinKuuntelija->KieliUtil: setLanguage("FI")
+else "EN"
+KieliNapinKuuntelija->KieliUtil: setLanguage("EN")
+else "Es"
+KieliNapinKuuntelija->KieliUtil: setLanguage("ES")
+end
+
+KieliNapinKuuntelija->PaneelienKasittelija: getKieliPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: kieliPanel
+KieliNapinKuuntelija->KieliPanel: asetaPois();
+
+KieliNapinKuuntelija->PaneelienKasittelija: getValikkoPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: paivita();
+
+KieliNapinKuuntelija->PaneelienKasittelija: getValikkoPaneeli()
+PaneelienKasittelija--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: asetaNakyviin();
+
+
+
+
+
+
+//sekvenssi 2 päivitys
+
+title Kielen valinta
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->Apuri: new Apuri(hymiopeli, this)
+
+Apuri->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+Apuri->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+Apuri->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+KieliPanel->KieliNapinKuuntelija: actionPerformed()
+
+alt "FI"
+KieliNapinKuuntelija->KieliUtil: setLanguage("FI")
+else "EN"
+KieliNapinKuuntelija->KieliUtil: setLanguage("EN")
+else "Es"
+KieliNapinKuuntelija->KieliUtil: setLanguage("ES")
+end
+
+KieliNapinKuuntelija-> Apuri: getKieliPaneeli()
+Apuri--> KieliNapinKuuntelija: kieliPanel
+KieliNapinKuuntelija->KieliPanel: asetaPois();
+
+KieliNapinKuuntelija-> Apuri: getValikkoPaneeli()
+Apuri--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: paivita();
+
+KieliNapinKuuntelija-> Apuri: getValikkoPaneeli()
+Apuri--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: asetaNakyviin();
+
+
+
+
+
+
+//sekvenssi 2 päi
+
+title Kielen valinta
+
+
+KieliPanel->KieliNapinKuuntelija: actionPerformed()
+
+alt "FI"
+KieliNapinKuuntelija->KieliUtil: setLanguage("FI")
+else "EN"
+KieliNapinKuuntelija->KieliUtil: setLanguage("EN")
+else "ES"
+KieliNapinKuuntelija->KieliUtil: setLanguage("ES")
+end
+
+KieliNapinKuuntelija-> Apuri: getKieliPaneeli()
+Apuri--> KieliNapinKuuntelija: kieliPanel
+KieliNapinKuuntelija->KieliPanel: asetaPois();
+
+KieliNapinKuuntelija-> Apuri: getValikkoPaneeli()
+Apuri--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: paivita();
+
+KieliNapinKuuntelija-> Apuri: getValikkoPaneeli()
+Apuri--> KieliNapinKuuntelija: valikkoPanel
+KieliNapinKuuntelija->ValikkoPanel: asetaNakyviin();
+
+
+//sekvenssi3
+
+title Uusi peli
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+ValikkoPanel->ValikkoNapinKuuntelija: actionPerformed()
+
+alt "uusipeli"
+
+ValikkoNapinKuuntelija-> PaneelienKasittelija: getHahmoPaneeli()
+PaneelienKasittelija-->ValikkoNapinKuuntelija: hahmoPaneeli
+ValikkoNapinKuuntelija->HahmoPanel: asetaNakyviin(
+
+else "highscore"
+
+ValikkoNapinKuuntelija->JOptionPane:showMessageDialog
+
+else "poistu"
+ValikkoNapinKuuntelija->System:exit(0)
+end
+
+//sekvesnnsi 3 päivitys
+
+title Uusi peli
+
+SwingUtilities->Kayttoliittyma: run()
+
+Kayttoliittyma->PaneelienKasittelija: new PaneelienKasittelija(hymiopeli, this)
+
+PaneelienKasittelija->KieliPanel: new KieliPanel(this)
+KieliPanel->KieliNapinKuuntelija: new KieliNapinKuuntelija()
+
+PaneelienKasittelija->HahmoPanel: new HahmoPanel(this)
+HahmoPanel->HahmoNapinKuuntelija: new HahmoNapinKuuntelija() 
+
+PaneelienKasittelija->ValikkoPanel: new ValikkoPanel(this)
+ValikkoPanel->ValikkoNapinKuuntelija: new ValikkoNapinKuuntelija()
+
+
+ValikkoPanel->ValikkoNapinKuuntelija: actionPerformed()
+
+alt "uusipeli"
+
+ValikkoNapinKuuntelija-> PaneelienKasittelija: getHahmoPaneeli()
+PaneelienKasittelija-->ValikkoNapinKuuntelija: hahmoPaneeli
+ValikkoNapinKuuntelija->HahmoPanel: asetaNakyviin(
+
+else "highscore"
+
+ValikkoNapinKuuntelija->JOptionPane:showMessageDialog
+ValikkoNapinKuuntelija-> PaneelienKasittelija: getLiittyma()
+
+PaneelienKasittelija-> Kayttoliittyma:getFrame()
+
+Kayttoliittyma-->PaneelienKasittelija: frame
+PaneelienKasittelija--> ValikkoNapinKuuntelija: frame
+
+ValikkoNapinKuuntelija-> ValikkoNapinKuuntelija:getScoret()
+
+else "poistu"
+ValikkoNapinKuuntelija->System:exit(0)
+end
+
+//sekvenssi 3 päivitys
+
+
+
+
+title Uusi peli
+
+ValikkoPanel->ValikkoNapinKuuntelija: actionPerformed()
+
+alt "uusipeli"
+
+ValikkoNapinKuuntelija-> Apuri: getHahmoPaneeli()
+Apuri-->ValikkoNapinKuuntelija: hahmoPaneeli
+ValikkoNapinKuuntelija->HahmoPanel: asetaNakyviin()
+
+else "highscore"
+
+ValikkoNapinKuuntelija-> Apuri: getViestiapuri()
+Apuri-->ValikkoNapinKuuntelija: viestiapuri
+ValikkoNapinKuuntelija->Viestiapuri: highScoreNayttoJOptionPane
+
+Viestiapuri-> Kayttoliittyma:getFrame()
+Kayttoliittyma--> Viestiapuri: frame
+Viestiapuri->Viestiapuri:getScoret()
+
+Viestiapuri->KieliUtil:getString("highscorenaytto")
+
+KieliUtil-->Viestiapuri: "Highscoret"
+
+
+else "ohjeet"
+
+ValikkoNapinKuuntelija-> Apuri: getViestiapuri()
+Apuri-->ValikkoNapinKuuntelija: viestiapuri
+ValikkoNapinKuuntelija->Viestiapuri: ohjeetNayttoJOptionPane
+
+Viestiapuri-> Kayttoliittyma:getFrame()
+Kayttoliittyma--> Viestiapuri: frame
+Viestiapuri->Viestiapuri:getScoret()
+
+Viestiapuri->KieliUtil:getString("ohje")
+
+KieliUtil-->Viestiapuri: "Tervetuloa HymiöPeliin!\nTehtävänäsi pelissä..."
+
+Viestiapuri->KieliUtil:getString("ohjeet")
+
+KieliUtil-->Viestiapuri: "Ohjeet"
+
+
+else "poistu"
+ValikkoNapinKuuntelija->System:exit(0)
+end
+
+
+
+
+
+//sekvenssi 4
+
+title TietoPanel paivitys
+
+HymioPeli->PaneelienKasittelija: getTietoPanel()
+
+PaneelienKasittelija->TietoPanel: paivita()
+
+TietoPanel->KieliUtil: getString("taso")
+KieliUtil-->TietoPanel: "Taso"
+
+TietoPanel-> PaneelienKasittelija: getHymioPeli()
+
+PaneelienKasittelija->HymioPeli: getTaso()
+HymioPeli-->PaneelienKasittelija: 1
+
+PaneelienKasittelija-->TietoPanel: 1
+
+
+alt "1"
+
+TietoPanel->KieliUtil: getString("hymis")
+KieliUtil-->TietoPanel: "Hymiöt"
+
+else "2"
+
+TietoPanel->KieliUtil: getString("tikru")
+KieliUtil-->TietoPanel: "Tiikerit"
+
+else "3"
+
+TietoPanel->KieliUtil: getString("ironm")
+KieliUtil-->TietoPanel: "Iron Man:it"
+
+end
+
+TietoPanel-> PaneelienKasittelija: getHymioPeli()
+
+PaneelienKasittelija->HymioPeli: getHyvistenMaara()
+HymioPeli-->PaneelienKasittelija: 2
+
+PaneelienKasittelija-->TietoPanel: 2
+
+
+TietoPanel-> PaneelienKasittelija: getHymioPeli()
+
+PaneelienKasittelija->HymioPeli: getJaljella()
+HymioPeli-->PaneelienKasittelija: 21
+
+PaneelienKasittelija-->TietoPanel: 21
+
+
+TietoPanel-> PaneelienKasittelija: getHymioPeli()
+
+PaneelienKasittelija->HymioPeli: getPisteet()
+HymioPeli-->PaneelienKasittelija: 10
+
+PaneelienKasittelija-->TietoPanel: 10
+
+
+//sekvenssi 4 päivitys
+
+
+title TietoPanel paivitys
+
+HymioPeli->Apuri: getTietoPanel()
+
+Apuri->TietoPanel: paivita()
+
+TietoPanel->Apuri:getHymioPeli
+Apuri->HymioPeli: getHahmovalinta
+HymioPeli--> Apuri: hahmovalinta
+Apuri-->TietoPanel: hahmovalinta
+
+alt "hahmovalinta=1"
+
+TietoPanel->KieliUtil: getString("hymis")
+KieliUtil-->TietoPanel: "Hymiöt"
+
+else "hahmovalinta=2"
+
+TietoPanel->KieliUtil: getString("tikru")
+KieliUtil-->TietoPanel: "Tiikerit"
+
+else "hahmovalinta=3"
+
+TietoPanel->KieliUtil: getString("ironm")
+KieliUtil-->TietoPanel: "Iron Man:it"
+
+end
+
+
+TietoPanel-> Apuri: getHymioPeli()
+
+Apuri->HymioPeli: getMuutetut()
+HymioPeli--> Apuri: 2
+
+Apuri-->TietoPanel: 2
+
+
+
+TietoPanel-> Apuri: getHymioPeli()
+
+Apuri->HymioPeli: getJaljella()
+HymioPeli--> Apuri: 21
+
+Apuri-->TietoPanel: 21
+
+
+
+TietoPanel->KieliUtil: getString("taso")
+KieliUtil-->TietoPanel: "Taso"
+
+TietoPanel-> Apuri: getHymioPeli()
+
+Apuri->HymioPeli: getTaso()
+HymioPeli--> Apuri: 1
+
+Apuri-->TietoPanel: 1
+
+
+
+TietoPanel-> Apuri: getHymioPeli()
+
+Apuri->HymioPeli: getPisteet()
+HymioPeli--> Apuri: 10
+
+Apuri-->TietoPanel: 10
+
+
+
+TietoPanel->KieliUtil: getString("lopeta")
+KieliUtil-->TietoPanel: "Lopeta"
+
+
+
+
+
+
+
+
+//sekvenssi 5
+
+title Highscoren lisays
+
+HymioPeli->HymioPeli: highscoret()
+
+HymioPeli->JOptionPane: showInputDialog()
+
+HymioPeli->PaneelienKasittelija: getLiittyma()
+
+PaneelienKasittelija->Kayttoliittyma: getFrame()
+
+Kayttoliittyma-->PaneelienKasittelija: frame
+
+PaneelienKasittelija-->HymioPeli: frame
+
+HymioPeli->KieliUtil: getString("annanimi")
+
+KieliUtil-->HymioPeli: "Kirjoita nimesi"
+
+HymioPeli->KieliUtil: getString("highscorelistalle")
+
+KieliUtil-->HymioPeli: "Highscore-listalle"
+
+JOptionPane-->HymioPeli: nimi
+
+
+alt nimi=null
+
+HymioPeli->KieliUtil: getString("pelaaja")
+
+KieliUtil-->HymioPeli: "Pelaaja"
+
+HymioPeli->PaneelienKasittelija: getHst()
+
+PaneelienKasittelija->HighScoreTallentaja:lisaaHighscore("Pelaaja", pisteet)
+
+else nimi=not null
+
+HymioPeli->PaneelienKasittelija: getHst()
+
+PaneelienKasittelija->HighScoreTallentaja:lisaaHighscore(nimi, pisteet)
+
+end
+
+HymioPeli->PaneelienKasittelija: getHst()
+
+PaneelienKasittelija->HighScoreTallentaja: paivitaLista()
+
+
+
+//sekvenssi 5 päivitys
+
+
+
+title Highscoren lisays
+
+HymioPeli->Apuri: getViestiapuri()
+
+Apuri→Viestiapuri: highScoreLisaysJOptionPane()
+
+
+Viestiapuri->KieliUtil: getString("annanimi")
+
+KieliUtil-->Viestiapuri: "Kirjoita nimesi"
+
+Viestiapuri->JOptionPane:showOptionDialog()
+
+
+Viestiapuri->Apuri: getLiittyma()
+
+Apuri->Kayttoliittyma: getFrame()
+
+Kayttoliittyma-->Apuri: frame
+
+Apuri-->Viestiapuri: frame
+
+
+
+Viestiapuri->KieliUtil: getString("highscorelistalle")
+
+KieliUtil-->Viestiapuri: "Highscore-listalle"
+
+JOptionPane-->Viestiapuri: 0
+
+
+alt nimi=null
+
+
+Viestiapuri->KieliUtil: getString("pelaaja")
+
+KieliUtil-->Viestiapuri: "Pelaaja"
+
+Viestiapuri->Apuri: getHighScoreTallentaja()
+
+Apuri->HighScoreTallentaja:lisaaHighscore("Pelaaja", pisteet)
+
+
+else nimi=not null
+
+Viestiapuri->Apuri: getHighScoreTallentaja()
+
+Apuri->HighScoreTallentaja:lisaaHighscore(nimi, pisteet)
+
+end
+
+Viestiapuri->Apuri: getHighScoreTallentaja()
+
+Apuri->HighScoreTallentaja: paivitaLista()
+
+
+
+
+//sekvenssi 6
+
+title HighScorejen naytto
+
+ValikkoNapinKuuntelija-> Apuri: getViestiapuri()
+Apuri-->ValikkoNapinKuuntelija: viestiapuri
+ValikkoNapinKuuntelija->Viestiapuri: highScoreNayttoJOptionPane
+
+Viestiapuri->JOptionPane: showMessageDialog()
+
+Viestiapuri-> Kayttoliittyma: getFrame()
+Kayttoliittyma--> Viestiapuri: frame
+
+Viestiapuri->Apuri:getHighScoreTallentaja()
+Apuri->HighScoreTallentaja: getHighscoret().size()
+
+alt "size <= 10"
+
+Viestiapuri->Apuri:getHighScoreTallentaja()
+Apuri->HighScoreTallentaja: getHighscoret()
+HighScoreTallentaja-->Apuri: highscoret
+Apuri-->Viestiapuri: highscoret
+
+loop 0...10
+Viestiapuri->HighScore: getNimi()
+HighScore-->Viestiapuri: nimi
+Viestiapuri->HighScore: getPisteet()
+HighScore-->Viestiapuri: pisteet
+end
+
+else
+
+Viestiapuri->Apuri:getHighScoreTallentaja()
+Apuri->HighScoreTallentaja: getHighscoret()
+HighScoreTallentaja-->Apuri: highscoret
+Apuri-->Viestiapuri: highscoret
+
+loop 10
+Viestiapuri->HighScore: getNimi()
+HighScore-->Viestiapuri: nimi
+Viestiapuri->HighScore: getPisteet()
+HighScore-->Viestiapuri: pisteet
+end
+
+end
+
+
+Viestiapuri->KieliUtil:getString("highscorenaytto")
+
+KieliUtil-->Viestiapuri: "Highscoret"

@@ -1,6 +1,3 @@
-/**
- * Vastushahmo, jota yritetään muuttaa (tässä tapauksessa Tiikeriksi).
- */
 package iilumme.hymiopeli.pelihahmot.vastukset;
 
 import iilumme.hymiopeli.pelihahmot.Vastus;
@@ -9,13 +6,17 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
+/**
+ * Vastushahmo, jota yritetään muuttaa (tässä tapauksessa Tiikeriksi).
+ */
 public class Kissa extends Vastus {
 
     private final Image image;
+    private static final String KISSAHAHMONKUVA = "Images/cc.png";
 
     public Kissa(int x, int y) {
         super(x, y);
-        image = new ImageIcon(ClassLoader.getSystemResource("Images/cc.png")).getImage();
+        image = new ImageIcon(ClassLoader.getSystemResource(KISSAHAHMONKUVA)).getImage();
     }
 
     public Image getImage() {

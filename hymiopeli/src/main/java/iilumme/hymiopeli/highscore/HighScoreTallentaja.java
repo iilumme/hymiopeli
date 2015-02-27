@@ -1,7 +1,3 @@
-/**
- * Luokka ylläpitää tietoa parhaista pelituloksista. Tallentaa HighScore-olioita
- * ja lukee tuloksia tiedostosta.
- */
 package iilumme.hymiopeli.highscore;
 
 import java.io.File;
@@ -11,11 +7,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * Luokka ylläpitää tietoa parhaista pelituloksista. Tallentaa HighScore-olioita
+ * ja lukee tuloksia tiedostosta.
+ */
 public class HighScoreTallentaja {
 
     private File tiedosto;
     private Scanner scanner;
-
     private ArrayList<HighScore> toplista;
 
     public HighScoreTallentaja() throws IOException {
@@ -27,20 +26,19 @@ public class HighScoreTallentaja {
         }
 
         this.scanner = new Scanner(tiedosto);
-
         this.toplista = new ArrayList<>();
         haeLista();
     }
 
     /**
-     * Hakee tiedostosta edelliset tulokset ja lisää ne HighScore-oliona HighScoreTallentajan listaan.
+     * Hakee tiedostosta edelliset tulokset ja lisää ne HighScore-olioina
+     * HighScoreTallentajan listaan.
      */
     private void haeLista() {
 
         while (scanner.hasNextLine()) {
 
             String[] score = scanner.nextLine().split(",");
-
             this.toplista.add(new HighScore(score[0], Integer.parseInt(score[1])));
 
         }
@@ -49,10 +47,12 @@ public class HighScoreTallentaja {
     }
 
     /**
-     * Lisää HighScore-olio HighScoreTallentajan listaan.
+     * Lisää HighScore-olion HighScoreTallentajan listaan.
      *
      * @param nimi pelaajan nimi
      * @param pisteet pelaajan saamat pisteet
+     *
+     * @see iilumme.hymiopeli.highscore.HighScore#HighScore(String, int)
      */
     public void lisaaHighscore(String nimi, int pisteet) {
 
@@ -104,5 +104,4 @@ public class HighScoreTallentaja {
             System.out.println(e.getMessage());
         }
     }
-
 }
