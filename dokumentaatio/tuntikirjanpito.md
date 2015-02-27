@@ -56,8 +56,8 @@
 
 **26.2.15 ja 27.2.15**
 
-- *12h* Lopeta-nappi ja TietoPanel toimimaan oikein, Ohje-nappi ja ohjeet ValikkoPaneeliin, Viestiapurin luonti, muutetut vastukset eivät katoa, vaan muuttuvat ja jatkavat matkaa, pisteytyksen muuttuminen, refaktorointia, javadocs @see, sekvenssikaavioiden päivitys, luokkakaavion päivitys, käyttöohje, rakennekuvaus + kaikkea muuta jonka unohdin jo :)
+- *14h* Lopeta-nappi ja TietoPanel toimimaan oikein, Ohje-nappi ja ohjeet ValikkoPaneeliin, Viestiapurin luonti, muutetut vastukset eivät katoa, vaan muuttuvat ja jatkavat matkaa, pisteytyksen muuttuminen, refaktorointia, javadocs @see, sekvenssikaavioiden päivitys, luokkakaavion päivitys, käyttöohje, rakennekuvaus + kaikkea muuta jonka unohdin jo :)
 
-HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa ja testit aiheuttivat ongelmia.
+HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa ja testit aiheuttivat massiivisia ongelmia juuri ennen deadlinea ^_^ .
 En saanut javadocs komentoa toimimaan.
-Update: Javadocs komento toimi! :)
+Update: Javadocs komento toimi sittenkin! Huh :)
