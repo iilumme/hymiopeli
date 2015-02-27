@@ -50,13 +50,13 @@
                 <configuration>
                     <targetClasses>
                         <param>iilumme.hymiopeli.logiikka.*</param>
-                        <param>iilumme.hymiopeli.highscore.*</param>
+                        <param>iilumme.hymiopeli.highscore.HighScore</param>
                         <param>iilumme.hymiopeli.pelihahmot.*</param>
                         <param>iilumme.hymiopeli.util.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>iilumme.hymiopeli.logiikka.*</param>
-                        <param>iilumme.hymiopeli.highscore.*</param>
+                        <param>iilumme.hymiopeli.highscore.HighScore</param>
                         <param>iilumme.hymiopeli.pelihahmot.*</param>
                         <param>iilumme.hymiopeli.util.*</param>
                     </targetTests>
