@@ -53,3 +53,7 @@
 **24.2.15**
 
 - *4h* Muutetut hahmot ovat värimaailmaltaan erilaisia verrattuna pelaajaan, refaktorointia, javadocs, käyttöohje, pelihahmon siirtymirajojen muuttaminen, vastuksia ilmestyy suuremmilla välimatkoilla, lopeta-napin hahmottelua
+
+**26.2.15 ja 27.2.15**
+
+- *12h* Lopeta-nappi ja TietoPanel toimimaan oikein, Ohje-nappi ja ohjeet ValikkoPaneeliin, Viestiapurin luonti, muutetut vastukset eivät katoa, vaan muuttuvat ja jatkavat matkaa, pisteytyksen muuttuminen, refaktorointia, javadocs @see, sekvenssikaavioiden päivitys, luokkakaavion päivitys, käyttöohje, rakennekuvaus + kaikkea muuta jonka unohdin jo :)
