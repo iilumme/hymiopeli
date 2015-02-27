@@ -60,4 +60,4 @@
 
 HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa ja testit aiheuttivat ongelmia.
 En saanut javadocs komentoa toimimaan.
-Update: Javadocs komento toimi! :)
+Update: Javadocs komento toimi sittenkin! Huh :)
