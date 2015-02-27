@@ -37,7 +37,8 @@
                     <instrumentation>
                         <excludes>
                             <exclude>iilumme/hymiopeli/ui/**/*.class</exclude>
-                            <exclude>iilumme/hymiopeli/Main.class</exclude>                 
+                            <exclude>iilumme/hymiopeli/Main.class</exclude>
+                            <exclude>iilumme/hymiopeli/highscore/HighScoreTallentaja.class</exclude>                  
                         </excludes>
                     </instrumentation>
                 </configuration>

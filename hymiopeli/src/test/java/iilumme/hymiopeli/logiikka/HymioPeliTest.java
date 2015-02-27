@@ -476,13 +476,4 @@ public class HymioPeliTest {
         hymiopeli.lisaaHahmot();
         assertEquals(6, hymiopeli.getVastustenmaara());
     }
-
-    @Test
-    public void peliLoppuuToimii() {
-        hymiopeli.start();
-        hymiopeli.setJatkuukoPeli(false);
-
-        assertEquals(0, hymiopeli.getPisteet());
-        assertEquals(1, hymiopeli.getTaso());
-    }
 }

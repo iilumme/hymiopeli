@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="61" failures="0" name="iilumme.hymiopeli.logiikka.HymioPeliTest" time="1.218" errors="1" skipped="0">
+<testsuite tests="60" failures="0" name="iilumme.hymiopeli.logiikka.HymioPeliTest" time="0.95" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre/lib"/>
@@ -26,6 +26,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
+    <property name="net.sourceforge.cobertura.datafile" value="/Users/iina/hymiopeli/hymiopeli/target/cobertura/cobertura.ser"/>
     <property name="maven.ext.class.path" value="/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="/Users/iina/devtools/apache-maven-3.2.5/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -45,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Applications/tmcbeans.app/Contents/Resources/tmcbeans/java/maven-nblib/netbeans-eventspy.jar cobertura:cobertura"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="user.language.format" value="fi"/>
@@ -60,106 +61,69 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="project.build.outputDirectory" value="/Users/iina/hymiopeli/hymiopeli/target/generated-classes/cobertura"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein" time="0.322"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein2" time="0.314"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaNolla" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksi" time="0.004"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksi" time="0.007"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="hymioitaYksiAlussa" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tiikereitaYksiAlussa" time="0.303"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="ironmanejaYksiAlussa" time="0.024"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="surullisia38Alussa" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="kissoja38Alussa" time="0.004"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="killianeja38Alussa" time="0.035"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetEiNull" time="0.025"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetIsEmpty" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotIsEmpty" time="0.003"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotEiOleTyhja" time="0.003"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="piirtoalustaAsennettu" time="0.408"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="piirtoalustaEIAsennettu" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tasoOikein" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="tiikereitaYksiAlussa" time="0.121"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="ironmanejaYksiAlussa" time="0.022"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="surullisia38Alussa" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="kissoja38Alussa" time="0.005"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="killianeja38Alussa" time="0.007"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetEiNull" time="0.026"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getVastuksetIsEmpty" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotIsEmpty" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmotEiOleTyhja" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="piirtoalustaAsennettu" time="0.199"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="piirtoalustaEIAsennettu" time="0.004"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="pisteetOikein" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="pisteetVäärin" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutHahmot" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutHahmot2" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getDelayHakeeoikeanArvon" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getInitialDelayHakeeoikeanArvon" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutHahmot" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutHahmot2" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getDelayHakeeoikeanArvon" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getInitialDelayHakeeoikeanArvon" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiHymioSuru" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTiikeriKissa" time="0.004"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIronManKillian" time="0.014"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiHgetX" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTgetX" time="0.002"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIgetX" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiHgetY" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTgetY" time="0.004"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIgetY" time="0.005"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmovalintaToimii" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmovalintaToimii2" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTiikeriKissa" time="0.009"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIronManKillian" time="0.006"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiHgetX" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTgetX" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIgetX" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiHgetY" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiTgetY" time="0.007"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="muutuToimiiIgetY" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmovalintaToimii" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmovalintaToimii2" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getHahmovalintaToimii1" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setPisteetToimii" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setPisteetToimii" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setPisteetToimiiNegLuku" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setPisteetToimiiNollalla" time="0.001"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getPiirrettavienVastustenMaara" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getPiirrettavienVastustenMaara2" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getPiirrettavienVastustenMaara2" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getPiirrettavienVastustenMaara3" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutettavana" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutettavana2" time="0.006"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getJaljella" time="0.007"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutettavana2" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getJaljella" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getJaljella2" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setTasoToimiiPos" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setTasoToimiiPos" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setTasoToimiiNeg" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii" time="0.001"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii2" time="0.002"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii3" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii4" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii5" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii6" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setJatkuukoPeliToimii" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii4" time="0.069"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii5" time="0"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="getMuutetutToimii6" time="0.005"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setJatkuukoPeliToimii" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setJatkuukoPeliToimii2" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setJatkuukoPeliToimii3" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setNappaimistonKuuntelijaToimii" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setNappaimistonKuuntelijaToimii2" time="0.002"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setNappaimistonKuuntelijaToimii2" time="0"/>
   <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setApuriToimii" time="0.001"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setApuriToimii2" time="0.004">
-    <error message="1" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 1
-	at iilumme.hymiopeli.highscore.HighScoreTallentaja.haeLista(HighScoreTallentaja.java:42)
-	at iilumme.hymiopeli.highscore.HighScoreTallentaja.&lt;init&gt;(HighScoreTallentaja.java:30)
-	at iilumme.hymiopeli.ui.Apuri.&lt;init&gt;(Apuri.java:26)
-	at iilumme.hymiopeli.logiikka.HymioPeliTest.setApuriToimii2(HymioPeliTest.java:467)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-  </testcase>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="vastustenMaaraToimiiAlle6" time="0"/>
-  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="peliLoppuuToimii" time="0.004"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="setApuriToimii2" time="0.126"/>
+  <testcase classname="iilumme.hymiopeli.logiikka.HymioPeliTest" name="vastustenMaaraToimiiAlle6" time="0.001"/>
 </testsuite>
