@@ -17,7 +17,9 @@ ja asettaa
 
 **Piirtoalusta** on alue, jolle pelihahmot luodaan ja jolla siis myös pelataan. Kun Piirtoalusta-olio luodaan mukaan annetaan HymioPeli.
 
-**HymioPeli** on koko pelin aivot, eli se luo pelitilanteen, pitää sitä yllä ja päivittää. Hymiopeli-olio luo pelin hahmot eli Hymio/Tiikeri/IronMan-oliot ja Surullinen/Kissa/Killian-oliot.
+**HymioPeli** on koko pelin aivot, eli se luo pelitilanteen, pitää sitä yllä ja päivittää. Hymiopeli-olio luo pelin hahmot eli Pelaaja-oliot(Hymio/Tiikeri/IronMan-oliot) ja Vastus-oliot(Surullinen/Kissa/Killian-oliot).
+
+**Pelaaja ja Vastus** luokat eriyttävät Hahmo luokan hahmot kahteen erilaiseen pelihahmoon. Pelaaja-olio on käyttäjän pelihahmo, jolla pelataan. Vastus-olio on hahmo, joka on tarkoitus muuttaa Pelaaja-oliolla.
 
 **Apuri-olio** auttaa luokkien välisissä yhteyksissä. Luodessa annetaan sille parametreissä HymioPeli-olio ja Kayttoliittyma-olio.
 Apuri taas luo yhdet 
