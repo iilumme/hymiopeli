@@ -1,0 +1,82 @@
+package iilumme.hymiopeli.highscore;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class HighScoreTallentajaTest {
+
+    private HighScoreTallentaja tallentaja;
+
+    @Before
+    public void setUp() throws IOException {
+        tallentaja = new HighScoreTallentaja();
+
+        tallentaja.lisaaHighscore("iina", 1940);
+    }
+
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void highscorenLisaysPisteetOikein() {
+
+        assertEquals(tallentaja.getEka().getPisteet(), 1940);
+
+    }
+
+    @Test
+    public void highscorenLisaysNimiOikein() {
+
+        assertEquals(tallentaja.getEka().getNimi(), "iina");
+
+    }
+
+    @Test
+    public void getEkaToimii() {
+
+        assertNotNull(tallentaja.getEka());
+
+    }
+
+    @Test
+    public void getEkaToimii2() {
+
+        assertEquals("iina,1940", tallentaja.getEka().toString());
+
+    }
+
+    @Test
+    public void kahdenHighscorenLisaysNimiOikein() {
+
+        tallentaja.lisaaHighscore("iina", 1995);
+        tallentaja.lisaaHighscore("isi", 1963);
+        assertEquals(tallentaja.getEka().getNimi(), "iina");
+
+    }
+
+    @Test
+    public void kahdenHighscorenLisaysPisteetOikein() {
+
+        tallentaja.lisaaHighscore("iina", 1995);
+        tallentaja.lisaaHighscore("isi", 1963);
+        assertEquals(tallentaja.getEka().getPisteet(), 1995);
+
+    }
+
+    @Test
+    public void paivitaListaToimii() {
+
+        tallentaja.paivitaLista();
+        assertEquals(tallentaja.getEka().getPisteet(), 1995);
+
+    }
+
+}
