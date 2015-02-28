@@ -10,7 +10,7 @@ Komento: *java -cp target/hymiopeli-1.0-SNAPSHOT.jar iilumme.hymiopeli.Main*
 
 #####  Ominaisuuksia tulossa kurssin lopun jälkeen:
 - HighScore-reset
-- Taustat vaihtoon
+- ~~Taustat vaihtoon~~ tehty
 - Ääniä
 - Properties-file
 - Käyttäjä voi säätää nopeuden itse
