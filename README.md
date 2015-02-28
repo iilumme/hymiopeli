@@ -6,7 +6,10 @@ https://github.com/javaLabra/Javalabra2015-3
 
 java -cp target/hymiopeli-1.0-SNAPSHOT.jar iilumme.hymiopeli.Main
 
-##### Tulossa olevia ominaisuuksia:
+#####  Ominaisuuksia tulossa kurssin lopun jälkeen:
 - HighScore-reset
 - Taustat vaihtoon
 - Ääniä
+- Properties-file
+- Käyttäjä voi säätää nopeuden itse
+- Vaikeustasot
