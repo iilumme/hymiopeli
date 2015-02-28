@@ -63,3 +63,9 @@ HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa ja testit aiheutti
 En saanut javadocs komentoa toimimaan.
 Update: Javadocs komento toimi sittenkin! Huh :) ja väärin toimi mutta nyt on generoitu javadocskin olemassa, jossa on jopa kaikki luokat. :)
 Anteeksi, että meni yliajan :(
+
+^^^^^^^^^^^^^^^^^^^^^^^^^ **Kurssi loppunut** ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**28.2.15**
+
+- Piirtoalustan tausta vaihdettu
