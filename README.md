@@ -8,3 +8,5 @@ java -cp target/hymiopeli-1.0-SNAPSHOT.jar iilumme.hymiopeli.Main
 
 ##### Tulossa olevia ominaisuuksia:
 - HighScore-reset
+- Taustat vaihtoon
+- Ääniä
