@@ -69,3 +69,4 @@ Anteeksi, että meni yliajan :(
 **28.2.15**
 
 - Piirtoalustan tausta vaihdettu
+- Ohjeita päivitetty
