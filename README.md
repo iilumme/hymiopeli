@@ -16,3 +16,6 @@ Komento: *java -cp target/hymiopeli-1.0-SNAPSHOT.jar iilumme.hymiopeli.Main*
 - Käyttäjä voi säätää nopeuden itse
 - Vaikeustasot
 - Kielen voi vaihtaa myöhemminkin
+
+
+*Known bug: highscorelista*
