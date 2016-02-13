@@ -58,8 +58,11 @@
 
 - *14h* Lopeta-nappi ja TietoPanel toimimaan oikein, Ohje-nappi ja ohjeet ValikkoPaneeliin, Viestiapurin luonti, muutetut vastukset eivät katoa, vaan muuttuvat ja jatkavat matkaa, pisteytyksen muuttuminen, refaktorointia, javadocs @see, sekvenssikaavioiden päivitys, luokkakaavion päivitys, käyttöohje, rakennekuvaus + kaikkea muuta jonka unohdin jo :)
 
-HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa ja testit aiheuttivat massiivisia ongelmia juuri ennen deadlinea, minkä takia osa tiedostoista tuli myöhässä. 
+HighScoreTallentajaTest poistettu, koska se muokkaa tiedostoa.
 
-En saanut javadocs komentoa toimimaan.
-Update: Javadocs komento toimi sittenkin! Huh :) ja väärin toimi mutta nyt on generoitu javadocskin olemassa, jossa on jopa kaikki luokat. :)
-Anteeksi, että meni yliajan :(
+^^^^^^^^^^^^^^^^^^^^^^^^^ **Kurssi loppunut** ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**28.2.15**
+
+- Piirtoalustan tausta vaihdettu
+- Ohjeita päivitetty
