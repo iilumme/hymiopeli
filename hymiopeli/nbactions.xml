@@ -29,4 +29,15 @@
             <goal>checkstyle:checkstyle</goal>
         </goals>
     </action>
+    <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+                <goal>com.github.jeluard:plantuml-maven-plugin:generate</goal>
+            </goals>
+        </action>
 </actions>

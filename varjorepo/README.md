@@ -1,3 +1,0 @@
-# hymiopeli
-Moi
-*moi*

@@ -8,6 +8,12 @@ Iinaaaaaa,142
 test,122
 Pelaaja,78
 äippä,65
+testtt,58
+Pelaaja,26
 testi,16
 Fasu,15
-testtt,58
+Pelaaja,0
+Pelaaja,190
+Pelaaja,0
+IINA,488
+Iina,408
